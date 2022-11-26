@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 // !STARTERCONF Change these default meta
 const defaultMeta = {
-  title: 'Next.js + Tailwind CSS + TypeScript Starter',
+  title: 'Claytone store',
   siteName: 'Next.js + Tailwind CSS + TypeScript Starter',
   description:
     'A starter for Next.js, Tailwind CSS, and TypeScript with Absolute Import, Seo, Link component, pre-configured with Husky',
@@ -75,7 +75,7 @@ export default function Seo(props: SeoProps) {
           <meta
             name='author'
             property='article:author'
-            content='Theodorus Clarence'
+            content='David Woolsey'
           />
         </>
       )}

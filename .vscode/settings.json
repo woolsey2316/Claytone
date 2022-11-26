@@ -1,6 +1,10 @@
 {
   "css.validate": false,
-  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true, // required
+  "editor.formatOnType": false, // required
+  "editor.formatOnSave": true, // optional
+  "editor.formatOnSaveMode": "file", // required to format on save
+  "files.autoSave": "onFocusChange", // optional but recommended
   "editor.tabSize": 2,
   "editor.codeActionsOnSave": {
     "source.fixAll": true

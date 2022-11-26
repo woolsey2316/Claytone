@@ -23,6 +23,27 @@ class MyDocument extends Document {
             type='font/woff2'
             crossOrigin='anonymous'
           />
+          <link
+            rel='preload'
+            href='/fonts/GreatVibes-Regular.woff2'
+            as='font'
+            type='font/woff2'
+            crossOrigin='anonymous'
+          />
+          <link
+            rel='preload'
+            href='/fonts/Alexandria-VariableFont_wght.woff2'
+            as='font'
+            type='font/woff2'
+            crossOrigin='anonymous'
+          />
+          <link
+            rel='preload'
+            href='/fonts/Quicksand-VariableFont_wght.woff2'
+            as='font'
+            type='font/woff2'
+            crossOrigin='anonymous'
+          />
         </Head>
         <body>
           <Main />

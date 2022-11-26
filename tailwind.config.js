@@ -6,8 +6,22 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      spacing: {
+        '1/10': '10%',
+        108: '27rem',
+        120: '30rem',
+        132: '33rem',
+        144: '36rem',
+        156: '39rem',
+        168: '42rem',
+        180: '45rem',
+        body: 'calc(100% - 21rem)',
+      },
       fontFamily: {
         primary: ['Inter', ...fontFamily.sans],
+        greatVibes: ['GreatVibes', ...fontFamily.sans],
+        alexandria: ['Alexandria', ...fontFamily.sans],
+        quicksand: ['Quicksand', ...fontFamily.sans],
       },
       colors: {
         primary: {
@@ -24,6 +38,7 @@ module.exports = {
           900: 'rgb(var(--tw-color-primary-900) / <alpha-value>)',
         },
         dark: '#222222',
+        coral: '#ca6e57',
       },
       keyframes: {
         flicker: {
