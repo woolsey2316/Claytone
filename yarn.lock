@@ -7146,6 +7146,11 @@ tailwind-merge@^1.8.0:
   resolved "https://registry.yarnpkg.com/tailwind-merge/-/tailwind-merge-1.8.0.tgz#41c4730b2a51ca7a905c6beebcbfe237bfb61f30"
   integrity sha512-tER/2SbYRdfPYg6m4pDWZSlbymLTmDi+dx4iCsJmgmz4UDGzgnVelOvBe3GNtGCw9Bmc4MiObfJJbKeVL+KnMQ==
 
+tailwindcss-pseudo-elements@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/tailwindcss-pseudo-elements/-/tailwindcss-pseudo-elements-2.0.0.tgz#778a29b9aafeef89fe2e22efe047ae56822627a3"
+  integrity sha512-cbnF8Rg1tJjsgrUK1sLt/TNAea9zKNhWGTI5NtKxZ8WhYjHCMAGOjaHg+iql8UlXaW1U9jPeyJsGlQsLGrbomQ==
+
 tailwindcss@^3.2.4:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.2.4.tgz#afe3477e7a19f3ceafb48e4b083e292ce0dc0250"

@@ -6,8 +6,22 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      // zIndex: {
+      //   '-1': '-1'
+      // },
+      skew: {
+        45: '45deg',
+        '-45': '-45deg',
+      },
       spacing: {
         '1/10': '10%',
+        '7xl': '1380px',
+        '6xl': '1170px',
+        '5xl': '970px',
+        '4xl': '750px',
+        '13/30': '43.33%',
+        15: '3.75rem',
+        18: '4.5rem',
         108: '27rem',
         120: '30rem',
         132: '33rem',
@@ -22,6 +36,7 @@ module.exports = {
         greatVibes: ['GreatVibes', ...fontFamily.sans],
         alexandria: ['Alexandria', ...fontFamily.sans],
         quicksand: ['Quicksand', ...fontFamily.sans],
+        jost: ['Jost', ...fontFamily.sans],
       },
       colors: {
         primary: {
@@ -39,6 +54,9 @@ module.exports = {
         },
         dark: '#222222',
         coral: '#ca6e57',
+        'light-grey': '#777777',
+        grey: '#c5c5c5',
+        'lighter-grey': '#e5e5e5',
       },
       keyframes: {
         flicker: {
@@ -67,5 +85,29 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  variants: {
+    extend: {
+      textColor: [
+        'responsive',
+        'hover',
+        'focus',
+        'before',
+        'after',
+        'hover::before',
+        'hover::after',
+        'focus::before',
+        'checked:hover',
+        'checked:hover::before',
+      ],
+    },
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('tailwindcss-pseudo-elements')({
+      customPseudoClasses: ['foo'],
+      customPseudoElements: ['bar'],
+      contentUtilities: false,
+      emptyContent: true,
+    }),
+  ],
 };
