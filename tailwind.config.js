@@ -6,9 +6,9 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
-      // zIndex: {
-      //   '-1': '-1'
-      // },
+      zIndex: {
+        100: '100',
+      },
       skew: {
         45: '45deg',
         '-45': '-45deg',
