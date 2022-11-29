@@ -1,54 +1,12 @@
 import React from 'react';
 
 import { MobileNavCategory } from './MobileNavCategory';
+import { MobNavData } from './NavContents';
 
 type MobileNavBarProps = {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 function MobileNavBar({ setOpen }: MobileNavBarProps) {
-  const navContents = {
-    Home: null,
-    Shop: {
-      'Handmade Pottery': {
-        Creamer: null,
-        Pitcher: null,
-        'Sake Shot Glass': null,
-      },
-      'Khurja Pottery': {
-        'Casserole Dish': null,
-        'Garlic Keeper': null,
-        'Toothbrush Holder': null,
-      },
-      Porcelain: {
-        'Prep Bowl': null,
-        'Terracotta Pots': null,
-        Tumbler: null,
-      },
-      Stoneware: { Canister: null, 'Coaster Set': null, 'Wine Chiller': null },
-      Earthenware: { 'Coffee Mug': null, 'Water Pot': null, 'Handi Pot': null },
-    },
-    'Ceramic Pots': { 'Football Cermaic Pot': null, 'Railing Planters': null },
-    Pottery: {
-      'Illuminated Vase': {
-        'Golfer Coffee Mug': null,
-        'Wall Pocket': null,
-      },
-    },
-    Bricks: null,
-    Tiles: null,
-    'Earthen Wear': null,
-    Products: {
-      Accesories: null,
-      'Bacon Cooker': null,
-      'Bouquet Vase': null,
-      'Julia Vase': null,
-      'Sake Tray': null,
-      'Square Baker': null,
-      'Tea Bag Holder': null,
-      'Tea Pot': null,
-    },
-    Blogs: null,
-  };
   return (
     // mobile nav menu has plus icons that expand a category into individual items
     <div className='absolute z-100 h-full w-[350px] bg-white'>
@@ -69,7 +27,7 @@ function MobileNavBar({ setOpen }: MobileNavBarProps) {
         </button>
       </div>
       <ul className='py-2.5 px-5'>
-        {Object.entries(navContents).map(([k, v]) => {
+        {Object.entries(MobNavData).map(([k, v]) => {
           return (
             <MobileNavCategory
               key={k}

@@ -99,6 +99,8 @@ module.exports = {
         'checked:hover',
         'checked:hover::before',
       ],
+      transitionProperty: ['responsive', 'hover', 'focus', 'group-hover'],
+      transform: ['responsive', 'group-hover'],
     },
   },
   plugins: [

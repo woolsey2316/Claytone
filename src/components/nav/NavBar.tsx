@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import React from 'react';
 
+import DesktopNavBar from '@/components/nav/DesktopNavBar';
 import { MobileNavBar } from '@/components/nav/MobileNavBar';
 
 function NavBar() {
   // navbar menu
-  const [openMobNav, setOpen] = React.useState(true);
+  const [openMobNav, setOpen] = React.useState(false);
 
   function handleNavMenu() {
     setOpen((openMobNav) => !openMobNav);
@@ -26,25 +27,7 @@ function NavBar() {
             ></Image>
           </div>
           {/* desktop nav */}
-          <nav className='hidden lg:block'>
-            <ul className='flex'>
-              <li className='ml-5 py-5 font-medium uppercase hover:text-coral'>
-                <a href='#'>Home</a>
-              </li>
-              <li className='ml-5 py-5 font-medium uppercase hover:text-coral'>
-                <a href='#'>Shop</a>
-              </li>
-              <li className='ml-5 py-5 font-medium uppercase hover:text-coral'>
-                <a href='#'>Ceramic Pots</a>
-              </li>
-              <li className='ml-5 py-5 font-medium uppercase hover:text-coral'>
-                <a href='#'>More</a>
-              </li>
-              <li className='ml-5 py-5 font-medium uppercase hover:text-coral'>
-                <a href='#'>Blogs</a>
-              </li>
-            </ul>
-          </nav>
+          <DesktopNavBar />
           {/* container that has ::before and ::after pseudo elements representing small grey corners on the div */}
           <div className='relative -mt-1.5 hidden h-18 bg-white p-5 after:absolute after:bottom-0 after:right-[-4px] after:z-[-1] after:h-1.5 after:w-2 after:-skew-x-45 after:bg-grey after:empty-content before:absolute before:top-0 before:right-[-0.25rem] before:z-[-1] before:h-1.5 before:w-2 before:skew-x-45 before:bg-grey before:empty-content lg:flex lg:items-center'>
             {/* container solely used for its ::before and ::after pseudo elements, top left and bottom left grey corners specifically */}
@@ -63,7 +46,7 @@ function NavBar() {
             </div>
           </div>
           {/* Mobile nav icons, activates mobile nav menu and accesses cart page*/}
-          <div className='flex items-start lg:hidden'>
+          <div className='mr-4 flex items-start lg:hidden'>
             <Image
               className='mt-5 mr-8 cursor-pointer'
               onClick={handleNavMenu}

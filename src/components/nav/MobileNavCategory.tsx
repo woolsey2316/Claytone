@@ -4,7 +4,7 @@ import { ShowChildrenButtons } from '@/components/nav/ShowChildrenButtons';
 
 type MobileNavCategoryProps = {
   category: string;
-  subCategories: object | null;
+  subCategories: Record<string, Record<string, null> | null> | null;
   calls: number;
 };
 /*
