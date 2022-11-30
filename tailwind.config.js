@@ -32,7 +32,7 @@ module.exports = {
         body: 'calc(100% - 21rem)',
       },
       fontFamily: {
-        primary: ['Inter', ...fontFamily.sans],
+        primary: ['Jost', ...fontFamily.sans],
         greatVibes: ['GreatVibes', ...fontFamily.sans],
         alexandria: ['Alexandria', ...fontFamily.sans],
         quicksand: ['Quicksand', ...fontFamily.sans],
