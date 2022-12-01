@@ -6,6 +6,13 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      backgroundImage: {
+        testimonial: "url('/images/testimonial.jpg')",
+      },
+      translate: {
+        '0step': '-0%',
+        '1step': '-25%',
+      },
       zIndex: {
         100: '100',
       },
@@ -22,6 +29,10 @@ module.exports = {
         '13/30': '43.33%',
         15: '3.75rem',
         18: '4.5rem',
+        25: '6.25rem',
+        '27px': '27px',
+        '31px': '31px',
+        50: '12.5rem',
         108: '27rem',
         120: '30rem',
         132: '33rem',

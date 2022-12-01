@@ -1,8 +1,7 @@
 import { AppProps } from 'next/app';
 
 import '@/styles/globals.css';
-// !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
-import '@/styles/colors.css';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 
 /**
  * !STARTERCONF info

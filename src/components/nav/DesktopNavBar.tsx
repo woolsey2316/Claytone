@@ -9,21 +9,19 @@ function DesktopNavBar() {
   return (
     <nav className='hidden lg:block'>
       <ul className='flex'>
-        {Object.entries(DesktopNavData).map(([k, v]) => (
-          <div className='group' key={k}>
+        {Object.entries(DesktopNavData).map(([navLink, navLinkcollection]) => (
+          <div className='group' key={navLink}>
             <li className='mx-5 py-5 font-medium uppercase hover:text-coral'>
-              <a href={k}>
-                {k}
-                {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-                {/* @ts-ignore */}
-                {v !== null ? (
-                  Array.isArray(v) ? (
-                    <SimpleNavList list={v} />
-                  ) : (
-                    <CategoryNavList list={v} />
-                  )
-                ) : null}
-              </a>
+              <a href={navLink}>{navLink}</a>
+              {navLinkcollection !== null ? (
+                Array.isArray(navLinkcollection) ? (
+                  <SimpleNavList list={navLinkcollection} />
+                ) : (
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignore
+                  <CategoryNavList list={navLinkcollection} />
+                )
+              ) : null}
             </li>
           </div>
         ))}

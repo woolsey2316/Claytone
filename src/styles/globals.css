@@ -160,3 +160,7 @@
     background-size: 0 2px, 100% 2px;
   }
 }
+
+* {
+  box-sizing: border-box;
+}
