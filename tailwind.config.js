@@ -6,12 +6,12 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      transitionProperty: {
+        height: 'height',
+        width: 'width',
+      },
       backgroundImage: {
         testimonial: "url('/images/testimonial.jpg')",
-      },
-      translate: {
-        '0step': '-0%',
-        '1step': '-25%',
       },
       zIndex: {
         100: '100',
@@ -26,12 +26,15 @@ module.exports = {
         '6xl': '1170px',
         '5xl': '970px',
         '4xl': '750px',
+        '3xl': '500px',
+        '2xl': '350px',
         '13/30': '43.33%',
         15: '3.75rem',
         18: '4.5rem',
         25: '6.25rem',
         '27px': '27px',
         '31px': '31px',
+        '50px': '50px',
         50: '12.5rem',
         108: '27rem',
         120: '30rem',
@@ -68,6 +71,7 @@ module.exports = {
         'light-grey': '#777777',
         grey: '#c5c5c5',
         'lighter-grey': '#e5e5e5',
+        nearWhite: '#f7f7f7',
       },
       keyframes: {
         flicker: {
@@ -112,6 +116,8 @@ module.exports = {
       ],
       transitionProperty: ['responsive', 'hover', 'focus', 'group-hover'],
       transform: ['responsive', 'group-hover'],
+      animation: ['before', 'after'],
+      opacity: ['group-hover', 'hover'],
     },
   },
   plugins: [

@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import React from 'react';
 
+import H3Heading from '@/components/H3Heading';
 import Hero from '@/components/Hero';
 import Layout from '@/components/layout/Layout';
 import { NavBar } from '@/components/nav/NavBar';
 import Seo from '@/components/Seo';
 import TestimonialSection from '@/components/TestimonialSection';
+import TrendingProducts from '@/components/TrendingProducts';
 
 /**
  * SVGR Support
@@ -97,16 +99,7 @@ export default function HomePage() {
                 src='/images/teapot.jpg'
               ></Image>
               <div className='lg::w-1/2 flex flex-col items-center justify-center py-4 text-center lg:py-0'>
-                <h3 className='mb-27px font-greatVibes text-4xl lg:text-5xl'>
-                  Teapot Set Collections
-                </h3>
-                <Image
-                  className='mb-31px'
-                  width={55}
-                  height={15}
-                  src='/images/underline.png'
-                  alt='fancy underline'
-                ></Image>
+                <H3Heading>Teapot Set Collections</H3Heading>
                 <p className='mb-[28px] px-12 text-light-grey'>
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industrys
@@ -123,6 +116,7 @@ export default function HomePage() {
         </section>
         {/* Testimonial and Brand Section */}
         <TestimonialSection />
+        <TrendingProducts />
       </main>
     </Layout>
   );
