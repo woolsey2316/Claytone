@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useBreakpoint from 'use-breakpoint';
 
+import CarouselArrows from '@/components/carousel/CarouselArrows';
 import CarouselButton from '@/components/carousel/CarouselButton';
 
 import { Breakpoints } from '@/types/Carousel';
@@ -17,10 +18,18 @@ type CarouselProps = {
   children: JSX.Element[];
   itemsPerPage: number | Breakpoints;
   rows: number;
+  showArrows: boolean;
+  gap: number;
 };
 const BREAKPOINTS = { mobile: 0, tablet: 768, desktop: 1280 };
 
-const Carousel = ({ children, itemsPerPage, rows }: CarouselProps) => {
+const Carousel = ({
+  children,
+  itemsPerPage,
+  rows,
+  showArrows,
+  gap,
+}: CarouselProps) => {
   const COLUMN_MAP = new Map([
     [1, 'grid-cols-1'],
     [2, 'grid-cols-2'],
@@ -133,16 +142,17 @@ const Carousel = ({ children, itemsPerPage, rows }: CarouselProps) => {
       onMouseDown={(touchStartEvent) => handlePressStart(touchStartEvent)}
       onMouseMove={(touchMoveEvent) => handlePressMove(touchMoveEvent)}
       onClick={() => handleTouchEnd()}
-      className='m-5 select-none overflow-hidden'
+      className='relative m-5 select-none overflow-hidden'
     >
       <div
         className={`grid ${COLUMN_MAP.get(getNumberOfColums())} ${ROW_MAP.get(
           rows
-        )} gap-2 whitespace-nowrap`}
+        )} whitespace-nowrap`}
         style={{
           width: getWidth(),
           transform: `translate(${translate()})`,
           transition: 'transform 0.3s ease-in-out',
+          gap: gap,
         }}
       >
         {React.Children.map(children, (child, _index) => {
@@ -158,6 +168,11 @@ const Carousel = ({ children, itemsPerPage, rows }: CarouselProps) => {
       >
         {children}
       </CarouselButton>
+      <CarouselArrows
+        showArrows={showArrows}
+        activeIndex={activeIndex}
+        updateIndex={updateIndex}
+      />
     </div>
   );
 };

@@ -9,7 +9,12 @@ function Brand() {
   return (
     <div className='flex flex-col items-center lg:w-1/2'>
       <H3Heading>Brand Logo</H3Heading>
-      <Carousel rows={2} itemsPerPage={{ mobile: 4, tablet: 6, desktop: 4 }}>
+      <Carousel
+        gap={10}
+        showArrows={false}
+        rows={2}
+        itemsPerPage={{ mobile: 4, tablet: 6, desktop: 6 }}
+      >
         <CarouselItem>
           <div className='flex h-24 w-full items-center justify-center bg-white lg:h-25 lg:w-50'>
             <Image width={76} height={40} alt='...' src='/images/1-76x40.png' />

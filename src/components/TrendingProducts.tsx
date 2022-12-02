@@ -171,12 +171,17 @@ function TrendingProducts() {
         </p>
       </div>
       <div
-        className='cursor-grab lg:w-[1100px] xl:w-[1340px] 2xl:w-7xl'
+        className='cursor-grab lg:w-[900px] xl:w-[1200px] 2xl:w-7xl'
         ref={container}
         onMouseUp={handleGrab}
         onMouseDown={handleGrabbing}
       >
-        <Carousel rows={2} itemsPerPage={{ mobile: 4, tablet: 6, desktop: 8 }}>
+        <Carousel
+          gap={10}
+          showArrows={true}
+          rows={2}
+          itemsPerPage={{ mobile: 4, tablet: 6, desktop: 8 }}
+        >
           {productData.map((product, index) => (
             <CarouselItem key={index}>
               <ProductTile product={product} />

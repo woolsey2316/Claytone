@@ -11,9 +11,9 @@ type Props = {
 function ProductTile({ product }: Props) {
   return (
     <div className='group relative flex flex-col items-center bg-nearWhite'>
-      <div className='relative flex flex-col items-center overflow-hidden lg:h-[275px] lg:w-[275px] xl:h-[315px] xl:w-[315px]'>
+      <div className='relative flex flex-col items-center overflow-hidden lg:h-[275px] lg:w-[275px] 2xl:h-[315px] 2xl:w-[315px]'>
         <Image
-          className='translate scale-100 cursor-pointer transition duration-700 hover:scale-110 lg:h-[275px] lg:w-[275px] xl:h-[315px] xl:w-[315px]'
+          className='translate scale-100 cursor-pointer transition duration-700 hover:scale-110 lg:h-[275px] lg:w-[275px] 2xl:h-[315px] 2xl:w-[315px]'
           src={product.imageurl}
           alt={product.title}
           width={315}
