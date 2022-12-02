@@ -5,6 +5,7 @@ import H3Heading from '@/components/H3Heading';
 import Hero from '@/components/Hero';
 import Layout from '@/components/layout/Layout';
 import { NavBar } from '@/components/nav/NavBar';
+import NewArrivalSection from '@/components/NewArrivalSection';
 import Seo from '@/components/Seo';
 import TestimonialSection from '@/components/TestimonialSection';
 import TrendingProducts from '@/components/TrendingProducts';
@@ -117,6 +118,7 @@ export default function HomePage() {
         {/* Testimonial and Brand Section */}
         <TestimonialSection />
         <TrendingProducts />
+        <NewArrivalSection />
       </main>
     </Layout>
   );
