@@ -72,9 +72,9 @@ const Carousel = ({
       newIndex >=
       Math.ceil(React.Children.count(children) / itemsPerPage_[breakpoint])
     ) {
-      newIndex = Math.floor(
-        React.Children.count(children) / itemsPerPage_[breakpoint]
-      );
+      newIndex =
+        Math.ceil(React.Children.count(children) / itemsPerPage_[breakpoint]) -
+        1;
     }
 
     setActiveIndex(newIndex);

@@ -30,7 +30,7 @@ function CarouselButton({
                   : 'bg-white'
               }`}
               onClick={() => {
-                updateIndex(Math.floor(index / itemsPerPage[breakpoint]));
+                updateIndex(index / itemsPerPage[breakpoint]);
               }}
             ></button>
           );
