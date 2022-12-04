@@ -16,7 +16,7 @@ function FancyImage({ src }: Props) {
       ></Image>
       <div className='absolute left-0 top-0 right-0 bottom-0 flex h-full w-full flex-col items-center justify-center lg:hidden lg:group-hover:flex'>
         <p className='text-xl lg:text-2xl'>New Arrival</p>
-        <h3 className='mt-[7px] mb-[20px] font-greatVibes text-2xl lg:mb-[29px] lg:text-4xl'>
+        <h3 className='mt-[7px] mb-[20px] font-greatVibes text-xl md:text-3xl lg:mb-[29px] lg:text-4xl'>
           Pottery and Clay Pot
         </h3>
         <button className='lg:text-md relative overflow-hidden rounded bg-coral px-5 py-3 text-sm font-medium uppercase hover:bg-black hover:text-white before:absolute before:top-0 before:left-0 before:h-full before:w-full before:-translate-x-full before:transform before:bg-white before:opacity-30 before:transition before:duration-1000 before:empty-content hover:before:translate-x-0'>

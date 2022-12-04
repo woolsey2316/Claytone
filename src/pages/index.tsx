@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
+import FromOurBlogs from '@/components/FromOurBlogs';
 import H3Heading from '@/components/H3Heading';
 import Hero from '@/components/Hero';
 import Layout from '@/components/layout/Layout';
@@ -119,6 +120,7 @@ export default function HomePage() {
         <TestimonialSection />
         <TrendingProducts />
         <NewArrivalSection />
+        <FromOurBlogs />
       </main>
     </Layout>
   );

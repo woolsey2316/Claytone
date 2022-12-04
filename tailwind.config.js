@@ -6,6 +6,9 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      boxShadow: {
+        smt: '0px 0px 5px rgba(0, 0, 0, 0.1), 0px 0px 5px rgba(0, 0, 0, 0.06)',
+      },
       transitionProperty: {
         height: 'height',
         width: 'width',
@@ -43,6 +46,7 @@ module.exports = {
         156: '39rem',
         168: '42rem',
         180: '45rem',
+        '315px': '315px',
         body: 'calc(100% - 21rem)',
       },
       fontFamily: {
