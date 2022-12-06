@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
+import Footer from '@/components/Footer';
 import FromOurBlogs from '@/components/FromOurBlogs';
 import H3Heading from '@/components/H3Heading';
 import Hero from '@/components/Hero';
@@ -123,6 +124,7 @@ export default function HomePage() {
         <NewArrivalSection />
         <FromOurBlogs />
         <SubscribeSection />
+        <Footer />
       </main>
     </Layout>
   );
