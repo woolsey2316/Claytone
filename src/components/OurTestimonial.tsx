@@ -46,7 +46,7 @@ function OurTestimonial() {
       renderIndicator={customRenderIndicator}
     >
       <div className='flex flex-col items-center'>
-        <h3 className='mb-27px font-greatVibes text-5xl'>Our Testimonial</h3>
+        <h3 className='mb-27px font-niconne text-5xl'>Our Testimonial</h3>
         <Image
           className='mb-31px h-4 !w-14'
           width={55}
@@ -72,7 +72,7 @@ function OurTestimonial() {
         <p className='mt-2 mb-6 text-sm text-light-grey'>Customer</p>
       </div>
       <div className='flex flex-col items-center'>
-        <h3 className='mb-27px font-greatVibes text-5xl'>Our Testimonial</h3>
+        <h3 className='mb-27px font-niconne text-5xl'>Our Testimonial</h3>
         <Image
           className='mb-31px h-4 !w-14'
           width={55}

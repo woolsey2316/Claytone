@@ -54,7 +54,7 @@ function Hero() {
         />
         <div className='absolute top-13/30 left-1/10'>
           <div className='flex w-168 flex-col items-start justify-center text-left'>
-            <h3 className='mb-5 font-greatVibes xl:text-3xl 2xl:text-4xl'>
+            <h3 className='mb-5 font-niconne xl:text-3xl 2xl:text-4xl'>
               Wonderful Clay Presentations and Ideas
             </h3>
             <h2 className='mb-10 font-alexandria font-medium xl:text-6xl 2xl:text-7xl'>
@@ -76,7 +76,7 @@ function Hero() {
         />
         <div className='absolute top-1/4 left-1/10'>
           <div className='flex w-168 flex-col items-start justify-center text-left'>
-            <h3 className='mb-5 font-greatVibes xl:text-3xl 2xl:text-4xl'>
+            <h3 className='mb-5 font-niconne xl:text-3xl 2xl:text-4xl'>
               Wonderful Clay Presentations and Ideas
             </h3>
             <h2 className='mb-10 font-alexandria font-medium xl:text-6xl 2xl:text-7xl'>

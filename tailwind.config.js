@@ -51,7 +51,7 @@ module.exports = {
       },
       fontFamily: {
         primary: ['Jost', ...fontFamily.sans],
-        greatVibes: ['GreatVibes', ...fontFamily.sans],
+        niconne: ['Niconne', ...fontFamily.sans],
         alexandria: ['Alexandria', ...fontFamily.sans],
         quicksand: ['Quicksand', ...fontFamily.sans],
         jost: ['Jost', ...fontFamily.sans],
