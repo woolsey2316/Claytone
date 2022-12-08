@@ -1,15 +1,20 @@
-import { AppProps } from 'next/app';
+import { ApolloProvider } from '@apollo/react-hooks';
+import App from 'next/app';
+/** * App Configuration */
+import React from 'react';
 
 import '@/styles/globals.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 
-/**
- * !STARTERCONF info
- * ? `Layout` component is called in every page using `np` snippets. If you have consistent layout across all page, you can add it here too
- */
-
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
-}
-
-export default MyApp;
+import withData from '../configureClient';
+class MyApp extends App<any> {
+  render() {
+    const { Component, pageProps, apollo } = this.props;
+    return (
+      <ApolloProvider client={apollo}>
+        <Component {...pageProps} />
+      </ApolloProvider>
+    );
+  }
+} // Wraps all components in the tree with the data provider
+export default withData(MyApp);

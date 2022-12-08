@@ -1,4 +1,4 @@
-export type Product = {
+export type IProduct = {
   title: string;
   price: number;
   oldPrice?: number;

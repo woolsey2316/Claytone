@@ -4,9 +4,9 @@ import Carousel, { CarouselItem } from '@/components/carousel/Carousel';
 import H3Heading from '@/components/H3Heading';
 import ProductTile from '@/components/ProductTile';
 
-import { Product } from '@/types/Product';
+import { IProduct } from '@/types/Product';
 
-const productData: Product[] = [
+const productData: IProduct[] = [
   {
     title: 'Tea Pot',
     price: 122.0,

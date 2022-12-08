@@ -4,9 +4,9 @@ import React from 'react';
 import IconQuilt from '@/components/IconQuilt';
 import Rating from '@/components/Rating';
 
-import { Product } from '@/types/Product';
+import { IProduct } from '@/types/Product';
 type Props = {
-  product: Product;
+  product: IProduct;
 };
 function ProductTile({ product }: Props) {
   return (

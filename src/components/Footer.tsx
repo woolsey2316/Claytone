@@ -10,7 +10,7 @@ function Footer() {
   return (
     <footer className='mt-8 flex flex-col items-center bg-darkBlack pt-[47px]'>
       <div className='mx-auto flex w-full flex-col justify-between sm:w-3xl lg:w-4xl lg:flex-row xl:w-6xl 2xl:w-7xl '>
-        <div className='w-full px-10 lg:w-[232px]'>
+        <div className='w-full px-10 lg:w-1/4'>
           <div className='flex justify-between'>
             <h3 className='mb-4 text-base text-white'>CONTACT INFO</h3>
             <div className='relative'>
