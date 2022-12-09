@@ -10,9 +10,9 @@ function TeaPotSetCollections() {
           <div className='mb-10 ml-10 border-0 border-r lg:m-0 lg:border-r-lighter-grey'>
             <Image
               alt='plane'
+              className='h-12.5 w-12.5'
               width={50}
               height={50}
-              sizes='(max-width: 1280px) 30px, 50px'
               src='/images/plane.png'
             ></Image>
             <p className='mb-3 pt-8 font-medium'>Free Shipping Worldwide</p>
@@ -21,9 +21,9 @@ function TeaPotSetCollections() {
           <div className='mb-10 ml-10 border-0 lg:m-0 lg:ml-16 lg:border-r lg:border-r-lighter-grey lg:pr-16'>
             <Image
               alt='wallet'
+              className='h-12.5 w-12.5'
               width={50}
               height={50}
-              sizes='(max-width: 1280px) 30px, 50px'
               src='/images/wallet.png'
             ></Image>
             <p className='mb-3 pt-8 font-medium'>Cash On Delivery</p>
@@ -32,9 +32,9 @@ function TeaPotSetCollections() {
           <div className='mb-10 ml-10 border-0 border-r lg:m-0 lg:ml-16 lg:border-r-lighter-grey lg:pr-16'>
             <Image
               alt='present'
+              className='h-12.5 w-12.5'
               width={50}
               height={50}
-              sizes='(max-width: 1280px) 30px, 50px'
               src='/images/present.png'
             ></Image>
             <p className='mb-3 pt-8 font-medium'>Special Gift Card</p>
@@ -45,9 +45,9 @@ function TeaPotSetCollections() {
           <div className='mb-10 ml-10 lg:m-0 lg:ml-16 lg:pr-16'>
             <Image
               alt='headphones'
+              className='h-12.5 w-12.5'
               width={50}
               height={50}
-              sizes='(max-width: 1280px) 30px, 50px'
               src='/images/headphones.png'
             ></Image>
             <p className='mb-3 pt-8 font-medium'>24/7 Customer Service</p>

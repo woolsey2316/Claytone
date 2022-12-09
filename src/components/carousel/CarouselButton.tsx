@@ -1,5 +1,6 @@
 import React from 'react';
-import useBreakpoint from 'use-breakpoint';
+
+import useBreakpoint from '@/hooks/use-breakpoint';
 
 import { Breakpoints } from '@/types/Carousel';
 
@@ -7,7 +8,6 @@ type CarouselProps = {
   children: JSX.Element[];
   itemsPerPage: Breakpoints;
   activeIndex: number;
-  breakpoints: Breakpoints;
   updateIndex: (index: number) => void;
 };
 function CarouselButton({
@@ -15,9 +15,8 @@ function CarouselButton({
   itemsPerPage,
   activeIndex,
   updateIndex,
-  breakpoints,
 }: CarouselProps) {
-  const { breakpoint } = useBreakpoint(breakpoints, 'desktop');
+  const breakpoint = useBreakpoint();
   return (
     <div className='flex items-center justify-center'>
       {React.Children.map(children, (_child, index) => {

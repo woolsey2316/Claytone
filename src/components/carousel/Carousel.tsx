@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import useBreakpoint from 'use-breakpoint';
+
+import useBreakpoint from '@/hooks/use-breakpoint';
 
 import CarouselArrows from '@/components/carousel/CarouselArrows';
 import CarouselButton from '@/components/carousel/CarouselButton';
@@ -21,7 +22,6 @@ type CarouselProps = {
   showArrows: boolean;
   gap: number;
 };
-const BREAKPOINTS = { mobile: 0, tablet: 768, desktop: 1280 };
 
 const Carousel = ({
   children,
@@ -62,7 +62,7 @@ const Carousel = ({
     itemsPerPage_ = itemsPerPage;
   }
   const [activeIndex, setActiveIndex] = useState(0);
-  const { breakpoint } = useBreakpoint(BREAKPOINTS, 'desktop');
+  const breakpoint = useBreakpoint();
   const updateIndex = (newIndex: number) => {
     if (newIndex < 0) {
       newIndex = 0;
@@ -161,7 +161,6 @@ const Carousel = ({
       </div>
       {/* Carousel indicators/button */}
       <CarouselButton
-        breakpoints={BREAKPOINTS}
         updateIndex={updateIndex}
         itemsPerPage={itemsPerPage_}
         activeIndex={activeIndex}

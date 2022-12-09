@@ -1,12 +1,11 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
-import useBreakpoint from 'use-breakpoint';
 
-const BREAKPOINTS = { mobile: 0, tablet: 768, desktop: 1024 };
+import useBreakpoint from '@/hooks/use-breakpoint';
 
 function Footer() {
   const [hide, setHide] = useState([true, true, true]);
-  const { breakpoint } = useBreakpoint(BREAKPOINTS, 'desktop');
+  const breakpoint = useBreakpoint();
   return (
     <footer className='mt-8 flex flex-col items-center bg-darkBlack pt-[47px]'>
       <div className='mx-auto flex w-full flex-col justify-between sm:w-3xl lg:w-4xl lg:flex-row xl:w-6xl 2xl:w-7xl '>
@@ -46,45 +45,52 @@ function Footer() {
             } mb-4 lg:mb-0`}
           >
             <li className='my-2.5 flex items-start'>
-              <Image
-                width={14}
-                height={20}
-                className='mr-2 mt-2'
-                alt='map marker'
-                src='/images/map-marker.png'
-              ></Image>
+              <div className='mr-2 mt-3 h-5 w-5'>
+                <Image
+                  width={14}
+                  height={20}
+                  alt='map marker'
+                  src='/images/map-marker.png'
+                ></Image>
+              </div>
               <p className='font-medium leading-9 text-darkGrey'>
                 71 Pennington Lane Vernon Rockville, CT 060666
               </p>
             </li>
             <li className='my-2.5 flex items-center'>
-              <Image
-                width={16}
-                height={16}
-                className='mr-2'
-                alt='telephone'
-                src='/images/telephone.png'
-              ></Image>
+              <div className='mr-1 h-5 w-5'>
+                <Image
+                  width={16}
+                  height={16}
+                  className='mr-2'
+                  alt='telephone'
+                  src='/images/telephone.png'
+                ></Image>
+              </div>
               <p className='font-medium text-darkGrey'>+91 123 456 789</p>
             </li>
             <li className='my-2.5 flex items-center'>
-              <Image
-                width={17}
-                height={15}
-                className='mr-2'
-                alt='fax'
-                src='/images/fax.png'
-              ></Image>
+              <div className='mr-1 h-5 w-5'>
+                <Image
+                  width={17}
+                  height={15}
+                  className='mr-2'
+                  alt='fax'
+                  src='/images/fax.png'
+                ></Image>
+              </div>
               <p className='font-medium text-darkGrey'>0123-456-789</p>
             </li>
             <li className='my-2.5 flex items-center'>
-              <Image
-                width={15}
-                height={11}
-                className='mr-2'
-                alt='email'
-                src='/images/email.png'
-              ></Image>
+              <div className='mb-1 mr-1 h-5 w-5'>
+                <Image
+                  width={15}
+                  height={11}
+                  className='mr-2'
+                  alt='email'
+                  src='/images/email.png'
+                ></Image>
+              </div>
               <p className='font-medium text-darkGrey'>demo@Yourstore.com</p>
             </li>
           </ul>

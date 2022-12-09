@@ -9,7 +9,7 @@ function SubscribeSection() {
   }
   return (
     <section className='mt-5 p-5'>
-      <div className='relative mx-auto flex flex-col items-center border border-dashed border-black py-10 px-2.5 xl:w-6xl'>
+      <div className='relative mx-auto flex flex-col items-center border border-dashed border-black py-10 px-2.5 xl:w-6.5xl'>
         <Image
           className='absolute top-[-14px] left-10'
           src='/images/scissors.png'
