@@ -6,7 +6,7 @@ type Props = {
 };
 function FancyImage({ src }: Props) {
   return (
-    <div className='group relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:translate-x-0 before:transform before:bg-white before:bg-opacity-60 before:transition before:duration-1000 before:empty-content hover:before:translate-x-0 lg:before:-translate-x-full'>
+    <div className='group relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:z-10 before:translate-x-0 before:transform before:bg-white before:bg-opacity-60 before:transition before:duration-1000 before:empty-content hover:before:translate-x-0 lg:before:-translate-x-full'>
       <Image
         className='w-full rounded-md'
         width={945}
@@ -14,7 +14,7 @@ function FancyImage({ src }: Props) {
         alt='...'
         src={src}
       ></Image>
-      <div className='absolute left-0 top-0 right-0 bottom-0 flex h-full w-full flex-col items-center justify-center lg:hidden lg:group-hover:flex'>
+      <div className='absolute left-0 top-0 right-0 bottom-0 z-20 flex h-full w-full flex-col items-center justify-center lg:hidden lg:group-hover:flex'>
         <p className='text-xl lg:text-2xl'>New Arrival</p>
         <h3 className='mt-[7px] mb-[20px] font-niconne text-xl md:text-3xl lg:mb-[29px] lg:text-4xl'>
           Pottery and Clay Pot

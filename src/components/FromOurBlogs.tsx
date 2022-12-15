@@ -38,7 +38,7 @@ function FromOurBlogs() {
   return (
     <section className='mt-20'>
       <div className='mx-auto flex max-w-7xl flex-col items-center'>
-        <H3Heading>Our Blogs</H3Heading>
+        <H3Heading>From Our Blogs</H3Heading>
         <div className=''>
           <Carousel
             gap={10}

@@ -4,8 +4,8 @@ import express from 'express';
 import * as http from 'http';
 
 import config from './index';
-import schema from '../../server/graphql/schema/index';
-import auth from '../../server/middleware/auth';
+import schema from '../server/graphql/schema/index';
+import auth from '../server/middleware/auth';
 class Express {
   public express: express.Application;
   public server: ApolloServer = new ApolloServer(schema);

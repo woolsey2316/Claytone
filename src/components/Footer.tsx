@@ -240,19 +240,44 @@ function Footer() {
             } mb-4 lg:mb-0`}
           >
             <li className='flex h-[30px] items-center'>
-              <a className='font-medium text-darkGrey'>About Us</a>
+              <a
+                href='/about us'
+                className='cursor-pointer font-medium text-darkGrey hover:text-coral'
+              >
+                About Us
+              </a>
             </li>
             <li className='flex h-[30px] items-center'>
-              <a className='font-medium text-darkGrey'>Delivery Information</a>
+              <a
+                href='/delivery information'
+                className='cursor-pointer font-medium text-darkGrey hover:text-coral'
+              >
+                Delivery Information
+              </a>
             </li>
             <li className='flex h-[30px] items-center'>
-              <a className='font-medium text-darkGrey'>Privacy Policy</a>
+              <a
+                href='/privacy policy'
+                className='cursor-pointer font-medium text-darkGrey hover:text-coral'
+              >
+                Privacy Policy
+              </a>
             </li>
             <li className='flex h-[30px] items-center'>
-              <a className='font-medium text-darkGrey'>Trems and Conditions</a>
+              <a
+                href='/terms and conditions'
+                className='cursor-pointer font-medium text-darkGrey hover:text-coral'
+              >
+                Terms and Conditions
+              </a>
             </li>
             <li className='flex h-[30px] items-center'>
-              <a className='font-medium text-darkGrey'>Contact Us</a>
+              <a
+                href='/contact us'
+                className='cursor-pointer font-medium text-darkGrey hover:text-coral'
+              >
+                Contact Us
+              </a>
             </li>
           </ul>
         </div>
