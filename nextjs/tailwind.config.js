@@ -121,8 +121,6 @@ module.exports = {
         'hover::before',
         'hover::after',
         'focus::before',
-        'checked:hover',
-        'checked:hover::before',
       ],
       transitionProperty: ['responsive', 'hover', 'focus', 'group-hover'],
       transform: ['responsive', 'group-hover'],
