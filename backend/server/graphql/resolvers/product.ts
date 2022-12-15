@@ -19,12 +19,13 @@ const ProductQueries = {
       return transformProduct(product);
     });
   },
-  product: async (parent, { productId }) => {
+  product: async (_parent, { productId }) => {
     const product = await Product.findById(productId);
     return transformProduct(product);
   },
 };
-/** * Product Mutations */ const ProductMutation = {
+/** * Product Mutations */
+const ProductMutation = {
   createProduct: async (_parent, { productInput }) => {
     const product = await Product.findOne({ title: productInput.title });
     if (product) {

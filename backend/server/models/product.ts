@@ -5,7 +5,7 @@
 
 import mongoose from 'mongoose';
 
-import { IProduct } from '@/types/Product';
+export type IProduct = mongoose.Schema;
 
 /**
  * Product Schema
@@ -61,6 +61,7 @@ productSchema.statics = {
         if (product) {
           return product;
         }
+        return {};
       });
   },
 };

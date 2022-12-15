@@ -11,7 +11,7 @@ import Product from '../../models/product';
  * @param id
  */
 const getProduct = async (id: string) => {
-  const product: any = await Product.findById(id);
+  const product = await Product.findById(id);
   return {
     ...product._doc,
     _id: product.id,
@@ -24,7 +24,7 @@ const getProduct = async (id: string) => {
  * Get product object with schema typing
  * @param product
  */
-const transformProduct = (product: any) => {
+const transformProduct = (product) => {
   return {
     ...product._doc,
     _id: product.id,

@@ -44,11 +44,12 @@ const schema: ApolloServerExpressConfig = {
   typeDefs,
   resolvers,
   introspection: true,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   context: async ({ req, connection, payload }: any) => {
     if (connection) {
       return { isAuth: payload.authToken };
     }
-    return { isAuth: req.isAuth };
+    return { isAuth: req.body.isAuth };
   },
   playground: true,
 };

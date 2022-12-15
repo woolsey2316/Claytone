@@ -5,7 +5,7 @@
   "private": true,
   "main": "dist/index.js",
   "scripts": {
-    "clean": "rm -rf dist",
+    "clean": "del /F /Q dist",
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "yarn clean && tsc",
     "prestart": "yarn build",

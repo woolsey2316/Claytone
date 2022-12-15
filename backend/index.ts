@@ -4,12 +4,12 @@ import mongoose from 'mongoose';
 
 import config from './config';
 import Express from './config/express';
-/** * Promisify All The Mongoose * @param mongoose */ Promise.promisifyAll(
-  mongoose
-);
+/** * Promisify All The Mongoose * @param mongoose */
+Promise.promisifyAll(mongoose);
 /** * Connecting Mongoose
  * * @param uris * @param options
- * */
+ *
+ */
 mongoose.connect(config.db, {
   keepAlive: true,
   socketTimeoutMS: 0,
@@ -21,18 +21,16 @@ mongoose.connection.on('error', () => {
 /** * Initialize Express */
 const ExpressServer = new Express();
 ExpressServer.init();
-/** * Listen to port */ ExpressServer.httpServer.listen(
-  process.env.PORT || config.port,
-  () => {
-    // eslint-disable-next-line no-console
-    console.log(`? Server ready at ${config.port}`);
-    // eslint-disable-next-line no-console
-    console.log(
-      `? Server ready at http://localhost:${config.port}${ExpressServer.server.graphqlPath}`
-    );
-    // eslint-disable-next-line no-console
-    console.log(
-      `? Subscriptions ready at ws://localhost:${config.port}${ExpressServer.server.subscriptionsPath}`
-    );
-  }
-);
+/** * Listen to port */
+ExpressServer.httpServer.listen(process.env.PORT || config.port, () => {
+  // eslint-disable-next-line no-console
+  console.log(`? Server ready at ${config.port}`);
+  // eslint-disable-next-line no-console
+  console.log(
+    `? Server ready at http://localhost:${config.port}${ExpressServer.server.graphqlPath}`
+  );
+  // eslint-disable-next-line no-console
+  console.log(
+    `? Subscriptions ready at ws://localhost:${config.port}${ExpressServer.server.subscriptionsPath}`
+  );
+});
