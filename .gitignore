@@ -4,6 +4,7 @@
 /node_modules
 /backend/node_modules
 /next_app/node_modules
+/nextjs/node_modules
 /.pnp
 .pnp.js
 
@@ -17,6 +18,7 @@
 
 # production
 /build
+/backend/dist
 
 # misc
 .DS_Store
