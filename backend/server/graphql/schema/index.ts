@@ -5,18 +5,18 @@ import { ApolloServerExpressConfig } from 'apollo-server-express';
 import resolvers from '../resolvers/index';
 const typeDefs = gql`
   type Query {
-    users: [User!]!
-    user(userId: ID!): User!
+    products: [Product!]!
+    product(productId: ID!): Product!
     login(email: String!, password: String!): AuthData!
   }
   type Mutation {
-    createUser(userInput: UserInput): AuthData!
-    updateUser(userId: ID!, updateUser: UpdateUser): User!
+    createProduct(productInput: ProductInput): AuthData!
+    updateProduct(productId: ID!, updateProduct: UpdateProduct): Product!
   }
   type Subscription {
-    userAdded: User
+    productAdded: Product
   }
-  type User {
+  type Product {
     _id: ID!
     email: String!
     name: String!
@@ -25,16 +25,16 @@ const typeDefs = gql`
     updatedAt: String!
   }
   type AuthData {
-    userId: ID!
+    productId: ID!
     token: String!
     tokenExpiration: Int!
   }
-  input UserInput {
+  input ProductInput {
     email: String!
     name: String!
     password: String!
   }
-  input UpdateUser {
+  input UpdateProduct {
     email: String
     name: String
     password: String
@@ -51,6 +51,6 @@ const schema: ApolloServerExpressConfig = {
     }
     return { isAuth: req.body.isAuth };
   },
-  playground: true,
+  playground: true
 };
 export default schema;

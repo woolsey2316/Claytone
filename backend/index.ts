@@ -12,7 +12,7 @@ Promise.promisifyAll(mongoose);
  */
 mongoose.connect(config.db, {
   keepAlive: true,
-  socketTimeoutMS: 0,
+  socketTimeoutMS: 0
 });
 /** * Throw error when not able to connect to database */
 mongoose.connection.on('error', () => {
@@ -22,15 +22,11 @@ mongoose.connection.on('error', () => {
 const ExpressServer = new Express();
 ExpressServer.init();
 /** * Listen to port */
-ExpressServer.httpServer.listen(process.env.PORT || config.port, () => {
+ExpressServer.httpServer?.listen(process.env.PORT || config.port, () => {
   // eslint-disable-next-line no-console
   console.log(`? Server ready at ${config.port}`);
   // eslint-disable-next-line no-console
   console.log(
     `? Server ready at http://localhost:${config.port}${ExpressServer.server.graphqlPath}`
-  );
-  // eslint-disable-next-line no-console
-  console.log(
-    `? Subscriptions ready at ws://localhost:${config.port}${ExpressServer.server.subscriptionsPath}`
   );
 });

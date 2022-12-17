@@ -3,9 +3,9 @@ import { PubSub } from 'apollo-server';
 import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
 
-import { transformProduct } from './merge';
-import Product from '../../models/product';
 import config from '../../../config';
+import Product from '../../models/product';
+import { transformProduct } from './merge';
 
 import { IProduct } from '@/types/Product';
 
@@ -22,7 +22,7 @@ const ProductQueries = {
   product: async (_parent, { productId }) => {
     const product = await Product.findById(productId);
     return transformProduct(product);
-  },
+  }
 };
 /** * Product Mutations */
 const ProductMutation = {
@@ -39,14 +39,14 @@ const ProductMutation = {
         oldPrice: productInput.oldPrice,
         date: productInput.date,
         description: productInput.description,
-        rating: productInput.rating,
+        rating: productInput.rating
       });
       const savedProduct = await newProduct.save();
       pubsub.publish(PRODUCT_ADDED, {
-        productAdded: transformProduct(savedProduct),
+        productAdded: transformProduct(savedProduct)
       });
       const token = jwt.sign({ productId: savedProduct.id }, config.jwtSecret, {
-        expiresIn: '1h',
+        expiresIn: '1h'
       });
       return { productId: savedProduct.id, token, tokenExpiration: 1 };
     }
@@ -57,13 +57,13 @@ const ProductMutation = {
       throw new Error('Non Authenticated');
     }
     const product = await Product.findByIdAndUpdate(productId, updateProduct, {
-      new: true,
+      new: true
     });
     return transformProduct(product);
-  },
+  }
 };
 /** * Product Subscriptions */
 const ProductSubscription = {
-  productAdded: { subscribe: () => pubsub.asyncIterator([PRODUCT_ADDED]) },
+  productAdded: { subscribe: () => pubsub.asyncIterator([PRODUCT_ADDED]) }
 };
 export { ProductMutation, ProductQueries, ProductSubscription };

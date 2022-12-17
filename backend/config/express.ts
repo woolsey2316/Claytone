@@ -4,13 +4,13 @@ import cors from 'cors';
 import express from 'express';
 import * as http from 'http';
 
-import config from './index';
 import schema from '../server/graphql/schema/index';
 import auth from '../server/middleware/auth';
+import config from './index';
 class Express {
-  public express: express.Application;
+  public express: express.Application | undefined;
   public server: ApolloServer = new ApolloServer(schema);
-  public httpServer: http.Server;
+  public httpServer: http.Server | undefined;
   public init = (): void => {
     /** * Creating an express application */
     this.express = express();
@@ -27,7 +27,7 @@ class Express {
             return callback(new Error(msg), false);
           }
           return callback(null, true);
-        },
+        }
       })
     );
     /** * Middleware for extracting authToken */
@@ -36,6 +36,6 @@ class Express {
     this.httpServer = http.createServer(this.express);
     /** * Installing subscription handlers */
     this.server.installSubscriptionHandlers(this.httpServer);
-  };
+  }
 }
 export default Express;

@@ -8,7 +8,7 @@ import * as jwt from 'jsonwebtoken';
 
 import config from '../../config';
 
-const auth = (req: Request, res: Response, next: NextFunction) => {
+const auth = (req: Request, _res: Response, next: NextFunction) => {
   const authHeader = req.get('Authorization');
   if (!authHeader) {
     req.body.isAuth = false;

@@ -11,12 +11,12 @@ import Product from '../../models/product';
  * @param id
  */
 const getProduct = async (id: string) => {
-  const product = await Product.findById(id);
+  const product: any = await Product.findById(id);
   return {
-    ...product._doc,
-    _id: product.id,
-    createdAt: dateToString(product._doc.createdAt),
-    updatedAt: dateToString(product._doc.updatedAt),
+    ...product?._doc,
+    _id: product?.id,
+    createdAt: dateToString(product?._doc.createdAt),
+    updatedAt: dateToString(product?._doc.updatedAt)
   };
 };
 
@@ -29,7 +29,7 @@ const transformProduct = (product) => {
     ...product._doc,
     _id: product.id,
     createdAt: dateToString(product._doc.createdAt),
-    updatedAt: dateToString(product._doc.updatedAt),
+    updatedAt: dateToString(product._doc.updatedAt)
   };
 };
 

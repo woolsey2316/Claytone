@@ -8,8 +8,8 @@ const config = {
   allowedOrigins: [
     'http://localhost:3000',
     'http://yourapp.com',
-    'http://localhost:4020',
-  ],
+    'http://localhost:4020'
+  ]
 };
 
 export default config;

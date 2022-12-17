@@ -5,7 +5,13 @@
 
 import mongoose from 'mongoose';
 
-export type IProduct = mongoose.Schema;
+type doc = {
+  _doc: {
+    createdAt: string;
+    updatedAt: string;
+  }
+}
+export type IProduct = mongoose.Schema | doc;
 
 /**
  * Product Schema
@@ -15,34 +21,34 @@ const productSchema = new mongoose.Schema(
     _id: mongoose.Schema.Types.ObjectId,
     title: {
       type: String,
-      required: true,
+      required: true
     },
     imageUrl: {
       type: String,
-      required: true,
+      required: true
     },
     price: {
       type: Number,
-      required: true,
+      required: true
     },
     oldPrice: {
       type: Number,
-      required: false,
+      required: false
     },
     date: {
       type: Date,
-      required: true,
+      required: true
     },
     description: {
       type: String,
-      required: true,
+      required: true
     },
     rating: {
-      type: Number,
-    },
+      type: Number
+    }
   },
   {
-    timestamps: true,
+    timestamps: true
   }
 );
 
@@ -63,7 +69,7 @@ productSchema.statics = {
         }
         return {};
       });
-  },
+  }
 };
 
 export default mongoose.model('product', productSchema);
