@@ -5,20 +5,24 @@
 
 import mongoose from 'mongoose';
 
-type doc = {
-  _doc: {
-    createdAt: string;
-    updatedAt: string;
-  }
+
+export type IProduct = {
+  title: string;
+  _id: string;
+  imageUrl: string;
+  price: number;
+  oldPrice?: number;
+  date: string;
+  rating: number;
+  description: string;
+
 }
-export type IProduct = mongoose.Schema | doc;
 
 /**
  * Product Schema
  */
-const productSchema = new mongoose.Schema(
+const productSchema = new mongoose.Schema<IProduct>(
   {
-    _id: mongoose.Schema.Types.ObjectId,
     title: {
       type: String,
       required: true
@@ -36,12 +40,12 @@ const productSchema = new mongoose.Schema(
       required: false
     },
     date: {
-      type: Date,
+      type: String,
       required: true
     },
     description: {
       type: String,
-      required: true
+      required: false
     },
     rating: {
       type: Number

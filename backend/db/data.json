@@ -1,0 +1,153 @@
+[
+  {
+    "title": "Tea Pot",
+    "price": 122.0,
+    "rating": 5,
+    "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "imageurl": "/images/products/1-315x315.jpg"
+  },
+  {
+    "title": "Flower Frog Vase",
+    "price": 1022.0,
+    "rating": 5,
+    "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "imageurl": "/images/products/2-315x315.jpg"
+  },
+  {
+    "title": "Cynthia Vase",
+    "price": 528.0,
+    "rating": 4.75,
+    "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "imageurl": "/images/products/3-315x315.jpg"
+  },
+  {
+    "title": "Water Pot",
+    "price": 302.0,
+    "oldPrice": 337.99,
+    "rating": 3.5,
+    "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "imageurl": "/images/products/4-315x315.jpg"
+  },
+  {
+    "title": "Pitcher",
+    "price": 122.0,
+    "rating": 5,
+    "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "imageurl": "/images/products/5-315x315.jpg"
+  },
+  {
+    "title": "Ceramic Pot",
+    "price": 241.99,
+    "rating": 2.75,
+    "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "imageurl": "/images/products/6-315x315.jpg"
+  },
+  {
+    "title": "Wall Art Tile",
+    "price": 122.0,
+    "rating": 5,
+    "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "imageurl": "/images/products/7-315x315.jpg"
+  },
+  {
+    "title": "Sake Tray",
+    "price": 1082.0,
+    "oldPrice": 1202.0,
+    "rating": 1.65,
+    "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "imageurl": "/images/products/8-315x315.jpg"
+  },
+  {
+    "title": "Illuminated Vase",
+    "price": 116.0,
+    "oldPrice": 122.0,
+    "rating": 3.65,
+    "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "imageurl": "/images/products/9-315x315.jpg"
+  },
+  {
+    "title": "Creamer",
+    "price": 98.0,
+    "oldPrice": 122.0,
+    "rating": 3.65,
+    "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "imageurl": "/images/products/10-315x315.jpg"
+  },
+  {
+    "title": "Pottery",
+    "price": 122.0,
+    "rating": 4,
+    "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "imageurl": "/images/products/11-315x315.jpg"
+  },
+  {
+    "title": "Prep Bowl",
+    "price": 122.0,
+    "rating": 5,
+    "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "imageurl": "/images/products/12-315x315.jpg"
+  },
+  {
+    "title": "Serving Bowl",
+    "price": 98.0,
+    "rating": 4,
+    "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "imageurl": "/images/products/13-315x315.jpg"
+  },
+  {
+    "title": "Tea Bag Holder",
+    "price": 110.0,
+    "oldPrice": 122.0,
+    "rating": 0,
+    "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "imageurl": "/images/products/14-315x315.jpg"
+  },
+  {
+    "title": "Wine Chiller",
+    "price": 122.0,
+    "rating": 4,
+    "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "imageurl": "/images/products/15-315x315.jpg"
+  },
+  {
+    "title": "Honey Jar",
+    "price": 218.0,
+    "oldPrice": 242.0,
+    "rating": 4,
+    "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "imageurl": "/images/products/16-315x315.jpg"
+  },
+  {
+    "title": "Garlic Keeper",
+    "price": 123.2,
+    "rating": 3,
+    "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "imageurl": "/images/products/17-315x315.jpg"
+  },
+  {
+    "title": "Sake Shot Glass",
+    "price": 1800.0,
+    "oldPrice": 2000.0,
+    "rating": 2.5,
+    "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
+    "imageurl": "/images/products/18-315x315.jpg"
+  }
+]

@@ -5,7 +5,6 @@ import express from 'express';
 import * as http from 'http';
 
 import schema from '../server/graphql/schema/index';
-import auth from '../server/middleware/auth';
 import config from './index';
 class Express {
   public express: express.Application | undefined;
@@ -30,8 +29,6 @@ class Express {
         }
       })
     );
-    /** * Middleware for extracting authToken */
-    this.express.use(auth);
     this.server.applyMiddleware({ app: this.express });
     this.httpServer = http.createServer(this.express);
     /** * Installing subscription handlers */

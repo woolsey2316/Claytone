@@ -6,38 +6,50 @@ import resolvers from '../resolvers/index';
 const typeDefs = gql`
   type Query {
     products: [Product!]!
-    product(productId: ID!): Product!
+    product(productId: String!): Product!
     login(email: String!, password: String!): AuthData!
   }
   type Mutation {
-    createProduct(productInput: ProductInput): AuthData!
-    updateProduct(productId: ID!, updateProduct: UpdateProduct): Product!
+    createProduct(productInput: InputProduct): AuthData!
+    updateProduct(productId: String!, updateProduct: UpdateProduct): Product!
   }
   type Subscription {
     productAdded: Product
   }
   type Product {
-    _id: ID!
-    email: String!
-    name: String!
-    password: String
+    _id: String!
+    rating: Float!
+    title: String!
+    price: Float!
+    oldPrice: Float
     createdAt: String!
     updatedAt: String!
+    imageUrl: String!
   }
   type AuthData {
-    productId: ID!
+    productId: String!
     token: String!
     tokenExpiration: Int!
   }
-  input ProductInput {
-    email: String!
-    name: String!
-    password: String!
+  input InputProduct {
+    _id: String!
+    rating: Float!
+    title: String!
+    price: Float!
+    oldPrice: Float
+    createdAt: String!
+    updatedAt: String!
+    imageUrl: String!
   }
   input UpdateProduct {
-    email: String
-    name: String
-    password: String
+    _id: String!
+    rating: Float!
+    title: String!
+    price: Float!
+    oldPrice: Float
+    createdAt: String!
+    updatedAt: String!
+    imageUrl: String!
   }
 `;
 const schema: ApolloServerExpressConfig = {
