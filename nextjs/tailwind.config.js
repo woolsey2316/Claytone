@@ -16,6 +16,7 @@ module.exports = {
       },
       backgroundImage: {
         testimonial: "url('/images/testimonial.jpg')",
+        header: "url('/images/header-bg.jpg')",
       },
       zIndex: {
         100: '100',
@@ -41,6 +42,7 @@ module.exports = {
         '27px': '27px',
         '31px': '31px',
         '50px': '50px',
+        35: '8.75rem',
         50: '12.5rem',
         108: '27rem',
         120: '30rem',
@@ -49,6 +51,8 @@ module.exports = {
         156: '39rem',
         168: '42rem',
         180: '45rem',
+        '205px': '205px',
+        '265px': '265px',
         '315px': '315px',
         body: 'calc(100% - 21rem)',
       },
@@ -112,6 +116,22 @@ module.exports = {
   },
   variants: {
     extend: {
+      background: [
+        'responsive',
+        'before',
+        'after'
+      ],
+      backgroundColor: [
+        'responsive',
+        'before',
+        'after'
+      ],
+      spacing: [
+        'responsive'
+      ],
+      margin: [
+        'responsive'
+      ],
       textColor: [
         'responsive',
         'hover',

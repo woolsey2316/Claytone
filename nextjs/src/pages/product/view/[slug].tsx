@@ -22,7 +22,7 @@ const ProductDetailsPage: NextPage<Props> = ({ product }) => {
   );
   if (product === undefined) return null
   return (
-    <Layout pageTitle={product?.title}>
+    <Layout pageTitle={product.title}>
       <ProductView
         product={productDetail(product)}
         addedToCart={(id, qty) =>

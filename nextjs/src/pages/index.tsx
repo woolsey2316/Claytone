@@ -3,7 +3,6 @@ import React from 'react';
 import Footer from '@/components/Footer';
 import FromOurBlogs from '@/components/FromOurBlogs';
 import Hero from '@/components/Hero';
-import Layout from '@/components/layout/Layout';
 import { NavBar } from '@/components/nav/NavBar';
 import NewArrivalSection from '@/components/NewArrivalSection';
 import Seo from '@/components/Seo';
@@ -25,7 +24,7 @@ import TrendingProducts from '@/components/TrendingProducts';
 
 export default function HomePage() {
   return (
-    <Layout>
+    <>
       <Seo templateTitle='Home' />
       <main>
         {/* hero section */}
@@ -45,6 +44,6 @@ export default function HomePage() {
         <SubscribeSection />
         <Footer />
       </main>
-    </Layout>
+    </>
   );
 }

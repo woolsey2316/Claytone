@@ -59,8 +59,7 @@ export const ProductView: FC<Props> = ({ product, addedToCart }) => {
 
           <div className="sticky top-0">
             <strong className="border border-blue-600 rounded-full tracking-wide px-3 font-medium py-0.5 text-xs bg-gray-100 text-blue-600">
-              {" "}
-              Pre Order{" "}
+              Pre Order
             </strong>
 
             <div className="flex justify-between mt-8">

@@ -5,7 +5,7 @@ import Layout from '@/components/layout/Layout';
 import ArrowLink from '@/components/links/ArrowLink';
 import Seo from '@/components/Seo';
 
-export default function NotFoundPage() {
+export default function NotFoundPage(): JSX.Element | JSX.Element[] {
   return (
     <Layout>
       <Seo templateTitle='Not Found' />
