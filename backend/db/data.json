@@ -1,6 +1,7 @@
 [
   {
     "title": "Tea Pot",
+    "slug": "tea-pot",
     "price": 122.0,
     "rating": 5,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
@@ -9,6 +10,7 @@
   },
   {
     "title": "Flower Frog Vase",
+    "slug": "flower-frog-vase",
     "price": 1022.0,
     "rating": 5,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
@@ -17,6 +19,7 @@
   },
   {
     "title": "Cynthia Vase",
+    "slug": "cynthia-vase",
     "price": 528.0,
     "rating": 4.75,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
@@ -25,6 +28,7 @@
   },
   {
     "title": "Water Pot",
+    "slug": "water-pot",
     "price": 302.0,
     "oldPrice": 337.99,
     "rating": 3.5,
@@ -34,6 +38,7 @@
   },
   {
     "title": "Pitcher",
+    "slug": "pitcher",
     "price": 122.0,
     "rating": 5,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
@@ -42,6 +47,7 @@
   },
   {
     "title": "Ceramic Pot",
+    "slug": "ceramic-pot",
     "price": 241.99,
     "rating": 2.75,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
@@ -50,6 +56,7 @@
   },
   {
     "title": "Wall Art Tile",
+    "slug": "wall-art-tile",
     "price": 122.0,
     "rating": 5,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
@@ -58,6 +65,7 @@
   },
   {
     "title": "Sake Tray",
+    "slug": "sake-tray",
     "price": 1082.0,
     "oldPrice": 1202.0,
     "rating": 1.65,
@@ -67,6 +75,7 @@
   },
   {
     "title": "Illuminated Vase",
+    "slug": "illuminated-vase",
     "price": 116.0,
     "oldPrice": 122.0,
     "rating": 3.65,
@@ -76,6 +85,7 @@
   },
   {
     "title": "Creamer",
+    "slug": "creamer",
     "price": 98.0,
     "oldPrice": 122.0,
     "rating": 3.65,
@@ -85,6 +95,7 @@
   },
   {
     "title": "Pottery",
+    "slug": "pottery",
     "price": 122.0,
     "rating": 4,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
@@ -93,6 +104,7 @@
   },
   {
     "title": "Prep Bowl",
+    "slug": "prep-bowl",
     "price": 122.0,
     "rating": 5,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
@@ -101,6 +113,7 @@
   },
   {
     "title": "Serving Bowl",
+    "slug": "serving-bowl",
     "price": 98.0,
     "rating": 4,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
@@ -109,6 +122,7 @@
   },
   {
     "title": "Tea Bag Holder",
+    "slug": "tea-bag-holder",
     "price": 110.0,
     "oldPrice": 122.0,
     "rating": 0,
@@ -118,6 +132,7 @@
   },
   {
     "title": "Wine Chiller",
+    "slug": "wine-chiller",
     "price": 122.0,
     "rating": 4,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
@@ -126,6 +141,7 @@
   },
   {
     "title": "Honey Jar",
+    "slug": "honey-jar",
     "price": 218.0,
     "oldPrice": 242.0,
     "rating": 4,
@@ -135,6 +151,7 @@
   },
   {
     "title": "Garlic Keeper",
+    "slug": "garlic-keeper",
     "price": 123.2,
     "rating": 3,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
@@ -143,6 +160,7 @@
   },
   {
     "title": "Sake Shot Glass",
+    "slug": "sake-shot-glass",
     "price": 1800.0,
     "oldPrice": 2000.0,
     "rating": 2.5,

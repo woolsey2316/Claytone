@@ -2,7 +2,6 @@ import Image from 'next/image'
 import React, { FC, useState } from "react";
 
 import { ProductAttribute } from "./ProductAttribute";
-import Asset from "../Asset";
 import { Asset as IAsset } from "../../contracts/common/asset.type";
 import { numberToCurrency } from "../../services/utils";
 
@@ -38,7 +37,7 @@ export const ProductView: FC<Props> = ({ product, addedToCart }) => {
         <div className="grid items-start grid-cols-1 gap-8 md:grid-cols-2">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-1">
             <div className="aspect-w-1 aspect-h-1">
-              <Asset asset={featuredImage} classes="object-cover rounded-xl" />
+              
             </div>
 
             <div className="grid grid-cols-2 gap-4 lg:mt-4">

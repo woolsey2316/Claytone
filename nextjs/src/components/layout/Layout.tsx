@@ -1,7 +1,6 @@
 import Head from "next/head";
 import React from "react";
 
-import Header from "./Header";
 
 interface Props {
   pageTitle?: string;
@@ -15,9 +14,6 @@ const Layout: React.FC<Props> = ({ children, pageTitle }) => {
           <title className="text-5xl">{pageTitle}</title>
         </Head>
       )}
-      <div className="mb-10">
-        <Header />
-      </div>
       <div className="container mx-auto">
         <main className="">{children}</main>
       </div>

@@ -11,7 +11,7 @@ const GET_PRODUCTS = gql`
       title
       _id
       date
-      imageUrl
+      imageurl
       price
       oldPrice
       rating

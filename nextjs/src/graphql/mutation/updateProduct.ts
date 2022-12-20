@@ -10,7 +10,7 @@ const UPDATE_PRODUCT = gql`
     updateProduct(productId: $productId, updateProduct: $updateProduct) {
       _id
       title
-      imageUrl
+      imageurl
       price
       rating
       oldPrice

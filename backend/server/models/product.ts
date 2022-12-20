@@ -9,12 +9,15 @@ import mongoose from 'mongoose';
 export type IProduct = {
   title: string;
   _id: string;
-  imageUrl: string;
+  imageurl: string;
+  slug: string;
   price: number;
   oldPrice?: number;
   date: string;
   rating: number;
   description: string;
+  createdAt: Date;
+  updatedAt: Date;
 
 }
 
@@ -27,9 +30,14 @@ const productSchema = new mongoose.Schema<IProduct>(
       type: String,
       required: true
     },
-    imageUrl: {
+    imageurl: {
       type: String,
       required: true
+    },
+    slug: {
+      type: String,
+      required: true,
+      unique: true,
     },
     price: {
       type: Number,
@@ -39,8 +47,12 @@ const productSchema = new mongoose.Schema<IProduct>(
       type: Number,
       required: false
     },
-    date: {
-      type: String,
+    createdAt: {
+      type: Date,
+      required: true
+    },
+    updatedAt: {
+      type: Date,
       required: true
     },
     description: {

@@ -13,7 +13,7 @@ export class VendureService {
 
   constructor() {
     this.__client = new ApolloClient({
-      uri: "http://localhost:5000/api",
+      uri: "http://localhost:5000/graphql",
       cache: new InMemoryCache(),
     });
   }

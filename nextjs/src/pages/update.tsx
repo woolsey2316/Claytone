@@ -12,7 +12,7 @@ import UPDATE_PRODUCT from '../graphql/mutation/updateProduct';
 interface UpdateProduct {
   [key: string]: any;
   title: string;
-  imageUrl: string;
+  imageurl: string;
   price: number;
   oldPrice?: number;
   rating: number;
@@ -24,7 +24,7 @@ class Update extends React.PureComponent<any, UpdateProduct> {
     super(props);
     this.state = {
       title: '',
-      imageUrl: '',
+      imageurl: '',
       price: 0,
       oldPrice: undefined,
       rating: 0,
@@ -74,8 +74,8 @@ class Update extends React.PureComponent<any, UpdateProduct> {
               <input
                 type='text'
                 placeholder='Image Url'
-                name='imageUrl'
-                value={state.imageUrl}
+                name='imageurl'
+                value={state.imageurl}
                 onChange={this.handleChange}
                 className='update-input-box'
                 required

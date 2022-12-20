@@ -5,9 +5,6 @@ import mongoose from 'mongoose';
 
 import config from '../../../config';
 import Product from '../../models/product';
-import { transformProduct } from './merge';
-
-import { IProduct } from '@/types/Product';
 
 const pubsub = new PubSub();
 const PRODUCT_ADDED = 'PRODUCT_ADDED';
@@ -15,13 +12,11 @@ const PRODUCT_ADDED = 'PRODUCT_ADDED';
 const ProductQueries = {
   products: async (_parent, _args, _context) => {
     const products = await Product.find();
-    return products.map((product: IProduct) => {
-      return transformProduct(product);
-    });
+    return products
   },
-  product: async (_parent, { productId }) => {
-    const product = await Product.findById(productId);
-    return transformProduct(product);
+  product: async (_parent, { slug }) => {
+    const product = await Product.find({slug: slug});
+    return product[0];
   }
 };
 /** * Product Mutations */
@@ -34,7 +29,7 @@ const ProductMutation = {
       const newProduct = new Product({
         _id: new mongoose.Types.ObjectId(),
         title: productInput.title,
-        imageUrl: productInput.imageUrl,
+        imageurl: productInput.imageurl,
         price: productInput.price,
         oldPrice: productInput.oldPrice,
         date: productInput.date,
@@ -43,7 +38,7 @@ const ProductMutation = {
       });
       const savedProduct = await newProduct.save();
       pubsub.publish(PRODUCT_ADDED, {
-        productAdded: transformProduct(savedProduct)
+        productAdded: savedProduct
       });
       const token = jwt.sign({ productId: savedProduct.id }, config.jwtSecret, {
         expiresIn: '1h'
@@ -59,7 +54,7 @@ const ProductMutation = {
     const product = await Product.findByIdAndUpdate(productId, updateProduct, {
       new: true
     });
-    return transformProduct(product);
+    return product;
   }
 };
 /** * Product Subscriptions */

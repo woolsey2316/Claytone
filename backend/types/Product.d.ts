@@ -4,6 +4,6 @@ export type IProduct = {
   price: number;
   oldPrice?: number;
   rating: number;
-  imageUrl: string;
+  imageurl: string;
   
 }

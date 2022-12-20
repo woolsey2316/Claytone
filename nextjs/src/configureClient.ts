@@ -14,7 +14,7 @@ interface Definintion {
   kind: string;
   operation?: string;
 }
-let authToken = null;
+let authToken: string | null = null;
 const httpLink = new HttpLink({ fetch, uri: SERVER });
 const authMiddleware = new ApolloLink((operation, forward) => {
   operation.setContext({ headers: { authorization: authToken || null } }); // Add onto payload for WebSocket authentication

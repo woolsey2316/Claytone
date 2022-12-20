@@ -4,7 +4,7 @@ import React from 'react';
 type BlogPost = {
   title: string;
   description: string;
-  imageUrl: string;
+  imageurl: string;
   date: Date;
 };
 type Props = {
@@ -16,7 +16,7 @@ function Blogtile({ blogPost }: Props) {
       <div className='relative h-auto w-full flex-shrink-0 lg:h-315px lg:w-315px'>
         <Image
           className='mt-2 h-auto w-full lg:h-315px lg:w-315px'
-          src={blogPost.imageUrl}
+          src={blogPost.imageurl}
           alt='blog post image'
           width={315}
           height={315}

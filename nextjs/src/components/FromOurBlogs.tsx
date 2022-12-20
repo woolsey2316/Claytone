@@ -6,28 +6,28 @@ import H3Heading from '@/components/H3Heading';
 const blogData = [
   {
     date: new Date(),
-    imageUrl: '/images/blog/blog1-315x315.jpg',
+    imageurl: '/images/blog/blog1-315x315.jpg',
     title: 'Consectetur Adipiscing',
     description:
       'A type specimen book. It has survived not only five centuries, but als...',
   },
   {
     date: new Date(),
-    imageUrl: '/images/blog/blog2-315x315.jpg',
+    imageurl: '/images/blog/blog2-315x315.jpg',
     title: 'The Standard Lorem Ipsum',
     description:
       'A type specimen book. It has survived not only five centuries, but als...',
   },
   {
     date: new Date(),
-    imageUrl: '/images/blog/blog3-315x315.jpg',
+    imageurl: '/images/blog/blog3-315x315.jpg',
     title: 'Lorem Ipsum Dolo',
     description:
       'Lorem Ipsum is simply dummy text of the printing and typesetting indus...',
   },
   {
     date: new Date(),
-    imageUrl: '/images/blog/blog4-315x315.jpg',
+    imageurl: '/images/blog/blog4-315x315.jpg',
     title: 'Nam Nec Rhoncus Est',
     description:
       'Lorem Ipsum is simply dummy text of the printing and typesetting indus...',
