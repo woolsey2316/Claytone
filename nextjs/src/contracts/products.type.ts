@@ -6,6 +6,7 @@ export interface ProductItem {
   slug: string;
   description: string;
   featuredAsset: Asset;
+  imageurl: string;
   rating: number;
   price: number;
 }

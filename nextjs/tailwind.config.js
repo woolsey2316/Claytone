@@ -86,6 +86,7 @@ module.exports = {
         darkGrey: '#AAAAAA',
         'lighter-grey': '#e5e5e5',
         nearWhite: '#f7f7f7',
+        gold: '#f2ba0e'
       },
       keyframes: {
         flicker: {

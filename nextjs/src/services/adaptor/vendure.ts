@@ -2,14 +2,14 @@ import { IProductDetail } from "../../components/ProductView";
 import { ProductItem } from "../../contracts/products.type";
 
 export const productDetail = (data: ProductItem) => {
-  const { _id, title, featuredAsset, price, description, rating } = data;
+  const { _id, title, price, description, rating, imageurl } = data;
   const newProduct: IProductDetail = {
     id: _id,
     title: title,
     price,
-    featuredImage: featuredAsset,
     description,
-    stars: rating,
+    rating: rating,
+    imageurl
   };
   return newProduct;
 };

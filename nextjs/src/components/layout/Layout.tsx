@@ -1,9 +1,8 @@
 import Head from "next/head";
 import React from "react";
 
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-
-
 
 interface Props {
   pageTitle?: string;
@@ -11,17 +10,16 @@ interface Props {
 }
 const Layout: React.FC<Props> = ({ children, pageTitle }) => {
   return (
-    <React.Fragment>
+    <div>
       {pageTitle && (
         <Head>
           <title className="text-5xl">{pageTitle}</title>
         </Head>
       )}
       <Header/>
-      <div className="container mx-auto">
-        <main className="">{children}</main>
-      </div>
-    </React.Fragment>
+      <main className="">{children}</main>
+      <Footer/>
+    </div>
   );
 };
 export default Layout;

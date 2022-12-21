@@ -156,7 +156,7 @@ function TrendingProducts() {
   return (
     <section className='mt-50px flex flex-col items-center'>
       <H3Heading>Trending Products</H3Heading>
-      <div className='flex items-center'>
+      <div className='flex items-center mt-4'>
         <p className='relative cursor-pointer px-2 text-sm text-light-grey hover:text-coral after:absolute after:top-1.5 after:-right-1 after:h-[7px] after:w-[7px] after:rotate-45 after:bg-coral after:empty-content lg:px-6'>
           Featured
         </p>

@@ -1,9 +1,5 @@
 import Image from 'next/image'
-import React, { FC, useState } from "react";
-
-import { ProductAttribute } from "./ProductAttribute";
-import { Asset as IAsset } from "../../contracts/common/asset.type";
-import { numberToCurrency } from "../../services/utils";
+import React, { FC } from "react";
 
 export interface Props {
   product: IProductDetail;
@@ -14,11 +10,9 @@ export interface IProductDetail {
   id: string;
   title: string;
   price: number;
-  featuredImage: IAsset;
   description: string;
-  subTitle?: string;
-  stars?: number;
-  productThumbUrls?: Array<string>;
+  rating: number;
+  imageurl: string;
   attributes?: Array<IProductAttr>;
 }
 
@@ -28,107 +22,15 @@ export interface IProductAttr {
 }
 
 export const ProductView: FC<Props> = ({ product, addedToCart }) => {
-  const [qty, setQty] = useState("1");
-  const [currVariant] = useState(product);
-  const { title, featuredImage, price, id } = product;
   return (
     <section>
-      <div className="relative max-w-screen-xl px-4 py-8 mx-auto">
-        <div className="grid items-start grid-cols-1 gap-8 md:grid-cols-2">
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-1">
-            <div className="aspect-w-1 aspect-h-1">
-              
-            </div>
-
-            <div className="grid grid-cols-2 gap-4 lg:mt-4">
-              {product.productThumbUrls &&
-                product.productThumbUrls.length > 0 &&
-                product.productThumbUrls.map((src, index) => (
-                  <div className="aspect-w-1 aspect-h-1" key={index}>
-                    <Image
-                      width={200}
-                      height={100}
-                      alt={product.title}
-                      className="object-cover rounded-xl"
-                      src={src}
-                    />
-                  </div>
-                ))}
-            </div>
+      <div className="container">
+        <div className="flex">
+          <div className="w-1/2">
+            <Image alt="product image" width={549} height={549} src={product.imageurl}></Image>
           </div>
+          <div className="w-1/2">
 
-          <div className="sticky top-0">
-            <strong className="border border-blue-600 rounded-full tracking-wide px-3 font-medium py-0.5 text-xs bg-gray-100 text-blue-600">
-              Pre Order
-            </strong>
-
-            <div className="flex justify-between mt-8">
-              <div className="max-w-[35ch]">
-                <h1 className="text-2xl font-bold">{currVariant.title}</h1>
-
-                {product.subTitle && (
-                  <p className="mt-0.5 text-sm">{product.subTitle}</p>
-                )}
-
-                <div className="flex mt-2 -ml-0.5">{renderStars(product)}</div>
-              </div>
-
-              <p className="text-lg font-bold">
-                {numberToCurrency(currVariant.price)}
-              </p>
-            </div>
-
-            <details className="relative mt-4 group">
-              <summary className="block">
-                <div>
-                  <div className="prose max-w-none group-open:hidden">
-                    <p>{product.description}</p>
-                  </div>
-
-                  <span className="mt-4 text-sm font-medium underline cursor-pointer group-open:absolute group-open:bottom-0 group-open:left-0 group-open:mt-0">
-                    Read More
-                  </span>
-                </div>
-              </summary>
-
-              <div className="pb-6 prose max-w-none">
-                <p>{product.description}</p>
-                <p>{product.description}</p>
-              </div>
-            </details>
-
-            <div className="mt-8">
-              {product.attributes &&
-                product.attributes.length > 0 &&
-                product.attributes.map((attribute, index) => (
-                  <ProductAttribute attribute={attribute} key={index} />
-                ))}
-
-              <div className="flex mt-8">
-                <div>
-                  <label htmlFor="quantity" className="sr-only">
-                    Qty
-                  </label>
-
-                  <input
-                    type="number"
-                    id="quantity"
-                    min="1"
-                    value={qty}
-                    onChange={(event) => setQty(event.target.value)}
-                    className="w-12 py-3 text-xs text-center border-gray-200 rounded no-spinners"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="block px-5 py-3 ml-3 text-xs font-medium text-white bg-green-600 rounded hover:bg-green-500"
-                  onClick={() => addedToCart(currVariant.id.toString(), qty)}
-                >
-                  Add to Cart
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -137,7 +39,7 @@ export const ProductView: FC<Props> = ({ product, addedToCart }) => {
 };
 
 const renderStars = (product: IProductDetail) => {
-  const countStars = product.stars || 0;
+  const countStars = product.rating || 0;
   const starMarkup = [];
   for (let i = 0; i < 5; i++) {
     starMarkup.push(

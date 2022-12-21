@@ -28,6 +28,11 @@
   /* #endregion  /**======== Primary Color =========== */
 }
 
+@layer components {
+  .container {
+    @apply mx-auto w-full sm:w-3xl md:w-4xl lg:w-5xl xl:w-6xl 2xl:w-7xl
+  }
+}
 @layer base {
   /* inter var - latin */
   @font-face {

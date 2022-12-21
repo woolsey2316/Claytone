@@ -10,7 +10,7 @@ function Rating({ rating }: Props) {
         <div key={index} className='h-5 w-5'>
           {/* empty star */}
           <svg
-            className='absolute h-5 w-5'
+            className='absolute h-5 w-5 fill-current text-gold '
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 488.022 488.022'
           >
@@ -19,7 +19,7 @@ function Rating({ rating }: Props) {
           {index < Math.floor(rating) && (
             // filled star
             <svg
-              className='h-5 w-5'
+              className='h-5 w-5 fill-current text-gold '
               key={index}
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 55.867 55.867'
@@ -30,7 +30,7 @@ function Rating({ rating }: Props) {
           {index + 1 - rating > 0 && index + 1 - rating < 1 && (
             // partially filled star
             <div
-              className='overflow-hidden'
+              className='overflow-hidden fill-current text-gold'
               style={{ width: `${(rating - index) * 100}%` }}
             >
               <svg

@@ -10,6 +10,7 @@ export const productDetailsBySlug = gql`
       price
       oldPrice
       imageurl
+      rating
     }
   }
 `;

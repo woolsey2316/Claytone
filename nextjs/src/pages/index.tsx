@@ -24,7 +24,7 @@ import TrendingProducts from '@/components/TrendingProducts';
 
 export default function HomePage() {
   return (
-    <>
+    <div>
       <Seo templateTitle='Home' />
       <main>
         {/* hero section */}
@@ -44,6 +44,6 @@ export default function HomePage() {
         <SubscribeSection />
         <Footer />
       </main>
-    </>
+    </div>
   );
 }
