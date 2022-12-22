@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import React, { FC } from "react";
 
+import BreadCrumb from '@/components/BreadCrumb';
+import Rating from '@/components/Rating';
+
 export interface Props {
   product: IProductDetail;
   addedToCart: (id: string, qty: string) => void;
@@ -24,13 +27,18 @@ export interface IProductAttr {
 export const ProductView: FC<Props> = ({ product, addedToCart }) => {
   return (
     <section>
+      {/* breadcrumb */}
+      <div className="bg-nearWhite">
+        <BreadCrumb/>
+      </div>
       <div className="container">
-        <div className="flex">
+        <div className="flex flex-col md:flex-row">
           <div className="w-1/2">
-            <Image alt="product image" width={549} height={549} src={product.imageurl}></Image>
+            <Image className="border-3 border-r-coral border-t-coral border-l-black border-b-black" alt="product image" width="654" height="654" src={product.imageurl}></Image>
           </div>
           <div className="w-1/2">
-
+            <h6 className="text-2xl font-medium mt-2 mb-[15px]">{product.title}</h6>
+            <Rating rating={product.rating} size={3} />
           </div>
         </div>
       </div>

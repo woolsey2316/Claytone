@@ -1,16 +1,23 @@
 import React from 'react';
 type Props = {
   rating: number;
+  size?: number; 
 };
-function Rating({ rating }: Props) {
-  const emptyStars = new Array(5).fill('x');
-  return (
-    <div className='relative flex items-center justify-self-end'>
-      {emptyStars.map((_elem, index) => (
-        <div key={index} className='h-5 w-5'>
+function Rating({ rating, size = 5 }: Props) {
+  const stars = []
+  const sizeMap = new Map([
+    [1,'h-1 w-1'],
+    [2,'h-2 w-2'],
+    [3,'h-3 w-3'],
+    [4,'h-4 w-4'],
+    [5,'h-5 w-5'],
+  ])
+  for (let index = 0; index < 5; index++) {
+    stars.push(
+      <div key={index} className={`${sizeMap.get(size)}`}>
           {/* empty star */}
           <svg
-            className='absolute h-5 w-5 fill-current text-gold '
+            className={`absolute ${sizeMap.get(size)} fill-current text-gold`}
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 488.022 488.022'
           >
@@ -19,7 +26,7 @@ function Rating({ rating }: Props) {
           {index < Math.floor(rating) && (
             // filled star
             <svg
-              className='h-5 w-5 fill-current text-gold '
+              className={`${sizeMap.get(size)} fill-current text-gold`}
               key={index}
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 55.867 55.867'
@@ -34,7 +41,7 @@ function Rating({ rating }: Props) {
               style={{ width: `${(rating - index) * 100}%` }}
             >
               <svg
-                className='h-5 w-5'
+                className={`${sizeMap.get(size)}`}
                 xmlns='http://www.w3.org/2000/svg'
                 viewBox='0 0 55.867 55.867'
               >
@@ -43,7 +50,11 @@ function Rating({ rating }: Props) {
             </div>
           )}
         </div>
-      ))}
+    )
+  }
+  return (
+    <div className='relative flex items-center justify-self-end'>
+      {stars}
     </div>
   );
 }

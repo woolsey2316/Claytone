@@ -106,14 +106,6 @@ class Update extends React.PureComponent<any, UpdateProduct> {
                 onChange={this.handleChange}
                 className='update-input-box'
               />
-              <input
-                type='date'
-                placeholder='Date'
-                name='date'
-                value={state.date}
-                onChange={this.handleChange}
-                className='update-input-box'
-              />
               <input type='submit' value='Submit' className='update-button' />
             </form>
           )}
