@@ -4,10 +4,10 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 
-import { productListing } from "../queries/product.queries";
-import { productDetailsBySlug } from "../queries/product-details.query";
-import { productSlug } from "../queries/product-slug.query";
-
+import products from "../graphql/query/product.query";
+import { productDetailsBySlug } from "../graphql/query/product-details.query";
+import { productSlug } from "../graphql/query/product-slug.query";
+ 
 export class VendureService {
   private __client;
 
@@ -20,7 +20,7 @@ export class VendureService {
 
   public fetchProducts = async (): Promise<ApolloQueryResult<any>> => {
     const response = await this.__client.query({
-      query: productListing,
+      query: products,
     });
     return response;
   };

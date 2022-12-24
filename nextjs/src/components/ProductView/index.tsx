@@ -1,12 +1,14 @@
+import { useMutation } from '@apollo/client';
 import Image from 'next/image'
-import React, { FC } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 
 import BreadCrumb from '@/components/BreadCrumb';
 import Rating from '@/components/Rating';
 
+import CREATE_REVIEW from '../../graphql/mutation/createReview';
+
 export interface Props {
   product: IProductDetail;
-  addedToCart: (id: string, qty: string) => void;
 }
 
 export interface IProductDetail {
@@ -24,7 +26,27 @@ export interface IProductAttr {
   values: Array<string>;
 }
 
-export const ProductView: FC<Props> = ({ product, addedToCart }) => {
+export const ProductView: FC<Props> = ({ product }) => {
+  const review_ = {name: "", description: "", rating: "", productId: ""}
+  const [review, setReview] = useState<typeof review_>(review_)
+
+  // our mutation's result, data, is typed!
+  const [saveReview, { error, data }] = useMutation(CREATE_REVIEW, {
+    // variables are also typed!
+     variables: {
+      name: review.name,
+      description: review.description,
+      rating: review.rating,
+      productId: review.productId 
+     }
+  });
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setReview((review) => ({
+      ...review, 
+      [event.target.name]: event.target.value 
+    }));
+  };
   return (
     <section>
       {/* breadcrumb */}
@@ -42,27 +64,39 @@ export const ProductView: FC<Props> = ({ product, addedToCart }) => {
           </div>
         </div>
       </div>
+        <form
+          onSubmit={() => saveReview()}
+          className='update-form'
+        >
+          <input
+            type='text'
+            placeholder='Name'
+            name='name'
+            value={review.name}
+            onChange={handleChange}
+            className='update-input-box'
+            required
+          />
+          <input
+            type='text'
+            placeholder='Description'
+            name='description'
+            value={review.description}
+            onChange={handleChange}
+            className='update-input-box'
+            required
+          />
+          <input
+            type='text'
+            placeholder='Rating'
+            name='rating'
+            value={review.rating}
+            onChange={handleChange}
+            className='update-input-box'
+            required
+          />
+          <input type='submit' value='Submit' className='update-button' />
+        </form>
     </section>
   );
-};
-
-const renderStars = (product: IProductDetail) => {
-  const countStars = product.rating || 0;
-  const starMarkup = [];
-  for (let i = 0; i < 5; i++) {
-    starMarkup.push(
-      <svg
-        key={`start-${i}`}
-        className={`w-5 h-5 ${
-          i < countStars ? "text-yellow-400" : "text-gray-400"
-        }`}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-      </svg>
-    );
-  }
-  return starMarkup;
 };

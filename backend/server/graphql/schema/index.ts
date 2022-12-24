@@ -6,15 +6,18 @@ import resolvers from '../resolvers/index';
 const typeDefs = gql`
   type Query {
     products: [Product!]!
+    reviews: [Review!]!
     product(slug: String!): Product!
     login(email: String!, password: String!): AuthData!
   }
   type Mutation {
     createProduct(productInput: InputProduct): AuthData!
+    createReview(reviewInput: InputReview): AuthData!
     updateProduct(productId: String!, updateProduct: UpdateProduct): Product!
   }
   type Subscription {
     productAdded: Product
+    reviewAdded: Review
   }
   type Product {
     _id: String!
@@ -26,6 +29,17 @@ const typeDefs = gql`
     createdAt: String!
     updatedAt: String!
     imageurl: String!
+  }
+  type Review {
+    name: String!
+    description: String!
+    rating: Float!
+    productId: String!
+  }
+  input InputReview {
+    name: String!
+    description: String!
+    rating: Float!
   }
   type AuthData {
     productId: String!

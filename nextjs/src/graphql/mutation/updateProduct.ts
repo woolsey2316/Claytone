@@ -3,9 +3,9 @@
  *
  */
 
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
 
-const UPDATE_PRODUCT = gql`
+const UPDATE_PRODUCT = gql(/* GraphQL */ `
   mutation updateProduct($productId: ID!, $updateProduct: UpdateProduct) {
     updateProduct(productId: $productId, updateProduct: $updateProduct) {
       _id
@@ -16,6 +16,6 @@ const UPDATE_PRODUCT = gql`
       oldPrice
     }
   }
-`;
+`);
 
 export default UPDATE_PRODUCT;

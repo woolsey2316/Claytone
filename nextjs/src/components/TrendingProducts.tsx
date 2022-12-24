@@ -1,8 +1,11 @@
+import { useQuery } from '@apollo/client';
 import React, { useRef } from 'react';
 
 import Carousel, { CarouselItem } from '@/components/carousel/Carousel';
 import H3Heading from '@/components/H3Heading';
 import ProductTile from '@/components/ProductTile';
+
+import GET_PRODUCTS from '@/graphql/query/product.query';
 
 import { IProduct } from '@/types/Product';
 
@@ -142,6 +145,8 @@ const productData: IProduct[] = [
   },
 ];
 function TrendingProducts() {
+  const { data } = useQuery(GET_PRODUCTS);
+
   const container = useRef<HTMLDivElement>(null);
   function handleGrabbing() {
     if (container.current != undefined) {
@@ -182,7 +187,7 @@ function TrendingProducts() {
           rows={2}
           itemsPerPage={{ mobile: 4, tablet: 6, desktop: 8 }}
         >
-          {productData.map((product, index) => (
+          {data?.products?.map((product: IProduct, index: number) => (
             <CarouselItem key={index}>
               <ProductTile product={product} />
             </CarouselItem>

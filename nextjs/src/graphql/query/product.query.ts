@@ -3,14 +3,13 @@
  *
  */
 
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
 
 const GET_PRODUCTS = gql`
-  {
+  query PRODUCTS {
     products {
       title
       _id
-      date
       imageurl
       price
       oldPrice

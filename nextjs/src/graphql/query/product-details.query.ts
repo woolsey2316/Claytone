@@ -1,7 +1,7 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
-export const productDetailsBySlug = gql`
-  query ($slug: String!) {
+export const productDetailsBySlug = gql(/* GraphQL */`
+  query PRODUCT_BY_SLUG ($slug: String!) {
     product(slug: $slug) {
       _id
       createdAt
@@ -13,4 +13,4 @@ export const productDetailsBySlug = gql`
       rating
     }
   }
-`;
+`);

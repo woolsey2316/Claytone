@@ -4,15 +4,23 @@ import {
   ProductQueries,
   ProductSubscription
 } from './product';
+import {
+  ReviewMutation,
+  ReviewQueries,
+  ReviewSubscription
+} from './review';
 const rootResolver = {
   Query: {
-    ...ProductQueries // Add other queries here
+    ...ProductQueries,
+    ...ReviewQueries
   },
   Mutation: {
-    ...ProductMutation // Add other mutations here
+    ...ProductMutation,
+    ...ReviewMutation
   },
   Subscription: {
-    ...ProductSubscription // Add other subscriptions here
+    ...ProductSubscription,
+    ...ReviewSubscription
   }
 };
 export default rootResolver;
