@@ -3,10 +3,10 @@
  *
  */
 
-import { gql } from '@apollo/client';
+import { graphql } from '../../../src/__generated__';
 
-const CREATE_PRODUCT = gql(/* GraphQL */`
-  mutation createProduct($productInput: ProductInput) {
+const CREATE_PRODUCT = graphql(/* GraphQL */`
+  mutation createProduct($productInput: InputProduct) {
     createProduct(productInput: $productInput) {
       token
       productId

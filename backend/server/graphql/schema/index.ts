@@ -13,12 +13,13 @@ const typeDefs = gql`
   type Mutation {
     createProduct(productInput: InputProduct): AuthData!
     createReview(reviewInput: InputReview): AuthData!
-    updateProduct(productId: String!, updateProduct: UpdateProduct): Product!
+    updateProduct(updateProduct: UpdateProduct): Product!
   }
   type Subscription {
     productAdded: Product
     reviewAdded: Review
   }
+
   type Product {
     _id: String!
     slug: String!
@@ -40,6 +41,7 @@ const typeDefs = gql`
     name: String!
     description: String!
     rating: Float!
+    productId: String!
   }
   type AuthData {
     productId: String!

@@ -1,11 +1,9 @@
-import { useMutation } from '@apollo/client';
 import Image from 'next/image'
 import React, { ChangeEvent, FC, useState } from "react";
 
 import BreadCrumb from '@/components/BreadCrumb';
 import Rating from '@/components/Rating';
 
-import CREATE_REVIEW from '../../graphql/mutation/createReview';
 
 export interface Props {
   product: IProductDetail;
@@ -31,15 +29,15 @@ export const ProductView: FC<Props> = ({ product }) => {
   const [review, setReview] = useState<typeof review_>(review_)
 
   // our mutation's result, data, is typed!
-  const [saveReview, { error, data }] = useMutation(CREATE_REVIEW, {
-    // variables are also typed!
-     variables: {
-      name: review.name,
-      description: review.description,
-      rating: review.rating,
-      productId: review.productId 
-     }
-  });
+  // const [saveReview, { error, data }] = useMutation(CREATE_REVIEW, {
+  //   // variables are also typed!
+  //    variables: {
+  //     name: review.name,
+  //     description: review.description,
+  //     rating: review.rating,
+  //     productId: review.productId 
+  //    }
+  // });
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setReview((review) => ({
@@ -65,7 +63,6 @@ export const ProductView: FC<Props> = ({ product }) => {
         </div>
       </div>
         <form
-          onSubmit={() => saveReview()}
           className='update-form'
         >
           <input

@@ -1,6 +1,6 @@
-import { gql } from '@apollo/client';
+import { graphql } from '../../../src/__generated__';
 
-export const productDetailsBySlug = gql(/* GraphQL */`
+export const productDetailsBySlug = graphql(/* GraphQL */`
   query PRODUCT_BY_SLUG ($slug: String!) {
     product(slug: $slug) {
       _id

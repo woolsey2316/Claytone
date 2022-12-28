@@ -3,9 +3,9 @@
  *
  */
 
-import { gql } from '@apollo/client';
+import { graphql } from '../../../src/__generated__';
 
-const GET_PRODUCTS = gql`
+const GET_PRODUCTS = graphql(/* GraphQL */`
   query PRODUCTS {
     products {
       title
@@ -16,6 +16,6 @@ const GET_PRODUCTS = gql`
       rating
     }
   }
-`;
+`);
 
 export default GET_PRODUCTS;

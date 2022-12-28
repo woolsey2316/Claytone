@@ -3,13 +3,12 @@
  *
  */
 
-import { gql } from '@apollo/client';
+import { graphql } from '../../../src/__generated__';
 
-const CREATE_REVIEW = gql(/* GraphQL */ `
-  mutation createReview($ReviewInput: ReviewInput) {
-    createReview(ReviewInput: $ReviewInput) {
+const CREATE_REVIEW = graphql(/* GraphQL */ `
+  mutation createReview($reviewInput: InputReview) {
+    createReview(reviewInput: $reviewInput) {
       token
-      ReviewId
     }
   }
 `);

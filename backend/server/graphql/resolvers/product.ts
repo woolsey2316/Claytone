@@ -46,12 +46,9 @@ const ProductMutation = {
       return { productId: savedProduct.id, token, tokenExpiration: 1 };
     }
   },
-  updateProduct: async (_parent, { productId, updateProduct }, context) => {
-    // If not authenticated throw error
-    if (!context.isAuth) {
-      throw new Error('Non Authenticated');
-    }
-    const product = await Product.findByIdAndUpdate(productId, updateProduct, {
+  updateProduct: async (_parent, { updateProduct }, context) => {
+    // TODO If not authenticated throw error
+    const product = await Product.findByIdAndUpdate(updateProduct._id, updateProduct, {
       new: true
     });
     return product;

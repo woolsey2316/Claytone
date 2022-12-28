@@ -3,11 +3,11 @@
  *
  */
 
-import { gql } from '@apollo/client';
+import { graphql } from '../../../src/__generated__';
 
-const UPDATE_PRODUCT = gql(/* GraphQL */ `
-  mutation updateProduct($productId: ID!, $updateProduct: UpdateProduct) {
-    updateProduct(productId: $productId, updateProduct: $updateProduct) {
+const UPDATE_PRODUCT = graphql(/* GraphQL */ `
+  mutation updateProduct($updateProduct: UpdateProduct) {
+    updateProduct(updateProduct: $updateProduct) {
       _id
       title
       imageurl

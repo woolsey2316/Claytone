@@ -20,9 +20,9 @@ const ReviewMutation = {
   createReview: async (_parent, { reviewInput }) => {
     const newReview = new Review({
       _id: new mongoose.Types.ObjectId(),
-      name: reviewInput.title,
-      description: reviewInput.imageurl,
-      rating: reviewInput.price,
+      name: reviewInput.name,
+      description: reviewInput.description,
+      rating: reviewInput.rating,
       productId: reviewInput.productId,
     });
     const savedReview = await newReview.save();
