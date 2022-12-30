@@ -9,7 +9,6 @@ const CREATE_PRODUCT = graphql(/* GraphQL */`
   mutation createProduct($productInput: InputProduct) {
     createProduct(productInput: $productInput) {
       token
-      productId
     }
   }
 `);

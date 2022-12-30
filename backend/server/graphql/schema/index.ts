@@ -12,7 +12,7 @@ const typeDefs = gql`
   }
   type Mutation {
     createProduct(productInput: InputProduct): AuthData!
-    createReview(reviewInput: InputReview): AuthData!
+    createReview(reviewInput: InputReview!): AuthData!
     updateProduct(updateProduct: UpdateProduct): Product!
   }
   type Subscription {

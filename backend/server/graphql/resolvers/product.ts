@@ -6,6 +6,16 @@ import mongoose from 'mongoose';
 import config from '../../../config';
 import Product from '../../models/product';
 
+type ProductInput = {
+  slug: string
+  rating: number
+  title: string
+  price: number
+  oldPrice?: number
+  createdAt: string
+  updatedAt: string
+  imageurl: string
+}
 const pubsub = new PubSub();
 const PRODUCT_ADDED = 'PRODUCT_ADDED';
 /** * Product Queries */
@@ -21,7 +31,7 @@ const ProductQueries = {
 };
 /** * Product Mutations */
 const ProductMutation = {
-  createProduct: async (_parent, { productInput }) => {
+  createProduct: async (_parent, { productInput } ) => {
     const product = await Product.findOne({ title: productInput.title });
     if (product) {
       throw new Error('product already Exists');
@@ -32,10 +42,12 @@ const ProductMutation = {
         imageurl: productInput.imageurl,
         price: productInput.price,
         oldPrice: productInput.oldPrice,
-        date: productInput.date,
-        description: productInput.description,
-        rating: productInput.rating
+        rating: productInput.rating,
+        updatedAt: productInput.updatedAt,
+        createdAt: productInput.createdAt,
+        slug: productInput.slug
       });
+      console.log("productInput = ", productInput)
       const savedProduct = await newProduct.save();
       pubsub.publish(PRODUCT_ADDED, {
         productAdded: savedProduct
@@ -46,7 +58,7 @@ const ProductMutation = {
       return { productId: savedProduct.id, token, tokenExpiration: 1 };
     }
   },
-  updateProduct: async (_parent, { updateProduct }, context) => {
+  updateProduct: async (_parent, { updateProduct }, _context) => {
     // TODO If not authenticated throw error
     const product = await Product.findByIdAndUpdate(updateProduct._id, updateProduct, {
       new: true

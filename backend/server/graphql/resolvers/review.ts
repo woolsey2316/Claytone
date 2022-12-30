@@ -6,18 +6,24 @@ import mongoose from 'mongoose';
 import config from '../../../config';
 import Review from '../../models/review';
 
+// type InputReview = {
+//   name: string
+//   description: string
+//   rating: string
+//   productId: string
+// }
 const pubsub = new PubSub();
 const REVIEW_ADDED = 'REVIEW_ADDED';
 /** * Review Queries */
 const ReviewQueries = {
-  reviews: async (_parent, {productId}) => {
+  reviews: async (_parent, productId) => {
     const reviews = await Review.find({productId: productId});
     return reviews
   }
 };
 /** * Review Mutations */
 const ReviewMutation = {
-  createReview: async (_parent, { reviewInput }) => {
+  createReview: async (_parent, { reviewInput } ) => {
     const newReview = new Review({
       _id: new mongoose.Types.ObjectId(),
       name: reviewInput.name,
@@ -32,7 +38,7 @@ const ReviewMutation = {
     const token = jwt.sign({ reviewId: savedReview.id }, config.jwtSecret, {
       expiresIn: '1h'
     });
-    return { reviewId: savedReview.id, token};
+    return { token };
   }
 };
 /** * Review Subscriptions */

@@ -14,7 +14,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  */
 const documents = {
     "\n  mutation createReview($reviewInput: InputReview) {\n    createReview(reviewInput: $reviewInput) {\n      token\n    }\n  }\n": types.CreateReviewDocument,
-    "\n  mutation createProduct($productInput: InputProduct) {\n    createProduct(productInput: $productInput) {\n      token\n      productId\n    }\n  }\n": types.CreateProductDocument,
+    "\n  mutation createProduct($productInput: InputProduct) {\n    createProduct(productInput: $productInput) {\n      token\n    }\n  }\n": types.CreateProductDocument,
     "\n  mutation updateProduct($updateProduct: UpdateProduct) {\n    updateProduct(updateProduct: $updateProduct) {\n      _id\n      title\n      imageurl\n      price\n      rating\n      oldPrice\n    }\n  }\n": types.UpdateProductDocument,
     "\n  query PRODUCT_BY_SLUG ($slug: String!) {\n    product(slug: $slug) {\n      _id\n      createdAt\n      updatedAt\n      title\n      price\n      oldPrice\n      imageurl\n      rating\n    }\n  }\n": types.Product_By_SlugDocument,
     "\n  query PRODUCT_SLUG {\n    products {\n      _id\n      slug\n    }\n  }\n": types.Product_SlugDocument,
@@ -28,7 +28,7 @@ export function graphql(source: "\n  mutation createReview($reviewInput: InputRe
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  mutation createProduct($productInput: InputProduct) {\n    createProduct(productInput: $productInput) {\n      token\n      productId\n    }\n  }\n"): (typeof documents)["\n  mutation createProduct($productInput: InputProduct) {\n    createProduct(productInput: $productInput) {\n      token\n      productId\n    }\n  }\n"];
+export function graphql(source: "\n  mutation createProduct($productInput: InputProduct) {\n    createProduct(productInput: $productInput) {\n      token\n    }\n  }\n"): (typeof documents)["\n  mutation createProduct($productInput: InputProduct) {\n    createProduct(productInput: $productInput) {\n      token\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
