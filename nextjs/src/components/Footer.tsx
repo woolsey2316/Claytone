@@ -45,7 +45,7 @@ function Footer() {
             } mb-4 lg:mb-0`}
           >
             <li className='my-2.5 flex items-start'>
-              <div className='mr-2 mt-3 h-5 w-5'>
+              <div className='mr-2 mt-2 h-5 w-5'>
                 <Image
                   width={14}
                   height={20}
@@ -62,7 +62,7 @@ function Footer() {
                 <Image
                   width={16}
                   height={16}
-                  className='mr-2'
+                  className='mr-2 mt-1'
                   alt='telephone'
                   src='/images/telephone.png'
                 ></Image>
@@ -74,7 +74,7 @@ function Footer() {
                 <Image
                   width={17}
                   height={15}
-                  className='mr-2'
+                  className='mr-2 mt-0.5'
                   alt='fax'
                   src='/images/fax.png'
                 ></Image>
@@ -86,7 +86,7 @@ function Footer() {
                 <Image
                   width={15}
                   height={11}
-                  className='mr-2'
+                  className='mr-2 mt-1.5'
                   alt='email'
                   src='/images/email.png'
                 ></Image>

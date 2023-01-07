@@ -16,7 +16,7 @@ const pubsub = new PubSub();
 const REVIEW_ADDED = 'REVIEW_ADDED';
 /** * Review Queries */
 const ReviewQueries = {
-  reviews: async (_parent, productId) => {
+  reviews: async (_parent, {productId}) => {
     const reviews = await Review.find({productId: productId});
     return reviews
   }

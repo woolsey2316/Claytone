@@ -12,9 +12,16 @@ function Rating({ rating, size = 5 }: Props) {
     [4,'h-4 w-4'],
     [5,'h-5 w-5'],
   ])
+  const spaceMap = new Map([
+    [1,'ml-0.5'],
+    [2,'ml-0.5'],
+    [3,'ml-0.5'],
+    [4,'ml-1'],
+    [5,'ml-1'],
+  ])
   for (let index = 0; index < 5; index++) {
     stars.push(
-      <div key={index} className={`${sizeMap.get(size)}`}>
+      <div key={index} className={`${sizeMap.get(size)} ${spaceMap.get(size)}`}>
           {/* empty star */}
           <svg
             className={`absolute ${sizeMap.get(size)} fill-current text-gold`}

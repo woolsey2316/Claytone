@@ -9,6 +9,9 @@ export interface ProductItem {
   imageurl: string;
   rating: number;
   price: number;
+  brand: string;
+  productCode: string;
+  stock: number;
 }
 
 export interface ProductVariant {

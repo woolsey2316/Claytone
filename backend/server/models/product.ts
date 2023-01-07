@@ -18,6 +18,9 @@ export type IProduct = {
   description: string;
   createdAt: Date;
   updatedAt: Date;
+  brand: string;
+  productCode: string;
+  stock: number;
 
 }
 
@@ -60,6 +63,15 @@ const productSchema = new mongoose.Schema<IProduct>(
       required: false
     },
     rating: {
+      type: Number
+    },
+    brand: {
+      type: String
+    },
+    productCode: {
+      type: String
+    },
+    stock: {
       type: Number
     }
   },

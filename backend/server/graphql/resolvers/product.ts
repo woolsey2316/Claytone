@@ -6,16 +6,6 @@ import mongoose from 'mongoose';
 import config from '../../../config';
 import Product from '../../models/product';
 
-type ProductInput = {
-  slug: string
-  rating: number
-  title: string
-  price: number
-  oldPrice?: number
-  createdAt: string
-  updatedAt: string
-  imageurl: string
-}
 const pubsub = new PubSub();
 const PRODUCT_ADDED = 'PRODUCT_ADDED';
 /** * Product Queries */
@@ -45,9 +35,11 @@ const ProductMutation = {
         rating: productInput.rating,
         updatedAt: productInput.updatedAt,
         createdAt: productInput.createdAt,
-        slug: productInput.slug
+        slug: productInput.slug,
+        brand: productInput.brand,
+        productCode: productInput.productCode,
+        stock: productInput.stock
       });
-      console.log("productInput = ", productInput)
       const savedProduct = await newProduct.save();
       pubsub.publish(PRODUCT_ADDED, {
         productAdded: savedProduct

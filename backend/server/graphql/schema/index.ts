@@ -6,13 +6,13 @@ import resolvers from '../resolvers/index';
 const typeDefs = gql`
   type Query {
     products: [Product!]!
-    reviews: [Review!]!
+    reviews(productId: String!): [Review!]!
     product(slug: String!): Product!
     login(email: String!, password: String!): AuthData!
   }
   type Mutation {
     createProduct(productInput: InputProduct): AuthData!
-    createReview(reviewInput: InputReview!): AuthData!
+    createReview(reviewInput: InputReview): AuthData!
     updateProduct(updateProduct: UpdateProduct): Product!
   }
   type Subscription {
@@ -30,6 +30,9 @@ const typeDefs = gql`
     createdAt: String!
     updatedAt: String!
     imageurl: String!
+    brand: String!
+    productCode: String!
+    stock: Float!
   }
   type Review {
     name: String!
@@ -58,6 +61,9 @@ const typeDefs = gql`
     createdAt: String!
     updatedAt: String!
     imageurl: String!
+    brand: String!
+    productCode: String!
+    stock: Float!
   }
   input UpdateProduct {
     _id: String!
@@ -69,6 +75,9 @@ const typeDefs = gql`
     createdAt: String!
     updatedAt: String!
     imageurl: String!
+    brand: String!
+    productCode: String!
+    stock: Float!
   }
 `;
 const schema: ApolloServerExpressConfig = {

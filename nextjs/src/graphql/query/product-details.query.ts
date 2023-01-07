@@ -6,11 +6,15 @@ export const productDetailsBySlug = graphql(/* GraphQL */`
       _id
       createdAt
       updatedAt
+      slug
       title
       price
       oldPrice
       imageurl
       rating
+      brand
+      productCode
+      stock
     }
   }
 `);

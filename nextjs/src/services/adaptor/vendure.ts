@@ -1,15 +1,21 @@
-import { IProductDetail } from "../../components/ProductView";
+
 import { ProductItem } from "../../contracts/products.type";
 
+import { IProductDetail } from "@/types/Product";
+
 export const productDetail = (data: ProductItem) => {
-  const { _id, title, price, description, rating, imageurl } = data;
+  const { _id, title, slug, price, description, rating, imageurl, brand, productCode, stock } = data;
   const newProduct: IProductDetail = {
     id: _id,
-    title: title,
+    title,
+    slug,
     price,
     description,
-    rating: rating,
-    imageurl
+    rating,
+    imageurl,
+    brand,
+    productCode,
+    stock
   };
   return newProduct;
 };

@@ -6,7 +6,10 @@
     "rating": 5,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
-    "imageurl": "/images/products/1-315x315.jpg"
+    "imageurl": "/images/products/1-315x315.jpg",
+    "brand": "Apple",
+    "productCode": "product 1",
+    "stock": 1
   },
   {
     "title": "Flower Frog Vase",
@@ -15,7 +18,10 @@
     "rating": 5,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
-    "imageurl": "/images/products/2-315x315.jpg"
+    "imageurl": "/images/products/2-315x315.jpg",
+    "brand": "Apple",
+    "productCode": "product 2",
+    "stock": 1
   },
   {
     "title": "Cynthia Vase",
@@ -24,7 +30,10 @@
     "rating": 4.75,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
-    "imageurl": "/images/products/3-315x315.jpg"
+    "imageurl": "/images/products/3-315x315.jpg",
+    "brand": "Apple",
+    "productCode": "product 3",
+    "stock": 1
   },
   {
     "title": "Water Pot",
@@ -34,7 +43,10 @@
     "rating": 3.5,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
-    "imageurl": "/images/products/4-315x315.jpg"
+    "imageurl": "/images/products/4-315x315.jpg",
+    "brand": "Apple",
+    "productCode": "product 4",
+    "stock": 1
   },
   {
     "title": "Pitcher",
@@ -43,7 +55,10 @@
     "rating": 5,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
-    "imageurl": "/images/products/5-315x315.jpg"
+    "imageurl": "/images/products/5-315x315.jpg",
+    "brand": "Apple",
+    "productCode": "product 5",
+    "stock": 1
   },
   {
     "title": "Ceramic Pot",
@@ -52,7 +67,10 @@
     "rating": 2.75,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
-    "imageurl": "/images/products/6-315x315.jpg"
+    "imageurl": "/images/products/6-315x315.jpg",
+    "brand": "Apple",
+    "productCode": "product 6",
+    "stock": 1
   },
   {
     "title": "Wall Art Tile",
@@ -61,7 +79,10 @@
     "rating": 5,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
-    "imageurl": "/images/products/7-315x315.jpg"
+    "imageurl": "/images/products/7-315x315.jpg",
+    "brand": "Apple",
+    "productCode": "product 7",
+    "stock": 1
   },
   {
     "title": "Sake Tray",
@@ -71,7 +92,10 @@
     "rating": 1.65,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
-    "imageurl": "/images/products/8-315x315.jpg"
+    "imageurl": "/images/products/8-315x315.jpg",
+    "brand": "Apple",
+    "productCode": "product 8",
+    "stock": 1
   },
   {
     "title": "Illuminated Vase",
@@ -81,7 +105,10 @@
     "rating": 3.65,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
-    "imageurl": "/images/products/9-315x315.jpg"
+    "imageurl": "/images/products/9-315x315.jpg",
+    "brand": "Apple",
+    "productCode": "product 9",
+    "stock": 1
   },
   {
     "title": "Creamer",
@@ -91,7 +118,10 @@
     "rating": 3.65,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
-    "imageurl": "/images/products/10-315x315.jpg"
+    "imageurl": "/images/products/10-315x315.jpg",
+    "brand": "Apple",
+    "productCode": "product 10",
+    "stock": 1
   },
   {
     "title": "Pottery",
@@ -100,7 +130,10 @@
     "rating": 4,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
-    "imageurl": "/images/products/11-315x315.jpg"
+    "imageurl": "/images/products/11-315x315.jpg",
+    "brand": "Apple",
+    "productCode": "product 11",
+    "stock": 1
   },
   {
     "title": "Prep Bowl",
@@ -109,7 +142,10 @@
     "rating": 5,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
-    "imageurl": "/images/products/12-315x315.jpg"
+    "imageurl": "/images/products/12-315x315.jpg",
+    "brand": "Apple",
+    "productCode": "product 12",
+    "stock": 1
   },
   {
     "title": "Serving Bowl",
@@ -118,7 +154,10 @@
     "rating": 4,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
-    "imageurl": "/images/products/13-315x315.jpg"
+    "imageurl": "/images/products/13-315x315.jpg",
+    "brand": "Apple",
+    "productCode": "product 13",
+    "stock": 1
   },
   {
     "title": "Tea Bag Holder",
@@ -128,7 +167,10 @@
     "rating": 0,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
-    "imageurl": "/images/products/14-315x315.jpg"
+    "imageurl": "/images/products/14-315x315.jpg",
+    "brand": "Apple",
+    "productCode": "product 14",
+    "stock": 1
   },
   {
     "title": "Wine Chiller",
@@ -137,7 +179,10 @@
     "rating": 4,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
-    "imageurl": "/images/products/15-315x315.jpg"
+    "imageurl": "/images/products/15-315x315.jpg",
+    "brand": "Apple",
+    "productCode": "product 15",
+    "stock": 1
   },
   {
     "title": "Honey Jar",
@@ -147,7 +192,10 @@
     "rating": 4,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
-    "imageurl": "/images/products/16-315x315.jpg"
+    "imageurl": "/images/products/16-315x315.jpg",
+    "brand": "Apple",
+    "productCode": "product 16",
+    "stock": 1
   },
   {
     "title": "Garlic Keeper",
@@ -156,7 +204,10 @@
     "rating": 3,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
-    "imageurl": "/images/products/17-315x315.jpg"
+    "imageurl": "/images/products/17-315x315.jpg",
+    "brand": "Apple",
+    "productCode": "product 17",
+    "stock": 1
   },
   {
     "title": "Sake Shot Glass",
@@ -166,6 +217,9 @@
     "rating": 2.5,
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
-    "imageurl": "/images/products/18-315x315.jpg"
+    "imageurl": "/images/products/18-315x315.jpg",
+    "brand": "Apple",
+    "productCode": "product 18",
+    "stock": 1
   }
 ]
