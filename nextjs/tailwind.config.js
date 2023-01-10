@@ -87,9 +87,11 @@ module.exports = {
         'light-grey': '#777777',
         grey: '#c5c5c5',
         darkGrey: '#AAAAAA',
+        greyish: '#ddd',
         'lighter-grey': '#e5e5e5',
         nearWhite: '#f7f7f7',
-        gold: '#f2ba0e'
+        gold: '#f2ba0e',
+        blood: '#f00'
       },
       keyframes: {
         flicker: {
@@ -120,6 +122,11 @@ module.exports = {
   },
   variants: {
     extend: {
+      fontSize: [
+        'responsive',
+        'before',
+        'after'
+      ],
       background: [
         'responsive',
         'before',

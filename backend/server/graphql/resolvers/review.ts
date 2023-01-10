@@ -29,6 +29,7 @@ const ReviewMutation = {
       name: reviewInput.name,
       description: reviewInput.description,
       rating: reviewInput.rating,
+      date: reviewInput.date,
       productId: reviewInput.productId,
     });
     const savedReview = await newReview.save();

@@ -38,7 +38,8 @@ const ProductMutation = {
         slug: productInput.slug,
         brand: productInput.brand,
         productCode: productInput.productCode,
-        stock: productInput.stock
+        stock: productInput.stock,
+        description: productInput.description
       });
       const savedProduct = await newProduct.save();
       pubsub.publish(PRODUCT_ADDED, {

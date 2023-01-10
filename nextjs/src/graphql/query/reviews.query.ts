@@ -4,6 +4,9 @@ export const REVIEWS = graphql(/* GraphQL */`
   query REVIEWS($productId: String!){
     reviews(productId: $productId) {
      	name
+      description
+      rating
+      createdAt
     }
   }
 `)

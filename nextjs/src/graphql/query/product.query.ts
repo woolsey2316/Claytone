@@ -13,6 +13,7 @@ const GET_PRODUCTS = graphql(/* GraphQL */`
       imageurl
       price
       oldPrice
+      description
       rating
     }
   }

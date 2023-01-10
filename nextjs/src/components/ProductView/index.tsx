@@ -1,10 +1,17 @@
 import { useMutation, useQuery } from '@apollo/client';
 import Image from 'next/image'
 import React, { ChangeEvent, FC, useState } from "react";
+import ReactMarkdown from 'react-markdown'
 
 import { displayPrice } from '@/lib/priceDisplay';
 
 import BreadCrumb from '@/components/BreadCrumb';
+import { Heading } from '@/components/markdown-components/Heading';
+import { li } from '@/components/markdown-components/li';
+import { ol } from '@/components/markdown-components/ol';
+import { p } from '@/components/markdown-components/p';
+import { ul } from '@/components/markdown-components/ul';
+import PaneTitle from '@/components/PaneTitle';
 import Rating from '@/components/Rating';
 
 import CREATE_REVIEW from '@/graphql/mutation/createReview';
@@ -23,8 +30,9 @@ export interface IProductAttr {
 }
 
 export const ProductView: FC<Props> = ({ product }) => {
-  const review_ = {name: "", description: "", rating: -1, productId: product.id}
+  const review_ = {name: "", description: "", rating: 5, productId: product.id}
   const [qty, setQty] = useState(0)
+  const [show, setShow] = useState(0)
   const increment = () => {
     setQty(qty => qty + 1)
   }
@@ -64,18 +72,16 @@ export const ProductView: FC<Props> = ({ product }) => {
   };
 
   const handleRatingChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const val = event.target.value === "" ? "0": event.target.value
     setReview((review) => ({
       ...review, 
-      rating: parseInt(val)
+      rating: parseInt(event.target.value)
     }));
   }
 
   const validForm = () => {
     return review.description &&
       review.name &&
-      review.productId &&
-      review.rating != -1
+      review.productId
   }
   return (
     <section>
@@ -83,7 +89,7 @@ export const ProductView: FC<Props> = ({ product }) => {
       <div className="bg-nearWhite">
         <BreadCrumb/>
       </div>
-      <div className="container">
+      <div className="mx-auto w-full sm:w-3xl md:w-4xl lg:w-5xl xl:w-6xl 2xl:w-7xl">
         <div className="flex flex-col md:flex-row">
           <div className="w-1/2">
             <Image className="border-3 border-r-coral border-t-coral border-l-black border-b-black" alt="product image" width="654" height="654" src={product.imageurl}></Image>
@@ -117,56 +123,119 @@ export const ProductView: FC<Props> = ({ product }) => {
             <h3 className="font-jost text-2xl font-medium">${displayPrice(product.price)}</h3>
             <p className="font-jost text-light-grey text-sm">Ex. Tax ${displayPrice(0.9 * product.price)}</p>
             <hr className="text-lighter-grey mt-5 mb-5"></hr>
-            <p className="font-jost font-medium">Qty</p>
-            <div className="rounded-md border border-lighter-grey flex w-[116px]">
-              <button className="h-[38px] w-[38px]" onClick={decrement}>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mx-auto" viewBox="0 0 448 512">
-                  <path d="M432 256c0 17.7-14.3 32-32 32H48c-17.7 0-32-14.3-32-32s14.3-32 32-32h352c17.7 0 32 14.3 32 32z"/>
-                </svg>
-              </button>
-              <div className="h-[38px] w-[38px] flex align-center justify-center items-center">
-                <div className="">{qty}</div>
+            <p className="font-jost font-medium mb-2.5">Qty</p>
+            <div className="flex">
+              <div className="rounded-md border border-lighter-grey flex w-[116px]">
+                <button className="h-[38px] w-[38px]" onClick={decrement}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mx-auto" viewBox="0 0 448 512">
+                    <path d="M432 256c0 17.7-14.3 32-32 32H48c-17.7 0-32-14.3-32-32s14.3-32 32-32h352c17.7 0 32 14.3 32 32z"/>
+                  </svg>
+                </button>
+                <div className="h-[38px] w-[38px] flex align-center justify-center items-center">
+                  <div className="">{qty}</div>
+                </div>
+                <button className="h-[38px] w-[38px]" onClick={increment}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mx-auto" viewBox="0 0 448 512">
+                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32v144H48c-17.7 0-32 14.3-32 32s14.3 32 32 32h144v144c0 17.7 14.3 32 32 32s32-14.3 32-32V288h144c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+                  </svg>
+                </button>
               </div>
-              <button className="h-[38px] w-[38px]" onClick={increment}>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mx-auto" viewBox="0 0 448 512">
-                  <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32v144H48c-17.7 0-32 14.3-32 32s14.3 32 32 32h144v144c0 17.7 14.3 32 32 32s32-14.3 32-32V288h144c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
-                </svg>
-              </button>
+              <button className="lg:text-md relative block cursor-pointer overflow-hidden rounded bg-coral px-5 py-3 text-sm font-medium uppercase text-white hover:bg-black before:absolute before:top-0 before:left-0 before:h-full before:w-full before:-translate-x-full before:transform before:rounded before:bg-white before:opacity-30 before:transition before:duration-1000 before:ease-out before:empty-content hover:before:translate-x-0 ml-4">Add to Cart</button>
             </div>
-
           </div>
         </div>
       </div>
-        <form
-          id="review"
-          onSubmit={() => validForm() && saveReview()}
-        >
-          <input
-            type='text'
-            placeholder='Name'
-            name='name'
-            value={review.name}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type='text'
-            placeholder='Description'
-            name='description'
-            value={review.description}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type='text'
-            placeholder='Rating'
-            name='rating'
-            value={review.rating}
-            onChange={handleRatingChange}
-            required
-          />
-          <input type='submit' value='Submit' className='update-button' />
-        </form>
+      {/* Description container and review container */}
+      <div className="mx-auto w-full sm:w-3xl md:w-4xl lg:w-5xl xl:w-6xl 2xl:w-7xl">
+        <div className="mt-5">
+          <ul className="flex justify-center gap-4 bg-coral rounded-t-md">
+            <PaneTitle number={0} show={show} onclick={() => setShow(0)} name="description"/>
+            <PaneTitle number={1} show={show} onclick={() => setShow(1)} name="reviews"/>
+          </ul>
+          {/* product description content */}
+          <div id="description-pane" className={`p-[30px] bg-nearWhite ${show === 0 ? "block" : "hidden"}`}>
+            <ReactMarkdown components={{
+              h1: Heading.H1,
+              h2: Heading.H2,
+              h3: Heading.H3,
+              h4: Heading.H4,
+              h5: Heading.H5,
+              h6: Heading.H6,
+              p: p,
+              ol: ol,
+              ul: ul,
+              li: li
+            }}>{product.description}</ReactMarkdown>
+          </div>
+          {/* reviews content */}
+          <div id="review-pane" className={`p-[30px] bg-nearWhite ${show === 1 ? "block" : "hidden"}`}>
+            {reviewArray?.reviews.map((review, index) =>
+              <div className="bg-white mb-4" key={index}> 
+                <div className="flex">
+                  <p className="w-full py-2.5 px-[15px] border border-greyish border-r-0 font-jost font-bold text-sm">{review.name}</p>
+                  <p className="w-full text-right py-2.5 px-[15px] border border-greyish font-jost text-sm">{new Date(parseInt(review.createdAt)).toLocaleDateString("en-US")}</p>
+                </div>
+                <div className="py-2.5 px-[15px] border border-greyish border-t-0">
+                  <p className="mb-3 font-jost text-sm">{review.description}</p>
+                  <Rating rating={review.rating} size={3}/>
+                </div>
+              </div>
+            )}
+            <h3 className="font-jost font-medium text-lg mb-[15px]">Write a Review</h3>
+            {/* write a review form */}
+            <form
+              id="review"
+              onSubmit={() => validForm() && saveReview()}
+            >
+              <div className="grid grid-cols-12 mb-5">
+                <div className="col-span-2">
+                  <label className="mr-4"><span className="text-blood font-bold mr-3">*</span>Your Name</label>
+                </div>
+                <div className="col-span-10">
+                  <input
+                    type='text'
+                    className='py-[5px] px-[15px] rounded-md border border-lighter-grey w-full'
+                    name='name'
+                    value={review.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-12 mb-5">
+                <div className="col-span-2">
+                  <label className="mr-4"><span className="text-blood font-bold mr-3">*</span>Your Review</label>
+                </div>
+                <div className="col-span-10">
+                  <input
+                    type='text'
+                    name='description'
+                    className='py-[5px] px-[15px] rounded-md border border-lighter-grey w-full h-20'
+                    value={review.description}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-12 mb-5">
+                <div className="col-span-2">
+                  <label className="mr-4"><span className="text-blood font-bold mr-3">*</span>Your Rating</label>
+                </div>
+                <div className="col-span-10">
+                  <input className="mr-2" onChange={handleRatingChange} checked={review.rating === 1} type="radio" id="1" name="rating" value={1}></input>
+                  <input className="mr-2" onChange={handleRatingChange} checked={review.rating === 2} type="radio" id="2" name="rating" value={2}></input>
+                  <input className="mr-2" onChange={handleRatingChange} checked={review.rating === 3} type="radio" id="3" name="rating" value={3}></input>
+                  <input className="mr-2" onChange={handleRatingChange} checked={review.rating === 4} type="radio" id="4" name="rating" value={4}></input>
+                  <input className="mr-2" onChange={handleRatingChange} checked={review.rating === 5} type="radio" id="5" name="rating" value={5}></input>
+                </div>
+              </div>
+              <div>
+                <input className="" type='submit' value='Submit' />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

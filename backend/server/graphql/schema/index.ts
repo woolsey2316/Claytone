@@ -31,6 +31,7 @@ const typeDefs = gql`
     updatedAt: String!
     imageurl: String!
     brand: String!
+    description: String!
     productCode: String!
     stock: Float!
   }
@@ -38,6 +39,7 @@ const typeDefs = gql`
     name: String!
     description: String!
     rating: Float!
+    createdAt: String!
     productId: String!
   }
   input InputReview {
@@ -61,6 +63,7 @@ const typeDefs = gql`
     createdAt: String!
     updatedAt: String!
     imageurl: String!
+    description: String!
     brand: String!
     productCode: String!
     stock: Float!
@@ -74,6 +77,7 @@ const typeDefs = gql`
     oldPrice: Float
     createdAt: String!
     updatedAt: String!
+    description: String!
     imageurl: String!
     brand: String!
     productCode: String!

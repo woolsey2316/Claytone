@@ -16,10 +16,10 @@ const documents = {
     "\n  mutation createReview($reviewInput: InputReview) {\n    createReview(reviewInput: $reviewInput) {\n      token\n    }\n  }\n": types.CreateReviewDocument,
     "\n  mutation createProduct($productInput: InputProduct) {\n    createProduct(productInput: $productInput) {\n      token\n    }\n  }\n": types.CreateProductDocument,
     "\n  mutation updateProduct($updateProduct: UpdateProduct) {\n    updateProduct(updateProduct: $updateProduct) {\n      _id\n      title\n      imageurl\n      price\n      rating\n      oldPrice\n    }\n  }\n": types.UpdateProductDocument,
-    "\n  query PRODUCT_BY_SLUG ($slug: String!) {\n    product(slug: $slug) {\n      _id\n      createdAt\n      updatedAt\n      slug\n      title\n      price\n      oldPrice\n      imageurl\n      rating\n      brand\n      productCode\n      stock\n    }\n  }\n": types.Product_By_SlugDocument,
+    "\n  query PRODUCT_BY_SLUG ($slug: String!) {\n    product(slug: $slug) {\n      _id\n      createdAt\n      updatedAt\n      slug\n      title\n      price\n      oldPrice\n      imageurl\n      description\n      rating\n      brand\n      productCode\n      stock\n    }\n  }\n": types.Product_By_SlugDocument,
     "\n  query PRODUCT_SLUG {\n    products {\n      _id\n      slug\n    }\n  }\n": types.Product_SlugDocument,
-    "\n  query PRODUCTS {\n    products {\n      title\n      _id\n      imageurl\n      price\n      oldPrice\n      rating\n    }\n  }\n": types.ProductsDocument,
-    "\n  query REVIEWS($productId: String!){\n    reviews(productId: $productId) {\n     \tname\n    }\n  }\n": types.ReviewsDocument,
+    "\n  query PRODUCTS {\n    products {\n      title\n      _id\n      imageurl\n      price\n      oldPrice\n      description\n      rating\n    }\n  }\n": types.ProductsDocument,
+    "\n  query REVIEWS($productId: String!){\n    reviews(productId: $productId) {\n     \tname\n      description\n      rating\n      createdAt\n    }\n  }\n": types.ReviewsDocument,
 };
 
 /**
@@ -37,7 +37,7 @@ export function graphql(source: "\n  mutation updateProduct($updateProduct: Upda
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query PRODUCT_BY_SLUG ($slug: String!) {\n    product(slug: $slug) {\n      _id\n      createdAt\n      updatedAt\n      slug\n      title\n      price\n      oldPrice\n      imageurl\n      rating\n      brand\n      productCode\n      stock\n    }\n  }\n"): (typeof documents)["\n  query PRODUCT_BY_SLUG ($slug: String!) {\n    product(slug: $slug) {\n      _id\n      createdAt\n      updatedAt\n      slug\n      title\n      price\n      oldPrice\n      imageurl\n      rating\n      brand\n      productCode\n      stock\n    }\n  }\n"];
+export function graphql(source: "\n  query PRODUCT_BY_SLUG ($slug: String!) {\n    product(slug: $slug) {\n      _id\n      createdAt\n      updatedAt\n      slug\n      title\n      price\n      oldPrice\n      imageurl\n      description\n      rating\n      brand\n      productCode\n      stock\n    }\n  }\n"): (typeof documents)["\n  query PRODUCT_BY_SLUG ($slug: String!) {\n    product(slug: $slug) {\n      _id\n      createdAt\n      updatedAt\n      slug\n      title\n      price\n      oldPrice\n      imageurl\n      description\n      rating\n      brand\n      productCode\n      stock\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -45,11 +45,11 @@ export function graphql(source: "\n  query PRODUCT_SLUG {\n    products {\n     
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query PRODUCTS {\n    products {\n      title\n      _id\n      imageurl\n      price\n      oldPrice\n      rating\n    }\n  }\n"): (typeof documents)["\n  query PRODUCTS {\n    products {\n      title\n      _id\n      imageurl\n      price\n      oldPrice\n      rating\n    }\n  }\n"];
+export function graphql(source: "\n  query PRODUCTS {\n    products {\n      title\n      _id\n      imageurl\n      price\n      oldPrice\n      description\n      rating\n    }\n  }\n"): (typeof documents)["\n  query PRODUCTS {\n    products {\n      title\n      _id\n      imageurl\n      price\n      oldPrice\n      description\n      rating\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query REVIEWS($productId: String!){\n    reviews(productId: $productId) {\n     \tname\n    }\n  }\n"): (typeof documents)["\n  query REVIEWS($productId: String!){\n    reviews(productId: $productId) {\n     \tname\n    }\n  }\n"];
+export function graphql(source: "\n  query REVIEWS($productId: String!){\n    reviews(productId: $productId) {\n     \tname\n      description\n      rating\n      createdAt\n    }\n  }\n"): (typeof documents)["\n  query REVIEWS($productId: String!){\n    reviews(productId: $productId) {\n     \tname\n      description\n      rating\n      createdAt\n    }\n  }\n"];
 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.

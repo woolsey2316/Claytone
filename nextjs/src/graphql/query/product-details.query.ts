@@ -11,6 +11,7 @@ export const productDetailsBySlug = graphql(/* GraphQL */`
       price
       oldPrice
       imageurl
+      description
       rating
       brand
       productCode
