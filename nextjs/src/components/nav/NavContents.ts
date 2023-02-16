@@ -44,7 +44,7 @@ export const MobNavData = {
 
 export const DesktopNavData: Record<
   string,
-  string[] | Record<string, Record<string, null> | string[]> | null
+  string[] | Record<string, string[]> | null
 > = {
   Home: null,
   Shop: {

@@ -17,8 +17,6 @@ function DesktopNavBar() {
                 Array.isArray(navLinkcollection) ? (
                   <SimpleNavList list={navLinkcollection} />
                 ) : (
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore
                   <CategoryNavList list={navLinkcollection} />
                 )
               ) : null}

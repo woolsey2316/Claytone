@@ -106,7 +106,7 @@ class Update extends React.PureComponent<any, UpdateProduct> {
                 onChange={this.handleChange}
                 className='update-input-box'
               />
-              <input type='submit' value='Submit' className='update-button' />
+              <input type='submit' value='Submit' className='' />
             </form>
           )}
         </Mutation>

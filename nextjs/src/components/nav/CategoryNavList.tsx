@@ -4,6 +4,9 @@ import { slugify } from '@/lib/slugify';
 type Props = {
   list: Record<string, string[]>;
 };
+/*
+  nav items care not links, but may also be category  
+*/
 function CategoryNavList({ list }: Props) {
   return (
     <div className='absolute top-[60px] grid origin-top-left scale-0 grid-cols-3 grid-rows-2 border-b-2 border-b-coral bg-white px-4 py-2 shadow-lg transition duration-500 ease-out group-hover:scale-100'>

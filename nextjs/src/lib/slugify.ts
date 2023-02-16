@@ -1,5 +1,5 @@
 export function slugify(string: string) {
-  return string.toLowerCase().replace(' ', '-')
+  return string.toLowerCase().replaceAll(' ', '-')
 }
 export function deSlugify(string: string) {
   if (string === "") return ""

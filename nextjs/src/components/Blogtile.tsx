@@ -15,7 +15,7 @@ function Blogtile({ blogPost }: Props) {
     <div className='mt-1 flex flex-col lg:flex-auto lg:flex-row lg:items-end'>
       <div className='relative h-auto w-full flex-shrink-0 lg:h-315px lg:w-315px'>
         <Image
-          className='mt-2 h-auto w-full lg:h-315px lg:w-315px'
+          className='h-auto w-full lg:h-315px lg:w-315px'
           src={blogPost.imageurl}
           alt='blog post image'
           width={315}
