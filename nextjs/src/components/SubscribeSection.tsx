@@ -20,7 +20,7 @@ function SubscribeSection() {
         <h3 className='mb-[27px] font-niconne text-5xl'>
           Subscribe Newsletter
         </h3>
-        <p className='mb-[29px] text-light-grey'>
+        <p className='mb-[29px] text-grey2'>
           Subscribe to our Newsletters now and stay up to date with new
           collections, the latest lookbooks and exclusive offers.
         </p>

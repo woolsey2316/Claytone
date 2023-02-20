@@ -25,7 +25,7 @@ function ShowChildrenButtons({ setShowChildren, showChildren }: Props) {
         <svg className='h-3 w-3 fill-current stroke-black hover:stroke-coral'>
           <path
             stroke='fill-current'
-            stroke-width='3'
+            strokeWidth='3'
             d='M5.5 0v5.5m0 5.5V5.5m0 0H11 0'
           />
         </svg>

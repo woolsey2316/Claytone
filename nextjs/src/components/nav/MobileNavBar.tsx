@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { MobileNavCategory } from './MobileNavCategory';
+import { CategoryTree } from '@/components/CategoryTree';
+
 import { MobNavData } from './NavContents';
 
 type MobileNavBarProps = {
@@ -29,12 +30,12 @@ function MobileNavBar({ setOpen }: MobileNavBarProps) {
       <ul className='py-2.5 px-5'>
         {Object.entries(MobNavData).map(([k, v]) => {
           return (
-            <MobileNavCategory
+            <CategoryTree
               key={k}
               category={k}
               subCategories={v}
               calls={0}
-            ></MobileNavCategory>
+            ></CategoryTree>
           );
         })}
       </ul>

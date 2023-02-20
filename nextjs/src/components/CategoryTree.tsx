@@ -2,24 +2,24 @@ import React from 'react';
 
 import { ShowChildrenButtons } from '@/components/nav/ShowChildrenButtons';
 
-type MobileNavCategoryProps = {
+type CategoryTreeProps = {
   category: string;
   subCategories: Record<string, Record<string, null> | null> | null;
   calls: number;
 };
 /*
-  MobileNavCategory calls recursively like a family tree data structure would need to be rendered
+  CategoryTree calls recursively like a family tree data structure would need to be rendered.
   every child category may be a parent of more categories 
   eg.
-  SHOP                - Parent = MobileNavCategory
-    Handmade Pottery  - Parent and child = MobileNavCategory
-      Creamer           child = MobileNavCategory
+  SHOP                - Parent = CategoryTree
+    Handmade Pottery  - Parent and child = CategoryTree
+      Creamer           child = CategoryTree
 */
-function MobileNavCategory({
+function CategoryTree({
   category,
   subCategories,
   calls, // number of function calls this recursive function component makes
-}: MobileNavCategoryProps) {
+}: CategoryTreeProps) {
   const [showChildren, setShowChildren] = React.useState(false);
   return (
     <li>
@@ -41,12 +41,12 @@ function MobileNavCategory({
           ></ShowChildrenButtons>
         ) : null}
       </div>
-      {/* show mobile nav sub categories here if any*/}
-      {subCategories && showChildren ? (
-        <div className='mx-2.5'>
+      {/* show mobile nav sub categories here if any */}
+      {subCategories ? (
+        <ul className={`${showChildren ? "max-h-50" : "max-h-0"} mx-2.5 transition-all duration-700 overflow-hidden`}>
           {Object.entries(subCategories).map(([k, v]) => {
             return (
-              <MobileNavCategory
+              <CategoryTree
                 key={k}
                 category={k}
                 subCategories={v}
@@ -54,10 +54,10 @@ function MobileNavCategory({
               />
             );
           })}
-        </div>
+        </ul>
       ) : null}
     </li>
   );
 }
 
-export { MobileNavCategory };
+export { CategoryTree };

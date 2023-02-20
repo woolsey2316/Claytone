@@ -18,7 +18,7 @@ function CategoryNavList({ list }: Props) {
           <div className='flex flex-col'>
             {linkArray.map((link) => (
               <a
-                className='py-1 text-sm font-medium normal-case text-light-grey hover:text-coral'
+                className='py-1 text-sm font-medium normal-case text-grey2 hover:text-coral'
                 key={link}
                 href={`/product/view/${slugify(link)}`}
               >

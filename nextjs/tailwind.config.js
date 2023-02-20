@@ -6,6 +6,14 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      screens: {
+
+      'large': '992px',
+
+      'xlarge': '1200px',
+
+      '2xlarge': '1441px',
+      },
       borderWidth: {
         3: '3px'
       },
@@ -29,6 +37,8 @@ module.exports = {
         '-45': '-45deg',
       },
       spacing: {
+        '15px': '15px',
+        '-15px': '-15px',
         '1/10': '10%',
         '7xl': '1380px',
         '6.5xl': '1280px',
@@ -58,6 +68,7 @@ module.exports = {
         '265px': '265px',
         '315px': '315px',
         body: 'calc(100% - 21rem)',
+
       },
       fontFamily: {
         primary: ['Jost', ...fontFamily.sans],
@@ -82,9 +93,9 @@ module.exports = {
         },
         'grey-medium': '#3b3b3b',
         dark: '#222222',
-        darkBlack: '#111111',
+        black2: '#111111',
         coral: '#ca6e57',
-        'light-grey': '#777777',
+        'grey2': '#777777',
         grey: '#c5c5c5',
         darkGrey: '#AAAAAA',
         greyish: '#ddd',

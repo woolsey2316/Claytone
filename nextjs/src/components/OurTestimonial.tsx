@@ -63,13 +63,13 @@ function OurTestimonial() {
             src='/images/profile-woman.jpg'
           ></Image>
         </div>
-        <p className='mb-3 mt-6 text-light-grey'>
+        <p className='mb-3 mt-6 text-grey2'>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Ut enim ad minim veniam, quis nostrud exercitation ullamco
           laboris nisi ut aliquip ex ea commodo consequat.
         </p>
         <p className='text-black'>Jane Deo</p>
-        <p className='mt-2 mb-6 text-sm text-light-grey'>Customer</p>
+        <p className='mt-2 mb-6 text-sm text-grey2'>Customer</p>
       </div>
       <div className='flex flex-col items-center'>
         <h3 className='mb-27px font-niconne text-5xl'>Our Testimonial</h3>
@@ -89,13 +89,13 @@ function OurTestimonial() {
             src='/images/profile-guy.jpg'
           ></Image>
         </div>
-        <p className='mb-3 mt-6 text-light-grey'>
+        <p className='mb-3 mt-6 text-grey2'>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Ut enim ad minim veniam, quis nostrud exercitation ullamco
           laboris nisi ut aliquip ex ea commodo consequat.
         </p>
         <p className='text-black'>Luis Charles</p>
-        <p className='mt-2 mb-6 text-sm text-light-grey'>Customer</p>
+        <p className='mt-2 mb-6 text-sm text-grey2'>Customer</p>
       </div>
     </Carousel>
   );

@@ -43,7 +43,7 @@ function NavBar() {
               <div className='mx-2 h-10 w-0.5 bg-lighter-grey'></div>
               <div>
                 <p className='uppercase'>Shopping Cart</p>
-                <p className='text-sm text-light-grey'>0 items - $0</p>
+                <p className='text-sm text-grey2'>0 items - $0</p>
               </div>
             </div>
           </div>

@@ -58,3 +58,35 @@ export const DesktopNavData: Record<
   More: ['Pottery', 'Bricks', 'Tiles', 'Earthen Wear', 'Products'],
   Blogs: null,
 };
+
+export const BlogNavData: Record<
+  string, 
+  Record<string, null> | null
+  > = {
+  Home: null,
+  Shop: {
+    'Handmade Pottery': null,
+    'Khurja Pottery': null,
+    Porcelain: null,
+    Stoneware: null,
+    Earthenware: null,
+  },
+  'Ceramic Pots': { 'Football Cermaic Pot': null, 'Railing Planters': null },
+  Pottery: {
+    'Illuminated Vase': null
+  },
+  Bricks: null,
+  Tiles: null,
+  'Earthen Wear': null,
+  Products: {
+    Accesories: null,
+    'Bacon Cooker': null,
+    'Bouquet Vase': null,
+    'Julia Vase': null,
+    'Sake Tray': null,
+    'Square Baker': null,
+    'Tea Bag Holder': null,
+    'Tea Pot': null,
+  },
+  Blogs: null,
+};

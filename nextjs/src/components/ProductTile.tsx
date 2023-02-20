@@ -35,7 +35,7 @@ function ProductTile({ product }: Props) {
         <div className='flex items-center justify-self-end'>
           <p className='text-sm font-medium'>${product.price}</p>
           {product.oldPrice ? (
-            <p className='ml-2 text-xs text-light-grey line-through'>
+            <p className='ml-2 text-xs text-grey2 line-through'>
               ${product.oldPrice}
             </p>
           ) : null}

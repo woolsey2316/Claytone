@@ -7,7 +7,7 @@ function Footer() {
   const [hide, setHide] = useState([true, true, true]);
   const breakpoint = useBreakpoint();
   return (
-    <footer className='mt-8 flex flex-col items-center bg-darkBlack pt-[47px]'>
+    <footer className='mt-8 flex flex-col items-center bg-black2 pt-[47px]'>
       <div className='mx-auto flex w-full flex-col justify-between sm:w-3xl lg:w-4xl lg:flex-row xl:w-6xl 2xl:w-7xl '>
         <div className='w-full px-10 lg:w-1/4'>
           <div className='flex justify-between'>

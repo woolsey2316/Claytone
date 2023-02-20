@@ -28,7 +28,7 @@ const H5: React.FC = (props) => {
 
 const H6: React.FC = (props) => {
   return (
-    <h6 {...props} className="font-bold text-light-grey mb-1"></h6>
+    <h6 {...props} className="font-bold text-grey2 mb-1"></h6>
   )
 }
 

@@ -16,7 +16,7 @@ function TeaPotSetCollections() {
               src='/images/plane.png'
             ></Image>
             <p className='mb-3 pt-8 font-medium'>Free Shipping Worldwide</p>
-            <p className='text-sm text-light-grey'>On orders over $150</p>
+            <p className='text-sm text-grey2'>On orders over $150</p>
           </div>
           <div className='mb-10 ml-10 border-0 lg:m-0 lg:ml-16 lg:border-r lg:border-r-lighter-grey lg:pr-16'>
             <Image
@@ -27,7 +27,7 @@ function TeaPotSetCollections() {
               src='/images/wallet.png'
             ></Image>
             <p className='mb-3 pt-8 font-medium'>Cash On Delivery</p>
-            <p className='text-sm text-light-grey'>100% money back guarantee</p>
+            <p className='text-sm text-grey2'>100% money back guarantee</p>
           </div>
           <div className='mb-10 ml-10 border-0 border-r lg:m-0 lg:ml-16 lg:border-r-lighter-grey lg:pr-16'>
             <Image
@@ -38,7 +38,7 @@ function TeaPotSetCollections() {
               src='/images/present.png'
             ></Image>
             <p className='mb-3 pt-8 font-medium'>Special Gift Card</p>
-            <p className='text-sm text-light-grey'>
+            <p className='text-sm text-grey2'>
               Offer special bonuses with gift
             </p>
           </div>
@@ -51,7 +51,7 @@ function TeaPotSetCollections() {
               src='/images/headphones.png'
             ></Image>
             <p className='mb-3 pt-8 font-medium'>24/7 Customer Service</p>
-            <p className='text-sm text-light-grey'>
+            <p className='text-sm text-grey2'>
               Call us 24/7 at 123-456-789
             </p>
           </div>
@@ -68,7 +68,7 @@ function TeaPotSetCollections() {
           ></Image>
           <div className='lg::w-1/2 flex flex-col items-center justify-center py-4 text-center lg:py-0'>
             <H3Heading>Teapot Set Collections</H3Heading>
-            <p className='mb-[28px] px-12 text-light-grey'>
+            <p className='mb-[28px] px-12 text-grey2'>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industrys standard dummy text
               ever since the 1500s, when an unknown printer took a galley of
