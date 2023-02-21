@@ -9,18 +9,26 @@ import {
   ReviewQueries,
   ReviewSubscription
 } from './review';
+import {
+  BlogPostMutation,
+  BlogPostQueries,
+  BlogPostSubscription
+} from './blogPost';
 const rootResolver = {
   Query: {
     ...ProductQueries,
-    ...ReviewQueries
+    ...ReviewQueries,
+    ...BlogPostQueries
   },
   Mutation: {
     ...ProductMutation,
-    ...ReviewMutation
+    ...ReviewMutation,
+    ...BlogPostMutation
   },
   Subscription: {
     ...ProductSubscription,
-    ...ReviewSubscription
+    ...ReviewSubscription,
+    ...BlogPostSubscription
   }
 };
 export default rootResolver;

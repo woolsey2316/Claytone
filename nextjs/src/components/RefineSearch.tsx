@@ -2,11 +2,11 @@ import React from 'react'
 
 function RefineSearch() {
   return ( 
-    <div className="mb-[30px]">
+    <div className="mb-30px">
       <div id="filter">
         <h3 className="py-[15px] px-[20px] text-lg text-left uppercase relative font-medium leading-5 rounded-t bg-coral text-white">Refine Search</h3>
         {/* filter box */}
-        <div className="py-[30px] px-[20px] rounded-b bg-nearWhite">
+        <div className="py-30px px-[20px] rounded-b bg-nearWhite">
           <div className="mb-[25px]">
             <a className="text-black2 mb-[12px] mt-[-4px] font-medium"></a>
             <div className="border-none relative">

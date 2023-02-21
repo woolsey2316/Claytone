@@ -239,7 +239,7 @@ function Footer() {
               hide[2] && breakpoint != 'desktop' ? ' max-h-0 scale-y-0' : ''
             } mb-4 lg:mb-0`}
           >
-            <li className='flex h-[30px] items-center'>
+            <li className='flex h-30px items-center'>
               <a
                 href='/about us'
                 className='cursor-pointer font-medium text-darkGrey hover:text-coral'
@@ -247,7 +247,7 @@ function Footer() {
                 About Us
               </a>
             </li>
-            <li className='flex h-[30px] items-center'>
+            <li className='flex h-30px items-center'>
               <a
                 href='/delivery information'
                 className='cursor-pointer font-medium text-darkGrey hover:text-coral'
@@ -255,7 +255,7 @@ function Footer() {
                 Delivery Information
               </a>
             </li>
-            <li className='flex h-[30px] items-center'>
+            <li className='flex h-30px items-center'>
               <a
                 href='/privacy policy'
                 className='cursor-pointer font-medium text-darkGrey hover:text-coral'
@@ -263,7 +263,7 @@ function Footer() {
                 Privacy Policy
               </a>
             </li>
-            <li className='flex h-[30px] items-center'>
+            <li className='flex h-30px items-center'>
               <a
                 href='/terms and conditions'
                 className='cursor-pointer font-medium text-darkGrey hover:text-coral'
@@ -271,7 +271,7 @@ function Footer() {
                 Terms and Conditions
               </a>
             </li>
-            <li className='flex h-[30px] items-center'>
+            <li className='flex h-30px items-center'>
               <a
                 href='/contact us'
                 className='cursor-pointer font-medium text-darkGrey hover:text-coral'
@@ -284,7 +284,7 @@ function Footer() {
       </div>
       <div className='mt-[50px] flex w-full border-t border-grey-medium py-[23px]'>
         <div className='mx-auto lg:w-4xl xl:w-6xl 2xl:w-7xl'>
-          <div className='flex w-full flex-col items-center justify-between lg:flex-row'>
+          <div className='flex w-full flex-col items-center justify-between lg:flex-row px-10'>
             <p className='mb-2 text-darkGrey lg:mb-0'>
               Powered By OpenCart Your Store © 2022
             </p>

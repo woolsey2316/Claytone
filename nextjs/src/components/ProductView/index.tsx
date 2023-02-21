@@ -153,7 +153,7 @@ export const ProductView: FC<Props> = ({ product }) => {
             <PaneTitle number={1} show={show} onclick={() => setShow(1)} name="reviews"/>
           </ul>
           {/* product description content */}
-          <div id="description-pane" className={`p-[30px] bg-nearWhite ${show === 0 ? "block" : "hidden"}`}>
+          <div id="description-pane" className={`p-30px bg-nearWhite ${show === 0 ? "block" : "hidden"}`}>
             <ReactMarkdown components={{
               h1: Heading.H1,
               h2: Heading.H2,
@@ -168,7 +168,7 @@ export const ProductView: FC<Props> = ({ product }) => {
             }}>{product.description}</ReactMarkdown>
           </div>
           {/* reviews content */}
-          <div id="review-pane" className={`p-[30px] bg-nearWhite ${show === 1 ? "block" : "hidden"}`}>
+          <div id="review-pane" className={`p-30px bg-nearWhite ${show === 1 ? "block" : "hidden"}`}>
             {reviewArray?.reviews.map((review, index) =>
               <div className="bg-white mb-4" key={index}> 
                 <div className="flex">

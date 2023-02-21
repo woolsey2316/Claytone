@@ -3,14 +3,13 @@
  * @author David Woolsey <woolsey2316@gmail.com>
  */
 
-import mongoose from 'mongoose';
-
+import mongoose, { Schema } from 'mongoose';
 
 export type IReview = {
   name: string;
   description: string;
   rating: number;
-  productId: string;
+  productId: Schema.Types.ObjectId;
 
 }
 
@@ -32,9 +31,9 @@ const reviewSchema = new mongoose.Schema<IReview>(
       required: true,
     },
     productId: {
-      type: String,
-      required: true
-    }
+      type: Schema.Types.ObjectId,
+      ref: 'Product'
+    },
   },
   {
     timestamps: true

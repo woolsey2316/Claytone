@@ -6,6 +6,7 @@ import BlogSearch from '@/components/BlogSearch';
 import BreadCrumb from '@/components/BreadCrumb';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import NativePatternArt from '@/components/NativePatternArt';
 import { NavBar } from '@/components/nav/NavBar';
 import Seo from '@/components/Seo';
 import Container from '@/container/Container';
@@ -23,19 +24,20 @@ export default function Blogs() {
             {/* Category box for blog */}
             <BlogSearch />
             <BestSellers />
+            <NativePatternArt />
           </aside>
           <div id="content" className="min-h-[600px] w-3/4 px-15px ">
             <div className="mx--15px flex flex-wrap">
-              <div className="w-1/2 mb-[30px] px-15px">
+              <div className="w-1/2 mb-30px px-15px">
                 <BlogCard title="Consectetur Adipiscing" image="/images/blog/blog1-1005x1005.jpg" date="13 Feb 2020"/>
               </div>
-              <div className="w-1/2 mb-[30px] px-15px">
+              <div className="w-1/2 mb-30px px-15px">
                 <BlogCard title="The Standard Lorem Ipsum" image="/images/blog/blog2-1005x1005.jpg" date="13 Feb 2020"/>
               </div>
-              <div className="w-1/2 mb-[30px] px-15px">
+              <div className="w-1/2 mb-30px px-15px">
                 <BlogCard title="Lorem Ipsum Dolo" image="/images/blog/blog3-1005x1005.jpg" date="13 Feb 2020"/>
               </div>
-              <div className="w-1/2 mb-[30px] px-15px">
+              <div className="w-1/2 mb-30px px-15px">
                 <BlogCard title="Nam Nec Rhoncus Est" image="/images/blog/blog4-1005x1005.jpg" date="13 Feb 2020"/>
               </div>
             </div>

@@ -31,6 +31,9 @@ export default BlogDetailsPage;
 export const getStaticPaths: GetStaticPaths = async () => {
   const vendureService = new VendureService();
   const resp = await vendureService.fetchBlogSlugs();
+  if (!resp?.data?.blogs) {
+    return { paths: [], fallback: false }
+  }
   const paths = resp.data.blogs.map((blog: any) => ({
     params: { id: blog.id, slug: blog.slug },
   }));

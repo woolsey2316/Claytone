@@ -12,7 +12,7 @@ interface Props {
 function ProductTag({image, title, price, oldPrice, rating}: Props) {
   return ( 
     <div className="w-full p-0">
-      <div className="mb-[30px] flex">
+      <div className="mb-30px flex">
         <div className="float-left w-[80px] mr-15px">
           <a href="">
             <Image alt="product" width="80" height="80" src={image}></Image>

@@ -17,11 +17,13 @@ function BlogCard({image, date, title}: Props) {
           </a>
         </div>
         <div>
-          <div className="relative pt-[16px] px-[20px] pb-[30px] bg-nearWhite">
+          <div className="relative pt-[16px] px-[20px] pb-30px bg-nearWhite">
             <span className="text-coral text-sm font-jost">
               {date}
             </span>
-            <h4 className="mt-[10px] text-lg text-black2">{title}</h4>
+            <h4 className="mt-[10px] text-lg">
+              <a href="" className="text-black2 hover:text-coral cursor-pointer">{title}</a>
+            </h4>
             <div className="text-grey2 mt-[11px] mb-[26px] leading-6">
               <span>
                 Lorem Ipsum is simply dummy text of the printing and typesetting 

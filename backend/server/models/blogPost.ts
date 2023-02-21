@@ -3,12 +3,16 @@
  * @author David Woolsey <woolsey2316@gmail.com>
  */
 
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
+import { IAuthor } from 'server/models/author';
 
 
 export type IBlogpost = {
+  author: IAuthor; 
   title: string;
   _id: string;
+  nLikes: number;
+  nComments: number;
   imageurl: string;
   slug: string;
   excerpt: string;
@@ -16,6 +20,7 @@ export type IBlogpost = {
   createdAt: Date;
   updatedAt: Date;
   featuredPost: boolean;
+  comments: Schema.Types.ObjectId;
 
 }
 
@@ -24,8 +29,23 @@ export type IBlogpost = {
  */
 const blogPostSchema = new mongoose.Schema<IBlogpost>(
   {
+    author: {
+      id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+      },
+      username: String
+    },
     title: {
       type: String,
+      required: true
+    },
+    nLikes: {
+      type: Number,
+      required: true
+    },
+    nComments: {
+      type: Number,
       required: true
     },
     imageurl: {
@@ -37,6 +57,16 @@ const blogPostSchema = new mongoose.Schema<IBlogpost>(
       required: true,
       unique: true,
     },
+    excerpt: {
+      type: String,
+      required: true,
+      unique: false,
+    },
+    content: {
+      type: String,
+      required: true,
+      unique: false,
+    },
     createdAt: {
       type: Date,
       required: true
@@ -45,6 +75,14 @@ const blogPostSchema = new mongoose.Schema<IBlogpost>(
       type: Date,
       required: true
     },
+    featuredPost: {
+      type: Boolean,
+      required: true
+    },
+    comments: [{
+      type: Schema.Types.ObjectId, 
+      ref: "Comment"
+    }]
   },
   {
     timestamps: true
@@ -57,10 +95,10 @@ const blogPostSchema = new mongoose.Schema<IBlogpost>(
 blogPostSchema.statics = {
   /**
    * Get blogpost
-   * @param {ObjectId} id - The objectId of blogpost.
+   * @param {String} slug - The slug of blogpost.
    */
-  get(id: string): mongoose.Document {
-    return this.findById(id)
+  get(slug: string): mongoose.Document {
+    return this.find({slug: slug})
       .execAsync()
       .then((blogpost: IBlogpost) => {
         if (blogpost) {

@@ -8,18 +8,29 @@ const typeDefs = gql`
     products: [Product!]!
     reviews(productId: String!): [Review!]!
     product(slug: String!): Product!
+    blogPost(slug: String!): BlogPost!
+    blogPosts: [BlogPost!]!
     login(email: String!, password: String!): AuthData!
   }
   type Mutation {
     createProduct(productInput: InputProduct): AuthData!
+    createBlogPost(blogPostInput: InputBlogPost): AuthData!
     createReview(reviewInput: InputReview): AuthData!
     updateProduct(updateProduct: UpdateProduct): Product!
   }
   type Subscription {
     productAdded: Product
     reviewAdded: Review
+    blogPostAdded: BlogPost
   }
-
+  type Author {
+    username: String!
+    password: String!
+  }
+  input InputAuthor {
+    username: String!
+    password: String!
+  }
   type Product {
     _id: String!
     slug: String!
@@ -82,6 +93,41 @@ const typeDefs = gql`
     brand: String!
     productCode: String!
     stock: Float!
+  }
+  type BlogPost {
+    author: Author!
+    title: String!
+    _id: String!
+    imageurl: String!
+    slug: String!
+    excerpt: String!
+    content: String!
+    createdAt: String!
+    updatedAt: String!
+    featuredPost: Boolean!
+  }
+  input InputBlogPost {
+    author: InputAuthor!
+    title: String!
+    _id: String!
+    imageurl: String!
+    slug: String!
+    excerpt: String!
+    content: String!
+    createdAt: String!
+    updatedAt: String!
+    featuredPost: Boolean!
+  }
+  input updateBlogPost {
+    author: InputAuthor!
+    title: String!
+    _id: String!
+    imageurl: String!
+    slug: String!
+    excerpt: String!
+    content: String!
+    updatedAt: String!
+    featuredPost: Boolean!
   }
 `;
 const schema: ApolloServerExpressConfig = {
