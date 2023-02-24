@@ -11,10 +11,17 @@ const GET_BLOGS = graphql(/* GraphQL */`
       author {
         username
       }
-      createdAt
-      slug
       title
+      author
+      nLikes
+      nComments
+      imageUrl
+      createdAt
+      updatedAt
+      slug
       excerpt
+      featuredPost
+      content
     }
   }
 `);
