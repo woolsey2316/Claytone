@@ -16,6 +16,8 @@ interface Props {
 
 const ProductDetailsPage: NextPage<Props> = ({ product }) => {
   if (product === undefined) return null
+  const vendureService = new VendureService();
+  const resp = vendureService.fetchProductSlugs();
   return (
     <Layout pageTitle={product.title}>
       <ProductView

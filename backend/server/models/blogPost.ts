@@ -40,14 +40,6 @@ const blogPostSchema = new mongoose.Schema<IBlogpost>(
       type: String,
       required: true
     },
-    nLikes: {
-      type: Number,
-      required: true
-    },
-    nComments: {
-      type: Number,
-      required: true
-    },
     imageurl: {
       type: String,
       required: true

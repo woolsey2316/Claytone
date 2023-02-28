@@ -1,8 +1,11 @@
 import React from 'react'
+
+import { IBlogpost } from "../../../backend/server/models/blogPost";
+
 type Props = {
-  blog: any
+  blogpost: IBlogpost
 }
-function BlogView({blog}: Props) {
+function BlogView({blogpost}: Props) {
   return ( <></> );
 }
 

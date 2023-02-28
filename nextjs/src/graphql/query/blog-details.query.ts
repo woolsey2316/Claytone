@@ -7,10 +7,7 @@ export const blogDetailsBySlug = graphql(/* GraphQL */`
         username
       }
       title
-      author
-      nLikes
-      nComments
-      imageUrl
+      imageurl
       createdAt
       updatedAt
       slug

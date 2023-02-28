@@ -12,10 +12,7 @@ const GET_BLOGS = graphql(/* GraphQL */`
         username
       }
       title
-      author
-      nLikes
-      nComments
-      imageUrl
+      imageurl
       createdAt
       updatedAt
       slug

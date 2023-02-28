@@ -2,9 +2,7 @@
   {
     "title": "Consectetur Adipiscing",
     "author": {"username": "wools", "password": "wools"},
-    "nLikes": 4,
-    "nComments": 2,
-    "imageUrl": "/images/blog/blog1-1005x1005.jpg",
+    "imageurl": "/images/blog/blog1-1005x1005.jpg",
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "slug": "consectetur-adipiscing",
@@ -14,9 +12,7 @@
   },{
     "title": "The Standard Lorem Ipsum",
     "author": {"username": "wools", "password": "wools"},
-    "nLikes": 4,
-    "nComments": 2,
-    "imageUrl": "/images/blog/blog2-1005x1005.jpg",
+    "imageurl": "/images/blog/blog2-1005x1005.jpg",
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "slug": "the-standard-lorem-ipsum",
@@ -26,9 +22,7 @@
   },{
     "title": "Lorem Ipsum Dolo",
     "author": {"username": "wools", "password": "wools"},
-    "nLikes": 4,
-    "nComments": 2,
-    "imageUrl": "/images/blog/blog3-1005x1005.jpg",
+    "imageurl": "/images/blog/blog3-1005x1005.jpg",
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "slug": "lorem-ipsum-dolo",
@@ -38,9 +32,7 @@
   },{
     "title": "Nam Nec Rhoncus Est",
     "author": {"username": "wools", "password": "wools"},
-    "nLikes": 4,
-    "nComments": 2,
-    "imageUrl": "/images/blog/blog4-1005x1005.jpg",
+    "imageurl": "/images/blog/blog4-1005x1005.jpg",
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "slug": "nam-nec-rhoncus-est",
