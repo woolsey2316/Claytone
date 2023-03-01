@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { IBlogpost } from "../../../backend/server/models/blogPost";
+import { IBlogpost } from "..@/server/models/blogPost";
 
 type Props = {
   blogpost: IBlogpost

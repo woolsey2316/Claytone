@@ -11,6 +11,7 @@ const GET_BLOGS = graphql(/* GraphQL */`
       author {
         username
       }
+      _id
       title
       imageurl
       createdAt

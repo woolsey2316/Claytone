@@ -1,3 +1,4 @@
+import { useQuery } from '@apollo/client';
 import React from 'react';
 
 import BestSellers from '@/components/BestSellers';
@@ -11,7 +12,11 @@ import { NavBar } from '@/components/nav/NavBar';
 import Seo from '@/components/Seo';
 import Container from '@/container/Container';
 
+import GET_BLOGS from '@/graphql/query/blog.query';
+
 export default function Blogs() {
+  const { data } = useQuery(GET_BLOGS);
+  
   return (
     <React.Fragment>
       <Seo templateTitle='Blogs' />
@@ -28,18 +33,11 @@ export default function Blogs() {
           </aside>
           <div id="content" className="min-h-[600px] w-3/4 px-15px ">
             <div className="mx--15px flex flex-wrap">
-              <div className="w-1/2 mb-30px px-15px">
-                <BlogCard title="Consectetur Adipiscing" image="/images/blog/blog1-1005x1005.jpg" date="13 Feb 2020"/>
-              </div>
-              <div className="w-1/2 mb-30px px-15px">
-                <BlogCard title="The Standard Lorem Ipsum" image="/images/blog/blog2-1005x1005.jpg" date="13 Feb 2020"/>
-              </div>
-              <div className="w-1/2 mb-30px px-15px">
-                <BlogCard title="Lorem Ipsum Dolo" image="/images/blog/blog3-1005x1005.jpg" date="13 Feb 2020"/>
-              </div>
-              <div className="w-1/2 mb-30px px-15px">
-                <BlogCard title="Nam Nec Rhoncus Est" image="/images/blog/blog4-1005x1005.jpg" date="13 Feb 2020"/>
-              </div>
+              {data?.blogPosts.filter(blogPost => blogPost.featuredPost).map((blogPost) => (
+                <div key={blogPost.slug} className="w-1/2 mb-30px px-15px">
+                  <BlogCard title={blogPost.title} image={blogPost.imageurl} excerpt={blogPost.excerpt} date={blogPost.createdAt}/>
+                </div>
+              ))}
             </div>
           </div>
         </Container>

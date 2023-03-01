@@ -4,8 +4,8 @@ import { ParsedUrlQuery } from "querystring";
 import BlogView from "@/components/BlogView";
 import Layout from "@/components/layout/Layout";
 
+import { IBlogpost } from "..@/server/models/blogPost";
 import { VendureService } from "../../services/vendure.service";
-import { IBlogpost } from "../../../../backend/server/models/blogPost";
 
 interface IParams extends ParsedUrlQuery {
   slug: string;
@@ -33,7 +33,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   if (!resp?.data?.blogPosts) {
     return { paths: [], fallback: false }
   }
-  const paths = resp.data.blogPosts.map((blogPost: IBlogpost) => ({
+  const paths = resp.data.blogPosts.map((blogPost) => ({
     params: { id: blogPost._id, slug: blogPost.slug },
   }));
   return { paths, fallback: false };

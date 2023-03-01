@@ -4,12 +4,14 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 
+import { Blog_By_SlugQuery,BlogsQuery, Product_By_SlugQuery, Product_SlugQuery,ProductsQuery } from "@/__generated__/graphql";
+
 import blogs from "../graphql/query/blog.query";
 import { blogDetailsBySlug } from "../graphql/query/blog-details.query";
 import products from "../graphql/query/product.query";
 import { productDetailsBySlug } from "../graphql/query/product-details.query";
 import { productSlug } from "../graphql/query/product-slug.query";
- 
+
 export class VendureService {
   private __client;
 
@@ -20,21 +22,21 @@ export class VendureService {
     });
   }
 
-  public fetchProducts = async (): Promise<ApolloQueryResult<any>> => {
+  public fetchProducts = async (): Promise<ApolloQueryResult<ProductsQuery>> => {
     const response = await this.__client.query({
       query: products,
     });
     return response;
   };
 
-  public fetchBlogSlugs = async (): Promise<ApolloQueryResult<any>> => {
+  public fetchBlogSlugs = async (): Promise<ApolloQueryResult<BlogsQuery>> => {
     const response = await this.__client.query({
       query: blogs,
     });
     return response;
   };
 
-  public fetchProductSlugs = async (): Promise<ApolloQueryResult<any>> => {
+  public fetchProductSlugs = async (): Promise<ApolloQueryResult<Product_SlugQuery>> => {
     const response = await this.__client.query({
       query: productSlug,
     });
@@ -43,7 +45,7 @@ export class VendureService {
 
   public fetchProductBySlugs = async (
     slug: string
-  ): Promise<ApolloQueryResult<any>> => {
+  ): Promise<ApolloQueryResult<Product_By_SlugQuery>> => {
     const response = await this.__client.query({
       query: productDetailsBySlug,
       variables: { slug },
@@ -53,7 +55,7 @@ export class VendureService {
 
   public fetchBlogBySlugs = async (
     slug: string
-  ): Promise<ApolloQueryResult<any>> => {
+  ): Promise<ApolloQueryResult<Blog_By_SlugQuery>> => {
     const response = await this.__client.query({
       query: blogDetailsBySlug,
       variables: { slug },

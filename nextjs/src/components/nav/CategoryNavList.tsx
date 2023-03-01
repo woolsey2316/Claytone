@@ -5,7 +5,7 @@ type Props = {
   list: Record<string, string[]>;
 };
 /*
-  nav items care not links, but may also be category  
+  nav items are not links, but a category under which there are children links
 */
 function CategoryNavList({ list }: Props) {
   return (

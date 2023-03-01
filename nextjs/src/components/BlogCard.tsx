@@ -1,35 +1,35 @@
 import Image from 'next/image'
 import React from 'react'
 
+import { slugify } from '@/lib/slugify';
+
 import AnimatedPinkbutton from '@/components/buttons/AnimatedPinkButton';
 interface Props {
   image: string;
   date: string;
-  title: string
+  title: string;
+  excerpt: string;
 }
-function BlogCard({image, date, title}: Props) {
+function BlogCard({image, date, title, excerpt}: Props) {
   return ( 
     <div>
       <div>
         <div>
-          <a href="">
+          <a href={"/blog/"+ slugify(title)}>
             <Image height="1005" width="1005" alt="blog image" src={image}></Image>
           </a>
         </div>
         <div>
           <div className="relative pt-[16px] px-[20px] pb-30px bg-nearWhite">
             <span className="text-coral text-sm font-jost">
-              {date}
+              {new Date(parseInt(date)).toString().slice(0,15)}
             </span>
             <h4 className="mt-[10px] text-lg">
-              <a href="" className="text-black2 hover:text-coral cursor-pointer">{title}</a>
+              <a href={"/blog/"+ slugify(title)} className="text-black2 hover:text-coral cursor-pointer">{title}</a>
             </h4>
             <div className="text-grey2 mt-[11px] mb-[26px] leading-6">
               <span>
-                Lorem Ipsum is simply dummy text of the printing and typesetting 
-                industry. Lorem Ipsum has been the industry's standard dummy text
-                ever since the 1500s, when an unknown printer took a galley of 
-                type and scrambled it to make a type specimen book. It h..
+                {excerpt}
               </span>
             </div>
             <AnimatedPinkbutton text="Read More" />

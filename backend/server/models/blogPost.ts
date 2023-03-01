@@ -11,8 +11,6 @@ export type IBlogpost = {
   author: IAuthor; 
   title: string;
   _id: string;
-  nLikes: number;
-  nComments: number;
   imageurl: string;
   slug: string;
   excerpt: string;
