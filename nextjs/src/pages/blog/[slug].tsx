@@ -4,7 +4,8 @@ import { ParsedUrlQuery } from "querystring";
 import BlogView from "@/components/BlogView";
 import Layout from "@/components/layout/Layout";
 
-import { IBlogpost } from "..@/server/models/blogPost";
+import { IBlogpost } from "@/contracts/blogpost.type";
+
 import { VendureService } from "../../services/vendure.service";
 
 interface IParams extends ParsedUrlQuery {
@@ -48,7 +49,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       slug: context.params?.slug,
-      blogPost: response.data.blogPost,
+      blogpost: response.data.blogPost,
     },
   };
 };

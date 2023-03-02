@@ -3,10 +3,9 @@ import React, { useEffect, useState } from 'react'
 import { deSlugify } from '@/lib/slugify';
 
 function BreadCrumb() {
-  const [path, setPath] = useState("")
+  const [links, setLinks] = useState<string[]>([""])
   useEffect(() => {
-    setPath(window.location.pathname.split("/").pop() ?? "")
-
+    setLinks(window.location.pathname.split("/"))
   },[])
   // finds the url link from a given URL section, eg. grades => /student/grades
   return (
@@ -14,10 +13,15 @@ function BreadCrumb() {
       <a href="/" className="font-medium mr-3">
         Home
       </a>
-      /
-      <p className="text-coral font-medium ml-3">
-        {deSlugify(path)}
-      </p>
+      {
+        links.filter(link => link).map((link, index) => <span key={index}>
+          <span>/</span>
+          <span className="text-coral font-medium ml-3 mr-3">
+            {deSlugify(link)}
+          </span>
+        </span>)
+      }
+      
     </div>
   );
 }
