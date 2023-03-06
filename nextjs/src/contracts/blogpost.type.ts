@@ -12,6 +12,6 @@ export type IBlogpost = {
   createdAt: string;
   updatedAt: string;
   featuredPost: boolean;
-  comments: IComment;
+  comments: IComment[];
 
 }

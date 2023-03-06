@@ -11,9 +11,11 @@ const typeDefs = gql`
     blogPost(slug: String!): BlogPost!
     blogPosts: [BlogPost!]!
     login(email: String!, password: String!): AuthData!
+    comments(blogpostId: String!): [Comment!]
   }
   type Mutation {
     createProduct(productInput: InputProduct): AuthData!
+    createComment(commentInput: InputComment): AuthData!
     createBlogPost(blogPostInput: InputBlogPost): AuthData!
     createReview(reviewInput: InputReview): AuthData!
     updateProduct(updateProduct: UpdateProduct): Product!
@@ -22,12 +24,13 @@ const typeDefs = gql`
     productAdded: Product
     reviewAdded: Review
     blogPostAdded: BlogPost
+    commentAdded: Comment
   }
-  type Author {
+  type User {
     username: String!
     password: String!
   }
-  input InputAuthor {
+  input InputUser {
     username: String!
     password: String!
   }
@@ -95,7 +98,7 @@ const typeDefs = gql`
     stock: Float!
   }
   type BlogPost {
-    author: Author!
+    author: User!
     title: String!
     _id: String!
     imageurl: String!
@@ -107,7 +110,7 @@ const typeDefs = gql`
     featuredPost: Boolean!
   }
   input InputBlogPost {
-    author: InputAuthor!
+    author: InputUser!
     title: String!
     _id: String!
     imageurl: String!
@@ -119,7 +122,7 @@ const typeDefs = gql`
     featuredPost: Boolean!
   }
   input updateBlogPost {
-    author: InputAuthor!
+    author: InputUser!
     title: String!
     _id: String!
     imageurl: String!
@@ -128,6 +131,22 @@ const typeDefs = gql`
     content: String!
     updatedAt: String!
     featuredPost: Boolean!
+  }
+  type Comment {
+    _id: String!
+    comment: String!
+    createdAt: String!
+    updatedAt: String!
+    blogpostId: String!
+    user: User!
+  }
+  input InputComment {
+    _id: String!
+    comment: String!
+    createdAt: String!
+    updatedAt: String!
+    blogpostId: String!
+    user: InputUser!
   }
 `;
 const schema: ApolloServerExpressConfig = {

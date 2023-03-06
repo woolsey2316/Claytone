@@ -4,30 +4,45 @@
  */
 
 import mongoose from 'mongoose';
+import { IUser } from 'server/models/author';
 
 export type IComment = {
-  name: string;
-  email: string;
+  _id: mongoose.Schema.Types.ObjectId;
+  user: IUser;
   comment: string;
+  createdAt: Date;
+  updatedAt: Date;
+  blogpostId: mongoose.Schema.Types.ObjectId;
 }
 
 /**
- * comment Schema
+ * Comment Schema
  */
 const commentSchema = new mongoose.Schema<IComment>(
   {
-    name: {
-      type: String,
-      required: true
-    },
-    email: {
-      type: String,
-      required: true
+    user: {
+      id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+      },
+      username: String
     },
     comment: {
       type: String,
       required: true,
     },
+    createdAt: {
+      type: Date,
+      required: true
+    },
+    updatedAt: {
+      type: Date,
+      required: true
+    },
+    blogpostId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "BlogPost"
+    }
   },
   {
     timestamps: true

@@ -5,6 +5,7 @@ import BlogView from "@/components/BlogView";
 import Layout from "@/components/layout/Layout";
 
 import { IBlogpost } from "@/contracts/blogpost.type";
+import { IComment } from "@/contracts/comment.type";
 
 import { VendureService } from "../../services/vendure.service";
 
@@ -13,14 +14,16 @@ interface IParams extends ParsedUrlQuery {
 }
 interface Props {
   blogpost: IBlogpost;
+  comments: IComment[];
 }
 
-const BlogDetailsPage: NextPage<Props> = ({ blogpost }) => {
+const BlogDetailsPage: NextPage<Props> = ({ blogpost, comments }) => {
   if (blogpost === undefined) return null
   return (
     <Layout pageTitle={blogpost.title}>
       <BlogView
         blogpost={blogpost}
+        comments={comments}
       />
     </Layout>
   );
@@ -45,11 +48,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as IParams;
   const vendureService = new VendureService();
   const response = await vendureService.fetchBlogBySlugs(slug);
+
+  const comments = await vendureService.fetchCommentsByBlogPostId(response.data.blogPost._id);
   
   return {
     props: {
       slug: context.params?.slug,
       blogpost: response.data.blogPost,
+      comments: comments.data.comments
     },
   };
 };

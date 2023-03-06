@@ -7,12 +7,14 @@ import BreadCrumb from '@/components/BreadCrumb';
 import NativePatternArt from '@/components/NativePatternArt';
 
 import { IBlogpost } from "@/contracts/blogpost.type";
+import { IComment } from '@/contracts/comment.type';
 
 type Props = {
   blogpost: IBlogpost
+  comments: IComment[]
 }
 
-function BlogView({blogpost}: Props) {
+function BlogView({blogpost, comments}: Props) {
   return ( <section>
       {/* breadcrumb */}
       <div className="bg-nearWhite">
@@ -35,6 +37,12 @@ function BlogView({blogpost}: Props) {
                 {new Date(parseInt(blogpost.createdAt)).toLocaleDateString("en-US")}
               </span>
               <p className="mt-[10px] text-grey2">{blogpost.content}</p>
+            </div>
+            <div>
+              <h4 className="bg-coral mt-[50px] text-lg uppercase font-medium rounded-t-md text-white py-15px px-[20px]">
+                Comments
+              </h4>
+              
             </div>
           </div>
         </div>

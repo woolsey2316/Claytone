@@ -3,12 +3,12 @@
  * @author David Woolsey <woolsey2316@gmail.com>
  */
 
-import mongoose, { Schema } from 'mongoose';
-import { IAuthor } from 'server/models/author';
+import mongoose from 'mongoose';
+import { IUser } from 'server/models/author';
 
 
 export type IBlogpost = {
-  author: IAuthor; 
+  author: IUser; 
   title: string;
   _id: string;
   imageurl: string;
@@ -18,7 +18,6 @@ export type IBlogpost = {
   createdAt: Date;
   updatedAt: Date;
   featuredPost: boolean;
-  comments: Schema.Types.ObjectId;
 
 }
 
@@ -69,10 +68,6 @@ const blogPostSchema = new mongoose.Schema<IBlogpost>(
       type: Boolean,
       required: true
     },
-    comments: [{
-      type: Schema.Types.ObjectId, 
-      ref: "Comment"
-    }]
   },
   {
     timestamps: true

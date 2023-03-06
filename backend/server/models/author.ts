@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-export type IAuthor = {
+export type IUser = {
   username: string;
   password: string;
 

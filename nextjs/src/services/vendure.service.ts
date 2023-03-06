@@ -4,10 +4,11 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 
-import { Blog_By_SlugQuery,BlogsQuery, Product_By_SlugQuery, Product_SlugQuery,ProductsQuery } from "@/__generated__/graphql";
+import { Blog_By_SlugQuery,BlogsQuery, Comment_By_Blogpost_IdQuery,Product_By_SlugQuery, Product_SlugQuery,ProductsQuery } from "@/__generated__/graphql";
 
 import blogs from "../graphql/query/blog.query";
 import { blogDetailsBySlug } from "../graphql/query/blog-details.query";
+import { commentsByBlogPostId } from '../graphql/query/comment-id.query';
 import products from "../graphql/query/product.query";
 import { productDetailsBySlug } from "../graphql/query/product-details.query";
 import { productSlug } from "../graphql/query/product-slug.query";
@@ -62,4 +63,13 @@ export class VendureService {
     });
     return response;
   };
+
+  public fetchCommentsByBlogPostId = async (blogpostId: string) 
+  : Promise<ApolloQueryResult<Comment_By_Blogpost_IdQuery>> => {
+    const response = await this.__client.query({
+      query: commentsByBlogPostId,
+      variables: { blogpostId },
+    });
+    return response
+  }
 }
