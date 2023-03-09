@@ -4,6 +4,8 @@ import React from 'react';
 import BestSellers from '@/components/BestSellers';
 import BlogSearch from '@/components/BlogSearch';
 import BreadCrumb from '@/components/BreadCrumb';
+import Comment from '@/components/Comment';
+import CommentWrap from '@/components/CommentWrap';
 import NativePatternArt from '@/components/NativePatternArt';
 
 import { IBlogpost } from "@/contracts/blogpost.type";
@@ -42,7 +44,12 @@ function BlogView({blogpost, comments}: Props) {
               <h4 className="bg-coral mt-[50px] text-lg uppercase font-medium rounded-t-md text-white py-15px px-[20px]">
                 Comments
               </h4>
-              
+              <div id="comments" className="bg-nearWhite p-[30px]">
+                {comments.map((comment,index) => 
+                <CommentWrap key={index}>
+                  <Comment name={comment.user.username} date={comment.createdAt} comment={comment.comment}></Comment>
+                </CommentWrap>)}
+              </div>
             </div>
           </div>
         </div>

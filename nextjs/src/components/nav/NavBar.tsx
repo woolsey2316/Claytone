@@ -40,7 +40,7 @@ function NavBar() {
                 width={32}
                 height={29}
               ></Image>
-              <div className='mx-2 h-10 w-0.5 bg-lighter-grey'></div>
+              <div className='mx-2 h-10 w-0.5 bg-grey3'></div>
               <div>
                 <p className='uppercase'>Shopping Cart</p>
                 <p className='text-sm text-grey2'>0 items - $0</p>

@@ -27,7 +27,7 @@ function Blogtile({ blogPost }: Props) {
       </div>
       <div className='relative flex min-w-0 flex-col items-start whitespace-normal bg-nearWhite p-[15px]'>
         <h6 className='text-lg font-medium'>{blogPost.title}</h6>
-        <p className='relative mt-[15px] mb-30px pb-[17px] text-grey2 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-lighter-grey after:empty-content'>
+        <p className='relative mt-[15px] mb-30px pb-[17px] text-grey2 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-grey3 after:empty-content'>
           {blogPost.description}
         </p>
         <a className='lg:text-md relative block cursor-pointer overflow-hidden rounded bg-coral px-5 py-3 text-sm font-medium uppercase text-white hover:bg-black before:absolute before:top-0 before:left-0 before:h-full before:w-full before:-translate-x-full before:transform before:rounded before:bg-white before:opacity-30 before:transition before:duration-1000 before:ease-out before:empty-content hover:before:translate-x-0'>

@@ -7,7 +7,7 @@ function TeaPotSetCollections() {
     <section className='bg-white py-5 lg:p-20'>
       <div>
         <div className='grid-flow-column mx-auto grid max-w-7xl grid-cols-2 grid-rows-2 lg:grid-cols-4 lg:grid-rows-1'>
-          <div className='mb-10 ml-10 border-0 border-r lg:m-0 lg:border-r-lighter-grey'>
+          <div className='mb-10 ml-10 border-0 border-r lg:m-0 lg:border-r-grey3'>
             <Image
               alt='plane'
               className='h-12.5 w-12.5'
@@ -18,7 +18,7 @@ function TeaPotSetCollections() {
             <p className='mb-3 pt-8 font-medium'>Free Shipping Worldwide</p>
             <p className='text-sm text-grey2'>On orders over $150</p>
           </div>
-          <div className='mb-10 ml-10 border-0 lg:m-0 lg:ml-16 lg:border-r lg:border-r-lighter-grey lg:pr-16'>
+          <div className='mb-10 ml-10 border-0 lg:m-0 lg:ml-16 lg:border-r lg:border-r-grey3 lg:pr-16'>
             <Image
               alt='wallet'
               className='h-12.5 w-12.5'
@@ -29,7 +29,7 @@ function TeaPotSetCollections() {
             <p className='mb-3 pt-8 font-medium'>Cash On Delivery</p>
             <p className='text-sm text-grey2'>100% money back guarantee</p>
           </div>
-          <div className='mb-10 ml-10 border-0 border-r lg:m-0 lg:ml-16 lg:border-r-lighter-grey lg:pr-16'>
+          <div className='mb-10 ml-10 border-0 border-r lg:m-0 lg:ml-16 lg:border-r-grey3 lg:pr-16'>
             <Image
               alt='present'
               className='h-12.5 w-12.5'
