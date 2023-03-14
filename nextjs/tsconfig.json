@@ -17,11 +17,12 @@
     "paths": {
       "@/*": ["./src/*"],
       "..@/*": ["../backend/*"],
+      "@common": ["../common"],
       "~/*": ["./public/*"]
     },
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "../common/user.type.ts", "../common/blogpost.type.ts", "../common/comment.type.ts", "../common/reply.type.ts"],
   "exclude": ["node_modules"],
   "moduleResolution": ["node_modules", ".next", "node"]
 }

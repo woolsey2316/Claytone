@@ -28,7 +28,7 @@ const blogPostSchema = new mongoose.Schema<IBlogpost>(
   {
     author: {
       id: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: "User"
       },
       username: String

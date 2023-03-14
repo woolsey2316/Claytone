@@ -1,3 +1,4 @@
+import { useMutation } from '@apollo/client';
 import Image from 'next/image';
 import React from 'react';
 
@@ -10,13 +11,14 @@ import NativePatternArt from '@/components/NativePatternArt';
 
 import { IBlogpost } from "@/contracts/blogpost.type";
 import { IComment } from '@/contracts/comment.type';
-
+import { replyToComment } from '@/graphql/mutation/reply-to-comment'
 type Props = {
   blogpost: IBlogpost
   comments: IComment[]
 }
 
 function BlogView({blogpost, comments}: Props) {
+  const [reply, { data, loading, error }] = useMutation(replyToComment)
   return ( <section>
       {/* breadcrumb */}
       <div className="bg-nearWhite">
@@ -47,7 +49,7 @@ function BlogView({blogpost, comments}: Props) {
               <div id="comments" className="bg-nearWhite p-[30px]">
                 {comments.map((comment,index) => 
                 <CommentWrap key={index}>
-                  <Comment name={comment.user.username} date={comment.createdAt} comment={comment.comment}></Comment>
+                  <Comment name={comment.user.username} date={comment.createdAt} comment={comment.comment} reply={reply}></Comment>
                 </CommentWrap>)}
               </div>
             </div>

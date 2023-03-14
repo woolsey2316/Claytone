@@ -3,22 +3,24 @@
  * @author David Woolsey <woolsey2316@gmail.com>
  */
 
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 import { IUser } from 'server/models/author';
 
-export type IComment = {
-  _id: mongoose.Schema.Types.ObjectId;
+export interface IComment {
+  _id: mongoose.Types.ObjectId;
   user: IUser;
   comment: string;
   createdAt: Date;
   updatedAt: Date;
-  blogpostId: mongoose.Schema.Types.ObjectId;
+  blogpostId: mongoose.Types.ObjectId;
+  parentCommentId?: mongoose.Types.ObjectId;
+  reply?: string[];
 }
 
 /**
  * Comment Schema
  */
-const commentSchema = new mongoose.Schema<IComment>(
+const commentSchema = new Schema<IComment>(
   {
     user: {
       id: {
@@ -39,15 +41,21 @@ const commentSchema = new mongoose.Schema<IComment>(
       type: Date,
       required: true
     },
+    parentCommentId: {
+      type: mongoose.Schema.Types.ObjectId
+    },
     blogpostId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "BlogPost"
-    }
+    },
   },
   {
     timestamps: true
   }
 );
+
+commentSchema.add({ reply  : [commentSchema] })
+
 
 /**
  * Statics

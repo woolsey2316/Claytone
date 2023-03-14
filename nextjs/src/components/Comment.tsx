@@ -1,11 +1,36 @@
-import React from 'react'
+import React, { MouseEventHandler, useRef } from 'react'
+
+import { IReply } from '../../../common/reply.type';
 
 interface Props {
   name: string;
   date: string;
   comment: string;
+  reply: (reply: IReply) => MouseEventHandler<HTMLButtonElement>;
 }
-function Comment({name, date, comment}: Props) {
+interface FormElements extends HTMLFormControlsCollection {
+  replyInput: HTMLInputElement
+}
+interface ReplyFormElement extends HTMLFormElement {
+  readonly elements: FormElements
+}
+function Comment({name, date, comment, reply}: Props) {
+  const replyToComment_ = useRef<HTMLInputElement>(null)
+  const handleSubmit = (event: React.FormEvent<ReplyFormElement>) => {
+    event.preventDefault();
+    // If comment not null
+    if (replyToComment_.current?.value != null) {
+      const replyToComment: IReply = {
+        user: {username: "wools", password: "wools"},
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        comment: replyToComment_.current.value,
+        blogpostId: "63fd9561993ed610db92382d",
+        parentCommentId: "6405640444e55d2f387d9073"
+      }
+      reply(replyToComment)
+    }
+  }
   return ( 
     <div className="bg-nearWhite text-grey2">
       <div className="bg-white w-15 h-15 rounded-full leading-[60px] text-center inline-block float-left mr-[21px] mb-2">
@@ -21,9 +46,10 @@ function Comment({name, date, comment}: Props) {
         </div>
         <p>{comment}</p>
         {/* reply */}
-        <div className="text-right">
-          <button className="bg-coral py-[5px] px-[15px] text-sm text-white cursor-pointer inline-block rounded-[5px]">Reply</button>
-        </div>
+        <form onSubmit={handleSubmit}>
+          <input ref={replyToComment_}></input>
+          <button type="submit" className="bg-coral py-[5px] px-[15px] text-sm text-white cursor-pointer inline-block rounded-[5px]">Reply</button>
+        </form>
       </div>
     </div>
    );

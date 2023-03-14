@@ -4,10 +4,9 @@ import { ParsedUrlQuery } from "querystring";
 import BlogView from "@/components/BlogView";
 import Layout from "@/components/layout/Layout";
 
-import { IBlogpost } from "@/contracts/blogpost.type";
-import { IComment } from "@/contracts/comment.type";
-
 import { VendureService } from "../../services/vendure.service";
+import { IBlogpost } from "../../../../common/blogpost.type";
+import { IComment } from "../../../../common/comment.type";
 
 interface IParams extends ParsedUrlQuery {
   slug: string;

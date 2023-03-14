@@ -4,7 +4,7 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 
-import { Blog_By_SlugQuery,BlogsQuery, Comment_By_Blogpost_IdQuery,Product_By_SlugQuery, Product_SlugQuery,ProductsQuery } from "@/__generated__/graphql";
+import { Blog_By_SlugQuery,BlogsQuery, Comment_By_Blogpost_IdQuery,Product_By_SlugQuery, Product_SlugQuery, ProductsQuery } from "@/__generated__/graphql";
 
 import blogs from "../graphql/query/blog.query";
 import { blogDetailsBySlug } from "../graphql/query/blog-details.query";

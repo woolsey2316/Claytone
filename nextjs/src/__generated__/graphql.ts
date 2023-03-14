@@ -79,6 +79,7 @@ export type Comment = {
   blogpostId: Scalars['String'];
   comment: Scalars['String'];
   createdAt: Scalars['String'];
+  reply?: Maybe<Comment>;
   updatedAt: Scalars['String'];
   user: User;
 };
@@ -122,6 +123,8 @@ export type Mutation = {
   createComment: AuthData;
   createProduct: AuthData;
   createReview: AuthData;
+  replyToComment: Comment;
+  updateComment: Comment;
   updateProduct: Product;
 };
 
@@ -143,6 +146,16 @@ export type MutationCreateProductArgs = {
 
 export type MutationCreateReviewArgs = {
   reviewInput?: InputMaybe<InputReview>;
+};
+
+
+export type MutationReplyToCommentArgs = {
+  reply?: InputMaybe<InputReply>;
+};
+
+
+export type MutationUpdateCommentArgs = {
+  updateComment?: InputMaybe<UpdateComment>;
 };
 
 
@@ -198,6 +211,25 @@ export type InputReview = {
   name: Scalars['String'];
   productId: Scalars['String'];
   rating: Scalars['Float'];
+};
+
+export type InputReply = {
+  blogpostId: Scalars['String'];
+  comment: Scalars['String'];
+  createdAt: Scalars['String'];
+  parentCommentId: Scalars['String'];
+  updatedAt: Scalars['String'];
+  user: InputUser;
+};
+
+export type UpdateComment = {
+  _id: Scalars['String'];
+  blogpostId: Scalars['String'];
+  comment: Scalars['String'];
+  createdAt: Scalars['String'];
+  reply?: InputMaybe<InputComment>;
+  updatedAt: Scalars['String'];
+  user: InputUser;
 };
 
 export type UpdateProduct = {

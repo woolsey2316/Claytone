@@ -19,6 +19,8 @@ const typeDefs = gql`
     createBlogPost(blogPostInput: InputBlogPost): AuthData!
     createReview(reviewInput: InputReview): AuthData!
     updateProduct(updateProduct: UpdateProduct): Product!
+    updateComment(updateComment: UpdateComment): Comment!
+    replyToComment(reply: InputComment): Comment!
   }
   type Subscription {
     productAdded: Product
@@ -139,6 +141,7 @@ const typeDefs = gql`
     updatedAt: String!
     blogpostId: String!
     user: User!
+    reply: Comment
   }
   input InputComment {
     _id: String!
@@ -147,6 +150,16 @@ const typeDefs = gql`
     updatedAt: String!
     blogpostId: String!
     user: InputUser!
+    parentCommentId: String
+  }
+  input UpdateComment {
+    _id: String!
+    comment: String!
+    createdAt: String!
+    updatedAt: String!
+    blogpostId: String!
+    user: InputUser!
+    reply: InputComment
   }
 `;
 const schema: ApolloServerExpressConfig = {
