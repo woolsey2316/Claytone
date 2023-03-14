@@ -2,7 +2,7 @@
 import { PubSub } from 'apollo-server';
 import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
-import { mapReplyDataToInterface } from 'server/utils/mapReplyDataToInterface';
+import { mapReplyDataToInterface } from '../../../server/utils/mapReplyDataToInterface';
 // import { mapReplyDataToInterface } from '../../utils/mapReplyDataToInterface';
 
 import config from '../../../config';
@@ -21,7 +21,7 @@ const CommentQueries = {
 const CommentMutation = {
   replyToComment: async (_parent, { reply }) => {
     let reply_ = mapReplyDataToInterface(reply) 
-    const newComment = await Comment.findByIdAndUpdate(reply_.parentCommentId,{$set:{comment: reply_.comment}},{new: true})
+    const newComment = await Comment.findByIdAndUpdate(reply_.parentCommentId,{$push:{reply: reply_}},{new: true})
     return newComment
   },
   createComment: async (_parent, { commentInput } ) => {

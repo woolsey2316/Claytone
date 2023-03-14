@@ -2,7 +2,7 @@
   "name": "create-nodejs-ts-app",
   "version": "3.0.4",
   "description": "Node express mongoose typescript boilerplate",
-  "main": "dist/index.js",
+  "main": "dist/backend/index.js",
   "bin": "bin/createNodetsApp.cjs",
   "repository": "https://github.com/saisilinus/node-express-mongoose-typescript-boilerplate.git",
   "bugs": {
@@ -19,7 +19,7 @@
     "start:build": "tsc --build && pm2 start ecosystem.config.json --no-daemon",
     "compile": "tsc --build",
     "compile:watch": "tsc --build --watch",
-    "pre:dev": "cross-env NODE_ENV=development nodemon --experimental-modules --es-module-specifier-resolution=node dist/index.js",
+    "pre:dev": "cross-env NODE_ENV=development nodemon --experimental-modules --es-module-specifier-resolution=node dist/backend/index.js",
     "dev": "concurrently --kill-others \"yarn compile:watch\" \"yarn pre:dev\"",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest -i --colors --verbose --detectOpenHandles",
     "test:ts": "cross-env NODE_OPTIONS=--experimental-vm-modules jest -i --colors --verbose --detectOpenHandles -- 'ts$'",

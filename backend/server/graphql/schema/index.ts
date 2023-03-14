@@ -144,7 +144,6 @@ const typeDefs = gql`
     reply: Comment
   }
   input InputComment {
-    _id: String!
     comment: String!
     createdAt: String!
     updatedAt: String!
