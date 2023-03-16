@@ -16,12 +16,20 @@ const CommentQueries = {
     const comments = await Comment.find({blogpostId});
     return comments
   },
+  replies: async (_parent, { commentId }) => {
+    const parentComment = await Comment.findById(commentId);
+    return parentComment?.replies
+  },
 };
 /** * Comment Mutations */
 const CommentMutation = {
   replyToComment: async (_parent, { reply }) => {
     let reply_ = mapReplyDataToInterface(reply) 
-    const newComment = await Comment.findByIdAndUpdate(reply_.parentCommentId,{$push:{reply: reply_}},{new: true})
+    const newComment = await Comment.findByIdAndUpdate(
+      reply_.parentCommentId,
+      {$push:{replies: reply_}},
+      {new: true}
+    )
     return newComment
   },
   createComment: async (_parent, { commentInput } ) => {

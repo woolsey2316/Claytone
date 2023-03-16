@@ -1,30 +1,30 @@
 [
   {
-    "user": {"username": "Raj", "password": "wools"},
+    "user": "Raj",
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "comment": "Such A Fabulous Product ..Nyc",
     "blogpostId":{"$oid": "63fd9561993ed610db92382d"}
   }, {
-    "user": {"username": "test test", "password": "wools"},
+    "user": "test test",
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "comment": "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
     "blogpostId":{"$oid": "63fd9561993ed610db92382d"}
   }, {
-    "user": {"username": "Roma", "password": "wools"},
+    "user": "Roma",
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "comment": "Such A Fabulous Product ..Nyc",
     "blogpostId":{"$oid": "63fd9561993ed610db92382e"}
   }, {
-    "user": {"username": "Ahiya", "password": "wools"},
+    "user": "Ahiya",
     "createdAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "updatedAt": { "$date": "2021-12-30T13:00:00.000Z" },
     "comment": "Such A Fabulous Product ..Nyc",
     "blogpostId":{"$oid": "63fd9561993ed610db92382f"}
   }, {
-    "user": {"username": "Sabana", "password": "wools"},
+    "user": "Sabana",
     "createdAt": { "$date": "2021-12-30T00:05:55:000Z" },
     "updatedAt": { "$date": "2021-12-30T00:05:55:000Z" },
     "comment": "Such A Fabulous Product ..Nyc",

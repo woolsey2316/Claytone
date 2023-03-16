@@ -12,6 +12,7 @@ const typeDefs = gql`
     blogPosts: [BlogPost!]!
     login(email: String!, password: String!): AuthData!
     comments(blogpostId: String!): [Comment!]
+    replies(commentId: String!): [Comment!]
   }
   type Mutation {
     createProduct(productInput: InputProduct): AuthData!
@@ -139,16 +140,17 @@ const typeDefs = gql`
     comment: String!
     createdAt: String!
     updatedAt: String!
-    blogpostId: String!
-    user: User!
-    reply: Comment
+    blogpostId: String
+    parentCommentId: String
+    user: String!
+    replies: [Comment!]
   }
   input InputComment {
     comment: String!
     createdAt: String!
     updatedAt: String!
-    blogpostId: String!
-    user: InputUser!
+    blogpostId: String
+    user: String!
     parentCommentId: String
   }
   input UpdateComment {
@@ -156,8 +158,8 @@ const typeDefs = gql`
     comment: String!
     createdAt: String!
     updatedAt: String!
-    blogpostId: String!
-    user: InputUser!
+    blogpostId: String
+    user: String!
     reply: InputComment
   }
 `;

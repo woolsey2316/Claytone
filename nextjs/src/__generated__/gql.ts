@@ -15,13 +15,15 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
 const documents = {
     "\n  mutation createReview($reviewInput: InputReview) {\n    createReview(reviewInput: $reviewInput) {\n      token\n    }\n  }\n": types.CreateReviewDocument,
     "\n  mutation createProduct($productInput: InputProduct) {\n    createProduct(productInput: $productInput) {\n      token\n    }\n  }\n": types.CreateProductDocument,
+    "\n  mutation REPLY_TO_COMMENT ($reply: InputComment!) {\n    replyToComment(reply: $reply) {\n      user\n      comment\n    }\n  }\n": types.Reply_To_CommentDocument,
     "\n  mutation updateProduct($updateProduct: UpdateProduct) {\n    updateProduct(updateProduct: $updateProduct) {\n      _id\n      title\n      imageurl\n      price\n      rating\n      oldPrice\n    }\n  }\n": types.UpdateProductDocument,
     "\n  query BLOG_BY_SLUG ($slug: String!) {\n    blogPost(slug: $slug) {\n      author {\n        username\n      }\n      _id\n      title\n      imageurl\n      createdAt\n      updatedAt\n      slug\n      excerpt\n      featuredPost\n      content\n    }\n  }\n": types.Blog_By_SlugDocument,
     "\n  query BLOGS {\n    blogPosts {\n      author {\n        username\n      }\n      _id\n      title\n      imageurl\n      createdAt\n      updatedAt\n      slug\n      excerpt\n      featuredPost\n      content\n    }\n  }\n": types.BlogsDocument,
-    "\n  query COMMENT_BY_BLOGPOST_ID ($blogpostId: String!) {\n    comments(blogpostId: $blogpostId) {\n      comment\n      createdAt\n      updatedAt\n      user {\n        username\n      }\n    }\n  }\n": types.Comment_By_Blogpost_IdDocument,
+    "\n  query COMMENT_BY_BLOGPOST_ID ($blogpostId: String!) {\n    comments(blogpostId: $blogpostId) {\n      _id\n      comment\n      createdAt\n      updatedAt\n      user\n    }\n  }\n": types.Comment_By_Blogpost_IdDocument,
     "\n  query PRODUCT_BY_SLUG ($slug: String!) {\n    product(slug: $slug) {\n      _id\n      createdAt\n      updatedAt\n      slug\n      title\n      price\n      oldPrice\n      imageurl\n      description\n      rating\n      brand\n      productCode\n      stock\n    }\n  }\n": types.Product_By_SlugDocument,
     "\n  query PRODUCT_SLUG {\n    products {\n      _id\n      slug\n    }\n  }\n": types.Product_SlugDocument,
     "\n  query PRODUCTS {\n    products {\n      title\n      _id\n      imageurl\n      price\n      oldPrice\n      description\n      rating\n    }\n  }\n": types.ProductsDocument,
+    "\n  query GET_REPLIES ($commentId: String!) {\n    replies(commentId: $commentId) {\n      _id\n      createdAt\n      updatedAt\n      comment\n      user\n    }\n  }\n": types.Get_RepliesDocument,
     "\n  query REVIEWS($productId: String!){\n    reviews(productId: $productId) {\n     \tname\n      description\n      rating\n      createdAt\n    }\n  }\n": types.ReviewsDocument,
 };
 
@@ -33,6 +35,10 @@ export function graphql(source: "\n  mutation createReview($reviewInput: InputRe
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  mutation createProduct($productInput: InputProduct) {\n    createProduct(productInput: $productInput) {\n      token\n    }\n  }\n"): (typeof documents)["\n  mutation createProduct($productInput: InputProduct) {\n    createProduct(productInput: $productInput) {\n      token\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  mutation REPLY_TO_COMMENT ($reply: InputComment!) {\n    replyToComment(reply: $reply) {\n      user\n      comment\n    }\n  }\n"): (typeof documents)["\n  mutation REPLY_TO_COMMENT ($reply: InputComment!) {\n    replyToComment(reply: $reply) {\n      user\n      comment\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -48,7 +54,7 @@ export function graphql(source: "\n  query BLOGS {\n    blogPosts {\n      autho
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query COMMENT_BY_BLOGPOST_ID ($blogpostId: String!) {\n    comments(blogpostId: $blogpostId) {\n      comment\n      createdAt\n      updatedAt\n      user {\n        username\n      }\n    }\n  }\n"): (typeof documents)["\n  query COMMENT_BY_BLOGPOST_ID ($blogpostId: String!) {\n    comments(blogpostId: $blogpostId) {\n      comment\n      createdAt\n      updatedAt\n      user {\n        username\n      }\n    }\n  }\n"];
+export function graphql(source: "\n  query COMMENT_BY_BLOGPOST_ID ($blogpostId: String!) {\n    comments(blogpostId: $blogpostId) {\n      _id\n      comment\n      createdAt\n      updatedAt\n      user\n    }\n  }\n"): (typeof documents)["\n  query COMMENT_BY_BLOGPOST_ID ($blogpostId: String!) {\n    comments(blogpostId: $blogpostId) {\n      _id\n      comment\n      createdAt\n      updatedAt\n      user\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -61,6 +67,10 @@ export function graphql(source: "\n  query PRODUCT_SLUG {\n    products {\n     
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  query PRODUCTS {\n    products {\n      title\n      _id\n      imageurl\n      price\n      oldPrice\n      description\n      rating\n    }\n  }\n"): (typeof documents)["\n  query PRODUCTS {\n    products {\n      title\n      _id\n      imageurl\n      price\n      oldPrice\n      description\n      rating\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query GET_REPLIES ($commentId: String!) {\n    replies(commentId: $commentId) {\n      _id\n      createdAt\n      updatedAt\n      comment\n      user\n    }\n  }\n"): (typeof documents)["\n  query GET_REPLIES ($commentId: String!) {\n    replies(commentId: $commentId) {\n      _id\n      createdAt\n      updatedAt\n      comment\n      user\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

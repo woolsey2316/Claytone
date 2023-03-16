@@ -4,17 +4,16 @@
  */
 
 import mongoose, { Schema } from 'mongoose';
-import { IUser } from 'server/models/author';
 
 export interface IComment {
   _id: mongoose.Types.ObjectId;
-  user: IUser;
+  user: string;
   comment: string;
   createdAt: Date;
   updatedAt: Date;
   blogpostId: mongoose.Types.ObjectId;
   parentCommentId?: mongoose.Types.ObjectId;
-  reply?: string[];
+  replies?: IComment[];
 }
 
 /**
@@ -23,15 +22,12 @@ export interface IComment {
 const commentSchema = new Schema<IComment>(
   {
     user: {
-      id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
-      },
-      username: String
+      type: String,
+      required: true
     },
     comment: {
       type: String,
-      required: true,
+      required: true
     },
     createdAt: {
       type: Date,
@@ -54,7 +50,7 @@ const commentSchema = new Schema<IComment>(
   }
 );
 
-commentSchema.add({ reply  : [commentSchema] })
+commentSchema.add({ replies  : [commentSchema] })
 
 
 /**

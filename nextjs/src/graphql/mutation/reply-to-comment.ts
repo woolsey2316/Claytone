@@ -1,9 +1,10 @@
-import { graphql } from '../../__generated__';
+import { graphql } from '../../../src/__generated__';
 
 export const replyToComment = graphql(/* GraphQL */`
-  mutation REPLY_TO_COMMENT ($reply: InputReply!) {
+  mutation REPLY_TO_COMMENT ($reply: InputComment!) {
     replyToComment(reply: $reply) {
-      
+      user
+      comment
     }
   }
 `);

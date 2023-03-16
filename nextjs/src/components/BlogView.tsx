@@ -1,4 +1,3 @@
-import { useMutation } from '@apollo/client';
 import Image from 'next/image';
 import React from 'react';
 
@@ -6,19 +5,17 @@ import BestSellers from '@/components/BestSellers';
 import BlogSearch from '@/components/BlogSearch';
 import BreadCrumb from '@/components/BreadCrumb';
 import Comment from '@/components/Comment';
-import CommentWrap from '@/components/CommentWrap';
 import NativePatternArt from '@/components/NativePatternArt';
 
-import { IBlogpost } from "@/contracts/blogpost.type";
-import { IComment } from '@/contracts/comment.type';
-import { replyToComment } from '@/graphql/mutation/reply-to-comment'
+import { IBlogpost } from "../../../common/blogpost.type";
+import { IComment } from '../../../common/comment.type';
 type Props = {
   blogpost: IBlogpost
   comments: IComment[]
 }
 
 function BlogView({blogpost, comments}: Props) {
-  const [reply, { data, loading, error }] = useMutation(replyToComment)
+  
   return ( <section>
       {/* breadcrumb */}
       <div className="bg-nearWhite">
@@ -46,11 +43,10 @@ function BlogView({blogpost, comments}: Props) {
               <h4 className="bg-coral mt-[50px] text-lg uppercase font-medium rounded-t-md text-white py-15px px-[20px]">
                 Comments
               </h4>
-              <div id="comments" className="bg-nearWhite p-[30px]">
+              <div id="comments" className="bg-nearWhite">
                 {comments.map((comment,index) => 
-                <CommentWrap key={index}>
-                  <Comment name={comment.user.username} date={comment.createdAt} comment={comment.comment} reply={reply}></Comment>
-                </CommentWrap>)}
+                  <Comment key={index} comment={comment}></Comment>
+                )}
               </div>
             </div>
           </div>
