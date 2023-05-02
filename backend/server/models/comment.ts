@@ -13,7 +13,6 @@ export interface IComment {
   updatedAt: Date;
   blogpostId: mongoose.Types.ObjectId;
   parentCommentId?: mongoose.Types.ObjectId;
-  replies?: IComment[];
 }
 
 /**
@@ -49,8 +48,6 @@ const commentSchema = new Schema<IComment>(
     timestamps: true
   }
 );
-
-commentSchema.add({ replies  : [commentSchema] })
 
 
 /**

@@ -12,7 +12,7 @@ const typeDefs = gql`
     blogPosts: [BlogPost!]!
     login(email: String!, password: String!): AuthData!
     comments(blogpostId: String!): [Comment!]
-    replies(commentId: String!): [Comment!]
+    replies(parentId: String!): [Comment!]
   }
   type Mutation {
     createProduct(productInput: InputProduct): AuthData!
@@ -143,7 +143,6 @@ const typeDefs = gql`
     blogpostId: String
     parentCommentId: String
     user: String!
-    replies: [Comment!]
   }
   input InputComment {
     comment: String!

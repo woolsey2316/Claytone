@@ -9,6 +9,7 @@ import { IComment, InputComment } from '../../../common/comment.type';
 
 interface Props {
   comment: IComment;
+  blogpostId: string;
 }
 interface FormElements extends HTMLFormControlsCollection {
   replyInput: HTMLInputElement
@@ -16,7 +17,8 @@ interface FormElements extends HTMLFormControlsCollection {
 interface ReplyFormElement extends HTMLFormElement {
   readonly elements: FormElements
 }
-function Comment({comment}: Props) {
+function Comment({comment, blogpostId}: Props) {
+  const [showReplies, setShowReplies] = useState(false)
   const [showReplyForm, setShowReplyForm] = useState(false)
   const [replytoComment, { data, loading, error }] = useMutation(replyToComment)
   const { data: replies } = useQuery(GET_REPLIES, {
@@ -33,7 +35,7 @@ function Comment({comment}: Props) {
         createdAt: new Date().toString(),
         updatedAt: new Date().toString(),
         comment: replyToComment_.current.value,
-        blogpostId: "63fd9561993ed610db92382d",
+        blogpostId: blogpostId,
         parentCommentId: comment._id
       }
       console.log(reply)
@@ -65,9 +67,14 @@ function Comment({comment}: Props) {
             <button type="submit" className="bg-coral py-[5px] px-[15px] text-sm text-white cursor-pointer inline-block rounded-[5px]">Reply</button>
           </form>
         }
-        {repliesData && 
+        {repliesData?.length !== 0 && !showReplies &&
+          <span className="coursor-pointer" onClick={() => setShowReplies(true)}>show replies</span>
+        }
+        {repliesData?.length !== 0 && showReplies &&
           <div className="p-5">
-            {repliesData.map((reply: IComment, index: number) => {if (reply) return <Comment key={index} comment={reply}></Comment>})}
+            {repliesData?.map((reply: IComment, index: number) => {
+              if (reply) return <Comment key={index} comment={reply} blogpostId={blogpostId}></Comment>
+            })}
           </div>
         }
       </div>

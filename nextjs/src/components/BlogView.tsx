@@ -45,7 +45,7 @@ function BlogView({blogpost, comments}: Props) {
               </h4>
               <div id="comments" className="bg-nearWhite">
                 {comments.map((comment,index) => 
-                  <Comment key={index} comment={comment}></Comment>
+                  <Comment key={index} comment={comment} blogpostId={blogpost._id}></Comment>
                 )}
               </div>
             </div>
