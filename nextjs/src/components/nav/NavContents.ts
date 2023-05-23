@@ -57,6 +57,7 @@ export const DesktopNavData: Record<
   'Ceramic Pots': ['Football Cermaic Pot', 'Railing Planters'],
   More: ['Pottery', 'Bricks', 'Tiles', 'Earthen Wear', 'Products'],
   Blogs: null,
+  Cart: null
 };
 
 export const BlogNavData: Record<

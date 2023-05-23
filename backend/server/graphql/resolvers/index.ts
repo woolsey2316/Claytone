@@ -19,24 +19,32 @@ import {
   CommentQueries,
   CommentSubscription
 } from './comment';
+import {
+  CartMutation,
+  CartQueries,
+  CartSubscription
+} from './cart';
 const rootResolver = {
   Query: {
     ...ProductQueries,
     ...ReviewQueries,
     ...BlogPostQueries,
-    ...CommentQueries
+    ...CommentQueries,
+    ...CartQueries
   },
   Mutation: {
     ...ProductMutation,
     ...ReviewMutation,
     ...BlogPostMutation,
-    ...CommentMutation
+    ...CommentMutation,
+    ...CartMutation
   },
   Subscription: {
     ...ProductSubscription,
     ...ReviewSubscription,
     ...BlogPostSubscription,
-    ...CommentSubscription
+    ...CommentSubscription,
+    ...CartSubscription
   }
 };
 export default rootResolver;

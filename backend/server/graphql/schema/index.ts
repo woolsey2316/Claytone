@@ -13,6 +13,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): AuthData!
     comments(blogpostId: String!): [Comment!]
     replies(parentId: String!): [Comment!]
+    userCart(userId: String!): Cart
   }
   type Mutation {
     createProduct(productInput: InputProduct): AuthData!
@@ -22,12 +23,14 @@ const typeDefs = gql`
     updateProduct(updateProduct: UpdateProduct): Product!
     updateComment(updateComment: UpdateComment): Comment!
     replyToComment(reply: InputComment): Comment!
+    addToCart(cartInput: InputCart): Cart
   }
   type Subscription {
     productAdded: Product
     reviewAdded: Review
     blogPostAdded: BlogPost
     commentAdded: Comment
+    cartAdded: Cart
   }
   type User {
     username: String!
@@ -160,6 +163,27 @@ const typeDefs = gql`
     blogpostId: String
     user: String!
     reply: InputComment
+  }
+  type CartItem {
+    productId: String!
+    quantity: Float!
+  }
+  input CartItemInput {
+    productId: String!
+    quantity: Float!
+  }
+  input InputCart {
+    userId: String!
+    contents: [CartItemInput!]!
+    updatedAt: String!
+    createdAt: String!
+  }
+  type Cart {
+    _id: String!
+    userId: String!
+    contents: [CartItem!]!
+    updatedAt: String!
+    createdAt: String!
   }
 `;
 const schema: ApolloServerExpressConfig = {

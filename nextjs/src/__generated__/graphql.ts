@@ -26,6 +26,7 @@ export type Query = {
   products: Array<Product>;
   replies?: Maybe<Array<Comment>>;
   reviews: Array<Review>;
+  userCart?: Maybe<Cart>;
 };
 
 
@@ -59,6 +60,11 @@ export type QueryReviewsArgs = {
   productId: Scalars['String'];
 };
 
+
+export type QueryUserCartArgs = {
+  userId: Scalars['String'];
+};
+
 export type BlogPost = {
   __typename?: 'BlogPost';
   _id: Scalars['String'];
@@ -86,7 +92,6 @@ export type Comment = {
   comment: Scalars['String'];
   createdAt: Scalars['String'];
   parentCommentId?: Maybe<Scalars['String']>;
-  replies?: Maybe<Array<Comment>>;
   updatedAt: Scalars['String'];
   user: Scalars['String'];
 };
@@ -124,8 +129,24 @@ export type Review = {
   rating: Scalars['Float'];
 };
 
+export type Cart = {
+  __typename?: 'Cart';
+  _id: Scalars['String'];
+  contents: Array<CartItem>;
+  createdAt: Scalars['String'];
+  updatedAt: Scalars['String'];
+  userId: Scalars['String'];
+};
+
+export type CartItem = {
+  __typename?: 'CartItem';
+  productId: Scalars['String'];
+  quantity: Scalars['Float'];
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
+  addToCart: Cart;
   createBlogPost: AuthData;
   createComment: AuthData;
   createProduct: AuthData;
@@ -133,6 +154,11 @@ export type Mutation = {
   replyToComment: Comment;
   updateComment: Comment;
   updateProduct: Product;
+};
+
+
+export type MutationAddToCartArgs = {
+  cartInput?: InputMaybe<InputCart>;
 };
 
 
@@ -168,6 +194,18 @@ export type MutationUpdateCommentArgs = {
 
 export type MutationUpdateProductArgs = {
   updateProduct?: InputMaybe<UpdateProduct>;
+};
+
+export type InputCart = {
+  contents: Array<CartItemInput>;
+  createdAt: Scalars['String'];
+  updatedAt: Scalars['String'];
+  userId: Scalars['String'];
+};
+
+export type CartItemInput = {
+  productId: Scalars['String'];
+  quantity: Scalars['Float'];
 };
 
 export type InputBlogPost = {
@@ -271,6 +309,13 @@ export type UpdateBlogPost = {
   updatedAt: Scalars['String'];
 };
 
+export type AddToCartMutationVariables = Exact<{
+  cartInput?: InputMaybe<InputCart>;
+}>;
+
+
+export type AddToCartMutation = { __typename?: 'Mutation', addToCart: { __typename?: 'Cart', userId: string, createdAt: string, updatedAt: string, contents: Array<{ __typename?: 'CartItem', productId: string, quantity: number }> } };
+
 export type CreateReviewMutationVariables = Exact<{
   reviewInput?: InputMaybe<InputReview>;
 }>;
@@ -311,6 +356,13 @@ export type BlogsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type BlogsQuery = { __typename?: 'Query', blogPosts: Array<{ __typename?: 'BlogPost', _id: string, title: string, imageurl: string, createdAt: string, updatedAt: string, slug: string, excerpt: string, featuredPost: boolean, content: string, author: { __typename?: 'User', username: string } }> };
 
+export type Get_Cart_ItemsQueryVariables = Exact<{
+  userId: Scalars['String'];
+}>;
+
+
+export type Get_Cart_ItemsQuery = { __typename?: 'Query', userCart?: { __typename?: 'Cart', contents: Array<{ __typename?: 'CartItem', productId: string, quantity: number }> } | null };
+
 export type Comment_By_Blogpost_IdQueryVariables = Exact<{
   blogpostId: Scalars['String'];
 }>;
@@ -350,12 +402,14 @@ export type ReviewsQueryVariables = Exact<{
 export type ReviewsQuery = { __typename?: 'Query', reviews: Array<{ __typename?: 'Review', name: string, description: string, rating: number, createdAt: string }> };
 
 
+export const AddToCartDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"addToCart"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"cartInput"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"InputCart"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"addToCart"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"cartInput"},"value":{"kind":"Variable","name":{"kind":"Name","value":"cartInput"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"userId"}},{"kind":"Field","name":{"kind":"Name","value":"contents"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"productId"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}}]}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<AddToCartMutation, AddToCartMutationVariables>;
 export const CreateReviewDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"createReview"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"reviewInput"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"InputReview"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createReview"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"reviewInput"},"value":{"kind":"Variable","name":{"kind":"Name","value":"reviewInput"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"token"}}]}}]}}]} as unknown as DocumentNode<CreateReviewMutation, CreateReviewMutationVariables>;
 export const CreateProductDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"createProduct"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"productInput"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"InputProduct"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createProduct"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"productInput"},"value":{"kind":"Variable","name":{"kind":"Name","value":"productInput"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"token"}}]}}]}}]} as unknown as DocumentNode<CreateProductMutation, CreateProductMutationVariables>;
 export const Reply_To_CommentDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"REPLY_TO_COMMENT"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"reply"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"InputComment"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"replyToComment"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"reply"},"value":{"kind":"Variable","name":{"kind":"Name","value":"reply"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"user"}},{"kind":"Field","name":{"kind":"Name","value":"comment"}}]}}]}}]} as unknown as DocumentNode<Reply_To_CommentMutation, Reply_To_CommentMutationVariables>;
 export const UpdateProductDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"updateProduct"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"updateProduct"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"UpdateProduct"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateProduct"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"updateProduct"},"value":{"kind":"Variable","name":{"kind":"Name","value":"updateProduct"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"imageurl"}},{"kind":"Field","name":{"kind":"Name","value":"price"}},{"kind":"Field","name":{"kind":"Name","value":"rating"}},{"kind":"Field","name":{"kind":"Name","value":"oldPrice"}}]}}]}}]} as unknown as DocumentNode<UpdateProductMutation, UpdateProductMutationVariables>;
 export const Blog_By_SlugDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"BLOG_BY_SLUG"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"blogPost"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"author"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}}]}},{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"imageurl"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"excerpt"}},{"kind":"Field","name":{"kind":"Name","value":"featuredPost"}},{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]} as unknown as DocumentNode<Blog_By_SlugQuery, Blog_By_SlugQueryVariables>;
 export const BlogsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"BLOGS"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"blogPosts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"author"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}}]}},{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"imageurl"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"excerpt"}},{"kind":"Field","name":{"kind":"Name","value":"featuredPost"}},{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]} as unknown as DocumentNode<BlogsQuery, BlogsQueryVariables>;
+export const Get_Cart_ItemsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GET_CART_ITEMS"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"userId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"userCart"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"userId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"userId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contents"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"productId"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}}]}}]}}]}}]} as unknown as DocumentNode<Get_Cart_ItemsQuery, Get_Cart_ItemsQueryVariables>;
 export const Comment_By_Blogpost_IdDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"COMMENT_BY_BLOGPOST_ID"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"blogpostId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"comments"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"blogpostId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"blogpostId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"comment"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"}}]}}]}}]} as unknown as DocumentNode<Comment_By_Blogpost_IdQuery, Comment_By_Blogpost_IdQueryVariables>;
 export const Product_By_SlugDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"PRODUCT_BY_SLUG"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"product"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"price"}},{"kind":"Field","name":{"kind":"Name","value":"oldPrice"}},{"kind":"Field","name":{"kind":"Name","value":"imageurl"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"rating"}},{"kind":"Field","name":{"kind":"Name","value":"brand"}},{"kind":"Field","name":{"kind":"Name","value":"productCode"}},{"kind":"Field","name":{"kind":"Name","value":"stock"}}]}}]}}]} as unknown as DocumentNode<Product_By_SlugQuery, Product_By_SlugQueryVariables>;
 export const Product_SlugDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"PRODUCT_SLUG"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"products"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}}]}}]} as unknown as DocumentNode<Product_SlugQuery, Product_SlugQueryVariables>;

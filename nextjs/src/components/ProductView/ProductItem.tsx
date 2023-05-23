@@ -9,6 +9,8 @@ import Rating from '@/components/Rating';
 import { ReviewsQuery } from '@/__generated__/graphql';
 
 import { IProductDetail } from '@/types/Product';
+import { useMutation } from '@apollo/client';
+import ADD_TO_CART from '@/graphql/mutation/addToCart';
 
 interface Props {
   product: IProductDetail,
@@ -20,7 +22,17 @@ function ProductItem({product, reviewArray, setShow}: Props) {
   const increment = () => {
     setQty(qty => qty + 1)
   }
-   const decrement = () => {
+  const [saveCart, { error, data }] = useMutation(ADD_TO_CART, {
+    variables: {
+      "cartInput" : {
+        userId: "1",
+        contents: [{productId: product.id, quantity: qty}],
+        updatedAt: new Date().toString(),
+        createdAt: new Date().toString()
+      }
+    }
+  });
+  const decrement = () => {
     setQty(qty => {
       if (qty === 0) {
         return qty
@@ -80,7 +92,7 @@ function ProductItem({product, reviewArray, setShow}: Props) {
                   </svg>
                 </button>
               </div>
-              <button className="lg:text-md relative block cursor-pointer overflow-hidden rounded bg-coral px-5 py-3 text-sm font-medium uppercase text-white hover:bg-black before:absolute before:top-0 before:left-0 before:h-full before:w-full before:-translate-x-full before:transform before:rounded before:bg-white before:opacity-30 before:transition before:duration-1000 before:ease-out before:empty-content hover:before:translate-x-0 ml-4">Add to Cart</button>
+              <button onClick={() => saveCart()} className="lg:text-md relative block cursor-pointer overflow-hidden rounded bg-coral px-5 py-3 text-sm font-medium uppercase text-white hover:bg-black before:absolute before:top-0 before:left-0 before:h-full before:w-full before:-translate-x-full before:transform before:rounded before:bg-white before:opacity-30 before:transition before:duration-1000 before:ease-out before:empty-content hover:before:translate-x-0 ml-4">Add to Cart</button>
             </div>
           </div>
         </div>
