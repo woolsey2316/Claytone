@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 
 import { averageRating } from '@/lib/averageRating';
 import { displayPrice } from '@/lib/priceDisplay';
@@ -11,6 +11,7 @@ import { ReviewsQuery } from '@/__generated__/graphql';
 import { IProductDetail } from '@/types/Product';
 import { useMutation } from '@apollo/client';
 import ADD_TO_CART from '@/graphql/mutation/addToCart';
+import { CartContext } from '@/pages/_app';
 
 interface Props {
   product: IProductDetail,
@@ -18,20 +19,28 @@ interface Props {
   setShow: React.Dispatch<React.SetStateAction<number>>
 }
 function ProductItem({product, reviewArray, setShow}: Props) {
+  const cart = useContext(CartContext)
+  
+  useEffect(() => {
+    // extract initial product quantity in cart if already added
+    const initialQty = cart?.contents.filter(product_ => product_.productId === product.id)[0]?.quantity
+    setQty(initialQty ?? 0)
+  },[cart])
+
   const [qty, setQty] = useState(0)
-  const increment = () => {
-    setQty(qty => qty + 1)
-  }
   const [saveCart, { error, data }] = useMutation(ADD_TO_CART, {
     variables: {
       "cartInput" : {
         userId: "1",
-        contents: [{productId: product.id, quantity: qty}],
+        contents: [{productId: product.id, quantity: qty, price: product.price}],
         updatedAt: new Date().toString(),
         createdAt: new Date().toString()
       }
     }
   });
+  const increment = () => {
+    setQty(qty => qty + 1)
+  }
   const decrement = () => {
     setQty(qty => {
       if (qty === 0) {
@@ -44,7 +53,7 @@ function ProductItem({product, reviewArray, setShow}: Props) {
     <div className="mx-auto w-full sm:w-3xl md:w-4xl lg:w-5xl xl:w-6xl 2xl:w-7xl">
         <div className="flex flex-col md:flex-row">
           <div className="w-1/2">
-            <Image className="border-3 border-r-coral border-t-coral border-l-black border-b-black" alt="product image" width="654" height="654" src={product.imageurl}></Image>
+            <Image className="border-3 border-r-coral border-t-coral border-l-black border-b-black" priority alt="product image" width="654" height="654" src={product.imageurl}></Image>
           </div>
           <div className="w-1/2">
             <h6 className="text-2xl font-medium mt-2 mb-[15px]">{product.title}</h6>

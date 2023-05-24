@@ -167,10 +167,12 @@ const typeDefs = gql`
   type CartItem {
     productId: String!
     quantity: Float!
+    price: Float!
   }
   input CartItemInput {
     productId: String!
     quantity: Float!
+    price: Float!
   }
   input InputCart {
     userId: String!

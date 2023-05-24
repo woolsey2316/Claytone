@@ -12,6 +12,7 @@ const ADD_TO_CART = graphql(/* GraphQL */`
       contents {
         productId
         quantity
+        price
       }
       createdAt
       updatedAt

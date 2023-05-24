@@ -7,7 +7,7 @@ import Cart from '../../models/cart';
 type CartInput = {
   cartInput : {
     userId: string;
-    contents: [{productId: string, quantity: number}];
+    contents: [{productId: string, quantity: number, price: number}];
     createdAt: string;
     updatedAt: string;
   }
@@ -18,7 +18,7 @@ const CART_ADDED = 'CART_ADDED';
 const CartQueries = {
   userCart: async (_parent, { userId }) => {
     const userCart = await Cart.find({userId});
-    return userCart
+    return userCart[0]
   },
 };
 /** * Cart Mutations */
@@ -62,7 +62,7 @@ const CartMutation = {
           }
         }
         if (!alreadyInCart) {
-          return curr.quantity > 0 ? (acc ? [...acc, curr] : [curr]) : [...acc]
+          return curr.quantity > 0 ? acc ? [...acc, curr] : [curr] : [...acc]
         } else {
           return acc
         }

@@ -13,14 +13,14 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel-plugin for production.
  */
 const documents = {
-    "\n  mutation addToCart($cartInput: InputCart) {\n    addToCart(cartInput: $cartInput) {\n      userId\n      contents {\n        productId\n        quantity\n      }\n      createdAt\n      updatedAt\n    }\n  }\n": types.AddToCartDocument,
+    "\n  mutation addToCart($cartInput: InputCart) {\n    addToCart(cartInput: $cartInput) {\n      userId\n      contents {\n        productId\n        quantity\n        price\n      }\n      createdAt\n      updatedAt\n    }\n  }\n": types.AddToCartDocument,
     "\n  mutation createReview($reviewInput: InputReview) {\n    createReview(reviewInput: $reviewInput) {\n      token\n    }\n  }\n": types.CreateReviewDocument,
     "\n  mutation createProduct($productInput: InputProduct) {\n    createProduct(productInput: $productInput) {\n      token\n    }\n  }\n": types.CreateProductDocument,
     "\n  mutation REPLY_TO_COMMENT ($reply: InputComment!) {\n    replyToComment(reply: $reply) {\n      user\n      comment\n    }\n  }\n": types.Reply_To_CommentDocument,
     "\n  mutation updateProduct($updateProduct: UpdateProduct) {\n    updateProduct(updateProduct: $updateProduct) {\n      _id\n      title\n      imageurl\n      price\n      rating\n      oldPrice\n    }\n  }\n": types.UpdateProductDocument,
     "\n  query BLOG_BY_SLUG ($slug: String!) {\n    blogPost(slug: $slug) {\n      author {\n        username\n      }\n      _id\n      title\n      imageurl\n      createdAt\n      updatedAt\n      slug\n      excerpt\n      featuredPost\n      content\n    }\n  }\n": types.Blog_By_SlugDocument,
     "\n  query BLOGS {\n    blogPosts {\n      author {\n        username\n      }\n      _id\n      title\n      imageurl\n      createdAt\n      updatedAt\n      slug\n      excerpt\n      featuredPost\n      content\n    }\n  }\n": types.BlogsDocument,
-    "\n  query GET_CART_ITEMS ($userId: String!) {\n    userCart(userId: $userId) {\n      contents {\n        productId\n        quantity\n      }\n    }\n  }\n": types.Get_Cart_ItemsDocument,
+    "\n  query GET_CART_ITEMS ($userId: String!) {\n    userCart(userId: $userId) {\n      _id\n      userId\n      contents {\n        productId\n        quantity\n        price\n      }\n      createdAt\n      updatedAt\n    }\n  }\n": types.Get_Cart_ItemsDocument,
     "\n  query COMMENT_BY_BLOGPOST_ID ($blogpostId: String!) {\n    comments(blogpostId: $blogpostId) {\n      _id\n      comment\n      createdAt\n      updatedAt\n      user\n    }\n  }\n": types.Comment_By_Blogpost_IdDocument,
     "\n  query PRODUCT_BY_SLUG ($slug: String!) {\n    product(slug: $slug) {\n      _id\n      createdAt\n      updatedAt\n      slug\n      title\n      price\n      oldPrice\n      imageurl\n      description\n      rating\n      brand\n      productCode\n      stock\n    }\n  }\n": types.Product_By_SlugDocument,
     "\n  query PRODUCT_SLUG {\n    products {\n      _id\n      slug\n    }\n  }\n": types.Product_SlugDocument,
@@ -32,7 +32,7 @@ const documents = {
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  mutation addToCart($cartInput: InputCart) {\n    addToCart(cartInput: $cartInput) {\n      userId\n      contents {\n        productId\n        quantity\n      }\n      createdAt\n      updatedAt\n    }\n  }\n"): (typeof documents)["\n  mutation addToCart($cartInput: InputCart) {\n    addToCart(cartInput: $cartInput) {\n      userId\n      contents {\n        productId\n        quantity\n      }\n      createdAt\n      updatedAt\n    }\n  }\n"];
+export function graphql(source: "\n  mutation addToCart($cartInput: InputCart) {\n    addToCart(cartInput: $cartInput) {\n      userId\n      contents {\n        productId\n        quantity\n        price\n      }\n      createdAt\n      updatedAt\n    }\n  }\n"): (typeof documents)["\n  mutation addToCart($cartInput: InputCart) {\n    addToCart(cartInput: $cartInput) {\n      userId\n      contents {\n        productId\n        quantity\n        price\n      }\n      createdAt\n      updatedAt\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -60,7 +60,7 @@ export function graphql(source: "\n  query BLOGS {\n    blogPosts {\n      autho
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query GET_CART_ITEMS ($userId: String!) {\n    userCart(userId: $userId) {\n      contents {\n        productId\n        quantity\n      }\n    }\n  }\n"): (typeof documents)["\n  query GET_CART_ITEMS ($userId: String!) {\n    userCart(userId: $userId) {\n      contents {\n        productId\n        quantity\n      }\n    }\n  }\n"];
+export function graphql(source: "\n  query GET_CART_ITEMS ($userId: String!) {\n    userCart(userId: $userId) {\n      _id\n      userId\n      contents {\n        productId\n        quantity\n        price\n      }\n      createdAt\n      updatedAt\n    }\n  }\n"): (typeof documents)["\n  query GET_CART_ITEMS ($userId: String!) {\n    userCart(userId: $userId) {\n      _id\n      userId\n      contents {\n        productId\n        quantity\n        price\n      }\n      createdAt\n      updatedAt\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

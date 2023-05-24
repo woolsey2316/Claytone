@@ -5,9 +5,10 @@
 
 import mongoose from 'mongoose';
 
-type CartContents = {
+export type CartContents = {
   productId: string;
-  quantity: number
+  quantity: number;
+  price: number;
 }
 
 export type ICart = {
@@ -28,7 +29,7 @@ const cartSchema = new mongoose.Schema<ICart>(
       required: true
     },
     contents: {
-      type: [{ productId: String, quantity: Number }],
+      type: [{ productId: String, quantity: Number, price: Number }],
       required: false
     },
     createdAt: {
