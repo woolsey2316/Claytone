@@ -19,7 +19,7 @@ function CartElement() {
         <div className='mx-2 h-10 w-0.5 bg-grey3'></div>
         <div>
           <p className='uppercase'>Shopping Cart</p>
-          <p className='text-sm text-grey2'>{numberOfIems} items - ${totalPrice}</p>
+          <p className='text-sm text-grey2'>{numberOfIems ?? 0} items - ${totalPrice ?? 0}</p>
         </div>
       </div>
     </div>

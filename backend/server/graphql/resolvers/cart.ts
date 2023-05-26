@@ -2,15 +2,10 @@
 import { PubSub } from 'apollo-server';
 import mongoose from 'mongoose';
 
-import Cart from '../../models/cart';
+import Cart, { ICart } from '../../models/cart';
 
 type CartInput = {
-  cartInput : {
-    userId: string;
-    contents: [{productId: string, quantity: number, price: number}];
-    createdAt: string;
-    updatedAt: string;
-  }
+  cartInput : ICart
 }
 const pubsub = new PubSub();
 const CART_ADDED = 'CART_ADDED';
@@ -18,6 +13,7 @@ const CART_ADDED = 'CART_ADDED';
 const CartQueries = {
   userCart: async (_parent, { userId }) => {
     const userCart = await Cart.find({userId});
+    if (userCart.length === 0) return
     return userCart[0]
   },
 };

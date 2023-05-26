@@ -32,7 +32,14 @@ function ProductItem({product, reviewArray, setShow}: Props) {
     variables: {
       "cartInput" : {
         userId: "1",
-        contents: [{productId: product.id, quantity: qty, price: product.price}],
+        contents: [{
+          productId: product.id,
+          quantity: qty,
+          price: product.price,
+          model: product.productCode,
+          name: product.title,
+          image: product.imageurl
+        }],
         updatedAt: new Date().toString(),
         createdAt: new Date().toString()
       }

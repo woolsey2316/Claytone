@@ -13,6 +13,9 @@ const ADD_TO_CART = graphql(/* GraphQL */`
         productId
         quantity
         price
+        name
+        image
+        model
       }
       createdAt
       updatedAt

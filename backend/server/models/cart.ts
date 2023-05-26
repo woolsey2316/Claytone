@@ -9,6 +9,9 @@ export type CartContents = {
   productId: string;
   quantity: number;
   price: number;
+  image: string;
+  name: string;
+  model: string;
 }
 
 export type ICart = {
@@ -29,7 +32,14 @@ const cartSchema = new mongoose.Schema<ICart>(
       required: true
     },
     contents: {
-      type: [{ productId: String, quantity: Number, price: Number }],
+      type: [{ 
+        productId: String,
+        quantity: Number,
+        price: Number,
+        name: String,
+        model: String,
+        image: String 
+      }],
       required: false
     },
     createdAt: {

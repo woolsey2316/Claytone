@@ -40,7 +40,7 @@ function BlogView({blogpost, comments}: Props) {
               <p className="mt-[10px] text-grey2">{blogpost.content}</p>
             </div>
             <div>
-              <h4 className="bg-coral mt-[50px] text-lg uppercase font-medium rounded-t-md text-white py-15px px-[20px]">
+              <h4 className="bg-coral mt-[50px] text-lg uppercase font-medium rounded-t-md text-white py-15px px-5">
                 Comments
               </h4>
               <div id="comments" className="bg-nearWhite">

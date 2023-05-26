@@ -20,7 +20,7 @@ function BlogCard({image, date, title, excerpt}: Props) {
           </a>
         </div>
         <div>
-          <div className="relative pt-[16px] px-[20px] pb-30px bg-nearWhite">
+          <div className="relative pt-[16px] px-5 pb-30px bg-nearWhite">
             <span className="text-coral text-sm font-jost">
               {new Date(parseInt(date)).toString().slice(0,15)}
             </span>

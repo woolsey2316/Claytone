@@ -1,14 +1,13 @@
 {
   "version": "0.2.0",
   "configurations": [
+
     {
-      "type": "node",
+      "type": "node-terminal",
+      "name": "server dev",
       "request": "launch",
-      "name": "Launch Program",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "program": "${workspaceFolder}"
+      "command": "npm run dev",
+      "cwd": "${workspaceFolder}\\backend"
     },
     {
       "type": "node-terminal",

@@ -100,6 +100,7 @@ module.exports = {
         grey2: '#777777',
         grey3: '#e5e5e5',
         grey4: '#ddd',
+        grey5: '#333',
         darkGrey: '#AAAAAA',
         nearWhite: '#f7f7f7',
         gold: '#f2ba0e',

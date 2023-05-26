@@ -5,8 +5,8 @@ import ProductTag from '@/components/ProductTag';
 function BestSellers() {
   return ( 
     <div className="mb-30px">
-      <h3 className="py-[15px] px-[20px] text-lg text-left uppercase relative font-medium leading-5 rounded-t bg-coral text-white">Best Sellers</h3>
-      <ul className="py-30px px-[20px] rounded-b bg-nearWhite list-none">
+      <h3 className="py-[15px] px-5 text-lg text-left uppercase relative font-medium leading-5 rounded-t bg-coral text-white">Best Sellers</h3>
+      <ul className="py-30px px-5 rounded-b bg-nearWhite list-none">
         <li>
           <ProductTag image="/images/products/5-80x80.jpg" title="Pitcher" rating={5} price={122} />
         </li>

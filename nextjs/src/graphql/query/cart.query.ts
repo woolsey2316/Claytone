@@ -9,6 +9,9 @@ const GET_CART_ITEMS = graphql(/* GraphQL */`
         productId
         quantity
         price
+        name
+        image
+        model
       }
       createdAt
       updatedAt
