@@ -16,6 +16,7 @@ const documents = {
     "\n  mutation addToCart($cartInput: InputCart) {\n    addToCart(cartInput: $cartInput) {\n      userId\n      contents {\n        productId\n        quantity\n        price\n        name\n        image\n        model\n      }\n      createdAt\n      updatedAt\n    }\n  }\n": types.AddToCartDocument,
     "\n  mutation createReview($reviewInput: InputReview) {\n    createReview(reviewInput: $reviewInput) {\n      token\n    }\n  }\n": types.CreateReviewDocument,
     "\n  mutation createProduct($productInput: InputProduct) {\n    createProduct(productInput: $productInput) {\n      token\n    }\n  }\n": types.CreateProductDocument,
+    "\n  mutation deleteCart($deleteArgs: DeleteArgs) {\n    deleteCart(deleteArgs: $deleteArgs) {\n      userId\n      contents {\n        productId\n        quantity\n        price\n        name\n        image\n        model\n      }\n      createdAt\n      updatedAt\n    }\n  }\n": types.DeleteCartDocument,
     "\n  mutation REPLY_TO_COMMENT ($reply: InputComment!) {\n    replyToComment(reply: $reply) {\n      user\n      comment\n    }\n  }\n": types.Reply_To_CommentDocument,
     "\n  mutation updateProduct($updateProduct: UpdateProduct) {\n    updateProduct(updateProduct: $updateProduct) {\n      _id\n      title\n      imageurl\n      price\n      rating\n      oldPrice\n    }\n  }\n": types.UpdateProductDocument,
     "\n  query BLOG_BY_SLUG ($slug: String!) {\n    blogPost(slug: $slug) {\n      author {\n        username\n      }\n      _id\n      title\n      imageurl\n      createdAt\n      updatedAt\n      slug\n      excerpt\n      featuredPost\n      content\n    }\n  }\n": types.Blog_By_SlugDocument,
@@ -41,6 +42,10 @@ export function graphql(source: "\n  mutation createReview($reviewInput: InputRe
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  mutation createProduct($productInput: InputProduct) {\n    createProduct(productInput: $productInput) {\n      token\n    }\n  }\n"): (typeof documents)["\n  mutation createProduct($productInput: InputProduct) {\n    createProduct(productInput: $productInput) {\n      token\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  mutation deleteCart($deleteArgs: DeleteArgs) {\n    deleteCart(deleteArgs: $deleteArgs) {\n      userId\n      contents {\n        productId\n        quantity\n        price\n        name\n        image\n        model\n      }\n      createdAt\n      updatedAt\n    }\n  }\n"): (typeof documents)["\n  mutation deleteCart($deleteArgs: DeleteArgs) {\n    deleteCart(deleteArgs: $deleteArgs) {\n      userId\n      contents {\n        productId\n        quantity\n        price\n        name\n        image\n        model\n      }\n      createdAt\n      updatedAt\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

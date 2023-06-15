@@ -1,13 +1,13 @@
 /**
- * Create Cart Mutation
+ * Delete Cart Mutation
  *
  */
 
 import { graphql } from '../../../src/__generated__';
 
-const ADD_TO_CART = graphql(/* GraphQL */`
-  mutation addToCart($cartInput: InputCart) {
-    addToCart(cartInput: $cartInput) {
+const DELETE_CART = graphql(/* GraphQL */`
+  mutation deleteCart($deleteArgs: DeleteArgs) {
+    deleteCart(deleteArgs: $deleteArgs) {
       userId
       contents {
         productId
@@ -23,4 +23,4 @@ const ADD_TO_CART = graphql(/* GraphQL */`
   }
 `);
 
-export default ADD_TO_CART;
+export default DELETE_CART;

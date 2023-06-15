@@ -24,6 +24,7 @@ const typeDefs = gql`
     updateComment(updateComment: UpdateComment): Comment!
     replyToComment(reply: InputComment): Comment!
     addToCart(cartInput: InputCart): Cart
+    deleteCart(deleteArgs: DeleteArgs): Cart
   }
   type Subscription {
     productAdded: Product
@@ -192,6 +193,10 @@ const typeDefs = gql`
     contents: [CartItem!]!
     updatedAt: String!
     createdAt: String!
+  }
+  input DeleteArgs {
+    userId: String!
+    cartContentId: Float!
   }
 `;
 const schema: ApolloServerExpressConfig = {

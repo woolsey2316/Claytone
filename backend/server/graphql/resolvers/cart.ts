@@ -7,6 +7,12 @@ import Cart, { ICart } from '../../models/cart';
 type CartInput = {
   cartInput : ICart
 }
+type DeleteArgs = {
+  deleteArgs: {
+    cartContentId: number
+    userId: string
+  }
+}
 const pubsub = new PubSub();
 const CART_ADDED = 'CART_ADDED';
 /** * Cart Queries */
@@ -73,6 +79,20 @@ const CartMutation = {
 
       return newCart
     }
+  },
+  deleteCart: async (_parent, { deleteArgs }: DeleteArgs ) => {
+    const userCart = await Cart.find({userId: deleteArgs.userId})
+    if (userCart.length === 0) {
+      return
+    }
+    let oldContents = userCart[0]?.contents!
+    let newContents = oldContents.filter((_cartContent, index) => index !== deleteArgs.cartContentId)
+    const newCart = await Cart.findOneAndUpdate(
+        {userId: deleteArgs.userId},
+        {contents: newContents},
+        {new: true}
+      )
+    return newCart
   }
 };
 /** * Cart Subscriptions */
