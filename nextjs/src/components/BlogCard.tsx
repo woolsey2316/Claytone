@@ -3,7 +3,7 @@ import React from 'react'
 
 import { slugify } from '@/lib/slugify';
 
-import AnimatedPinkbutton from '@/components/buttons/AnimatedPinkButton';
+import AnimatedPinkbutton from '@/components/button/AnimatedPinkButton';
 interface Props {
   image: string;
   date: string;
