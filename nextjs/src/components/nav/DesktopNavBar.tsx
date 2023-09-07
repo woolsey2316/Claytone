@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import CategoryNavList from '@/components/nav/CategoryNavList';
-import SimpleNavList from '@/components/nav/SimpleNavList';
+import ComplexNavDropdown from '@/components/nav/ComplexNavDropdown';
+import SimpleNavDropdown from '@/components/nav/SimpleNavDropdown';
 
 import { DesktopNavData } from './NavContents';
 
@@ -15,9 +15,9 @@ function DesktopNavBar() {
               <a className="whitespace-nowrap" href={"/" + navLink}>{navLink}</a>
               {navLinkcollection !== null ? (
                 Array.isArray(navLinkcollection) ? (
-                  <SimpleNavList list={navLinkcollection} />
+                  <SimpleNavDropdown list={navLinkcollection} />
                 ) : (
-                  <CategoryNavList list={navLinkcollection} />
+                  <ComplexNavDropdown list={navLinkcollection} />
                 )
               ) : null}
             </li>

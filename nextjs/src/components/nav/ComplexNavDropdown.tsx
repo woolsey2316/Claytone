@@ -7,7 +7,7 @@ type Props = {
 /*
   nav items are not links, but a category under which there are children links
 */
-function CategoryNavList({ list }: Props) {
+function ComplexNavDropdown({ list }: Props) {
   return (
     <div className='absolute top-[60px] grid origin-top-left scale-0 grid-cols-3 grid-rows-2 border-b-2 border-b-coral bg-white px-4 py-2 shadow-lg transition duration-500 ease-out group-hover:scale-100'>
       {Object.entries(list).map(([category, linkArray]) => (
@@ -32,4 +32,4 @@ function CategoryNavList({ list }: Props) {
   );
 }
 
-export default CategoryNavList;
+export default ComplexNavDropdown;
