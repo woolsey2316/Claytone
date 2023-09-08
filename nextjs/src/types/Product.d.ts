@@ -1,9 +1,8 @@
 export type IProduct = {
   title: string;
   price: number;
-  oldPrice?: number;
+  oldPrice?: number | null;
   rating: number;
-  date: Date;
   imageurl: string;
 };
 

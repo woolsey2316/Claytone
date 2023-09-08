@@ -6,7 +6,7 @@ type Props = {
 function H3Heading({ children }: Props) {
   return (
     <>
-      <h3 className='mb-27px font-niconne text-4xl lg:text-5xl'>{children}</h3>
+      <h3 className='text-center mb-27px font-niconne text-4xl lg:text-5xl'>{children}</h3>
       <Image
         className='mb-31px'
         width={55}

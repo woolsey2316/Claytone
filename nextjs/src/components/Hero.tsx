@@ -54,7 +54,7 @@ function Hero() {
         />
         <div className='absolute top-4 left-4 w-[65%] sm:w-full sm:top-13/30 sm:left-1/10'>
           <div className='flex sm:w-168 flex-col items-start justify-center text-left'>
-            <h3 className='mb-3 sm:mb-5 font-niconne sm:text-xl xl:text-3xl 2xl:text-4xl'>
+            <h3 className='leading-[1.2] mb-3 sm:mb-5 font-niconne sm:text-xl xl:text-3xl 2xl:text-4xl'>
               Wonderful Clay Presentations and Ideas
             </h3>
             <h2 className='mb-4 sm:mb-4 md:mb-10 font-alexandria font-medium sm:text-xl xl:text-6xl 2xl:text-7xl'>
@@ -76,7 +76,7 @@ function Hero() {
         />
         <div className='absolute top-4 left-4 w-[65%] sm:w-full sm:top-13/30 sm:left-1/10'>
           <div className='flex sm:w-168 flex-col items-start justify-center text-left'>
-            <h3 className='mb-3 sm:mb-5 font-niconne sm:text-xl xl:text-3xl 2xl:text-4xl'>
+            <h3 className='leading-[1.2] mb-3 sm:mb-5 font-niconne sm:text-xl xl:text-3xl 2xl:text-4xl'>
               Wonderful Clay Presentations and Ideas
             </h3>
             <h2 className='mb-4 sm:mb-4 md:mb-10 font-alexandria font-medium sm:text-xl xl:text-6xl 2xl:text-7xl'>

@@ -19,7 +19,7 @@ export const CarouselItem = ({ children }: CarouselItemProps) => {
 };
 
 type CarouselProps = {
-  children: JSX.Element[];
+  children: JSX.Element[] | JSX.Element | undefined;
   itemsPerPage: number | Breakpoints;
   rows: number;
   showArrows: boolean;
@@ -151,7 +151,7 @@ const Carousel = ({
         }}
       >
         {React.Children.map(children, (child, _index) => {
-          return React.cloneElement(child, { width: '100%' });
+          return child !== undefined ? React.cloneElement(child, { width: '100%' }) : null
         })}
       </div>
       {/* Carousel indicators/button */}

@@ -6,7 +6,7 @@ type Props = {
 }
 function HamburgerIcon({handleNavMenu}: Props) {
   return (
-    <div className='mt-1 mr-8 cursor-pointer'>
+    <div className='mt-1 mr-4 sm:mr-8 cursor-pointer'>
       <Image
         onClick={handleNavMenu}
         src='/images/hamburger.png'

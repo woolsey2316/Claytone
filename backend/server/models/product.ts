@@ -13,7 +13,6 @@ export type IProduct = {
   slug: string;
   price: number;
   oldPrice?: number;
-  date: string;
   rating: number;
   description: string;
   createdAt: Date;

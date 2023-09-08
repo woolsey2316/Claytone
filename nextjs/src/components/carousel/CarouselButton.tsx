@@ -5,7 +5,7 @@ import useBreakpoint from '@/hooks/use-breakpoint';
 import { Breakpoints } from '@/types/Carousel';
 
 type CarouselProps = {
-  children: JSX.Element[];
+  children: JSX.Element[] | JSX.Element | undefined;
   itemsPerPage: Breakpoints;
   activeIndex: number;
   updateIndex: (index: number) => void;
