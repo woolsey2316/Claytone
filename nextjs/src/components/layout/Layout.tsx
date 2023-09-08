@@ -17,7 +17,7 @@ const Layout: React.FC<Props> = ({ children, pageTitle }) => {
         </Head>
       )}
       <Header/>
-      <main className="">{children}</main>
+      <main className="px-2 sm:px-0">{children}</main>
       <Footer/>
     </div>
   );

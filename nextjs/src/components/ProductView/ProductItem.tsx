@@ -58,11 +58,11 @@ function ProductItem({product, reviewArray, setShow}: Props) {
   }
   return (
     <div className="mx-auto w-full sm:w-3xl md:w-4xl lg:w-5xl xl:w-6xl 2xl:w-7xl">
-        <div className="flex flex-col md:flex-row">
-          <div className="w-1/2">
+        <div className="flex flex-col md:flex-row gap-10">
+          <div>
             <Image className="border-3 border-r-coral border-t-coral border-l-black border-b-black" priority alt="product image" width="654" height="654" src={product.imageurl}></Image>
           </div>
-          <div className="w-1/2">
+          <div>
             <h6 className="text-2xl font-medium mt-2 mb-[15px]">{product.title}</h6>
             <div className="flex border-b border-grey3 pb-4 mb-5">
               <Rating rating={averageRating(reviewArray?.reviews)} size={3} />

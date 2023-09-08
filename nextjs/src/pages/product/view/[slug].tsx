@@ -3,7 +3,7 @@ import { ParsedUrlQuery } from "querystring";
 
 import Layout from "../../../components/layout/Layout";
 import { ProductView } from "../../../components/ProductView";
-import { ProductItem } from "../../../contracts/products.type";
+import { IProduct } from "../../../../../backend/server/models/product";
 import { productDetail } from "../../../services/adaptor/vendure";
 import { VendureService } from "../../../services/vendure.service";
 
@@ -11,7 +11,7 @@ interface IParams extends ParsedUrlQuery {
   slug: string;
 }
 interface Props {
-  product: ProductItem;
+  product: IProduct;
 }
 
 const ProductDetailsPage: NextPage<Props> = ({ product }) => {
