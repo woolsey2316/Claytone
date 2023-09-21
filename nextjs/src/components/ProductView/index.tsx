@@ -30,12 +30,10 @@ export const ProductView: FC<Props> = ({ product }) => {
   
   return (
     <section>
-      {/* breadcrumb */}
       <div className="bg-nearWhite">
         <BreadCrumb/>
       </div>
       <ProductItem product={product} reviewArray={reviewArray} setShow={setShow}/>
-      {/* Description container and review container */}
       <ProductDescriptionAndReviewContainer product={product} reviewArray={reviewArray} show={show} setShow={setShow}/>
     </section>
   );

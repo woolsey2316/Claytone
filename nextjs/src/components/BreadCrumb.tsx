@@ -14,12 +14,14 @@ function BreadCrumb() {
         Home
       </a>
       {
-        links.filter(link => link).map((link, index) => <span key={index}>
+        links.filter(link => link).map((link, index) => 
+        <span key={index}>
           <span>/</span>
-          <span className="text-coral font-medium ml-3 mr-3">
+          <span className={`${index === (links.length - 2) ? "text-coral" : ""} font-medium ml-3 mr-3`}>
             {deSlugify(link)}
           </span>
-        </span>)
+        </span>
+        )
       }
       
     </div>
