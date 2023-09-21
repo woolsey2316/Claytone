@@ -15,9 +15,9 @@ mongoose.connect(config.db, {
   socketTimeoutMS: 0
 });
 /** * Throw error when not able to connect to database */
-mongoose.connection.on('error', () => {
-  throw new Error(`unable to connect to database: ${config.db}`);
-});
+// mongoose.connection.on('error', () => {
+//   throw new Error(`unable to connect to database: ${config.db}`);
+// });
 /** * Initialize Express */
 const ExpressServer = new Express();
 ExpressServer.init();
@@ -27,6 +27,6 @@ ExpressServer.httpServer?.listen(process.env.PORT || config.port, () => {
   console.log(`? Server ready at ${config.port}`);
   // eslint-disable-next-line no-console
   console.log(
-    `? Server ready at http://localhost:${config.port}${ExpressServer.server.graphqlPath}`
+    `? Server ready at http://127.0.0.1:${config.port}${ExpressServer.server.graphqlPath}`
   );
 });
