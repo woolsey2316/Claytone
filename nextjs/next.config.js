@@ -1,6 +1,15 @@
 /** @type {import('next').NextConfig} */
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/Home',
+        destination: '/',
+        permanent: true,
+      },
+    ]
+  },
   eslint: {
     dirs: ['src'],
   },
