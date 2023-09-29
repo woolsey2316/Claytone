@@ -39,7 +39,9 @@ const ProductMutation = {
         brand: productInput.brand,
         productCode: productInput.productCode,
         stock: productInput.stock,
-        description: productInput.description
+        description: productInput.description,
+        briefDescription: productInput.briefDescription,
+        type: productInput.type
       });
       const savedProduct = await newProduct.save();
       pubsub.publish(PRODUCT_ADDED, {

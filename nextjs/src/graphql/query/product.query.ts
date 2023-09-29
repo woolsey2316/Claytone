@@ -14,6 +14,8 @@ const GET_PRODUCTS = graphql(/* GraphQL */`
       price
       oldPrice
       description
+      briefDescription
+      type
       rating
     }
   }

@@ -6,6 +6,9 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      fontWeight: {
+        regular: 400
+      },
       screens: {
 
       'large': '992px',

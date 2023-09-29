@@ -52,6 +52,8 @@ const typeDefs = gql`
     updatedAt: String!
     imageurl: String!
     brand: String!
+    briefDescription: String!
+    type: [String!]!
     description: String!
     productCode: String!
     stock: Float!
@@ -85,6 +87,8 @@ const typeDefs = gql`
     updatedAt: String!
     imageurl: String!
     description: String!
+    briefDescription: String!
+    type: [String!]!
     brand: String!
     productCode: String!
     stock: Float!
@@ -99,10 +103,12 @@ const typeDefs = gql`
     createdAt: String!
     updatedAt: String!
     description: String!
+    briefDescriptions: String!
     imageurl: String!
     brand: String!
     productCode: String!
     stock: Float!
+    type: [String!]!
   }
   type BlogPost {
     author: User!

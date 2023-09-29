@@ -51,6 +51,7 @@
     "react-multi-carousel": "^2.8.2",
     "react-responsive-carousel": "^3.2.23",
     "react-toastify": "^5.5.0",
+    "react-tooltip": "^5.21.4",
     "subscriptions-transport-ws": "^0.9.16",
     "tailwind-merge": "^1.8.0",
     "use-breakpoint": "^3.0.4"

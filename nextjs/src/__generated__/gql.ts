@@ -25,7 +25,7 @@ const documents = {
     "\n  query COMMENT_BY_BLOGPOST_ID ($blogpostId: String!) {\n    comments(blogpostId: $blogpostId) {\n      _id\n      comment\n      createdAt\n      updatedAt\n      user\n    }\n  }\n": types.Comment_By_Blogpost_IdDocument,
     "\n  query PRODUCT_BY_SLUG ($slug: String!) {\n    product(slug: $slug) {\n      _id\n      createdAt\n      updatedAt\n      slug\n      title\n      price\n      oldPrice\n      imageurl\n      description\n      rating\n      brand\n      productCode\n      stock\n    }\n  }\n": types.Product_By_SlugDocument,
     "\n  query PRODUCT_SLUG {\n    products {\n      _id\n      slug\n    }\n  }\n": types.Product_SlugDocument,
-    "\n  query PRODUCTS {\n    products {\n      title\n      _id\n      imageurl\n      price\n      oldPrice\n      description\n      rating\n    }\n  }\n": types.ProductsDocument,
+    "\n  query PRODUCTS {\n    products {\n      title\n      _id\n      imageurl\n      price\n      oldPrice\n      description\n      briefDescription\n      type\n      rating\n    }\n  }\n": types.ProductsDocument,
     "\n  query GET_REPLIES ($commentId: String!) {\n    replies(parentId: $commentId) {\n      _id\n      createdAt\n      updatedAt\n      comment\n      user\n    }\n  }\n": types.Get_RepliesDocument,
     "\n  query REVIEWS($productId: String!){\n    reviews(productId: $productId) {\n     \tname\n      description\n      rating\n      createdAt\n    }\n  }\n": types.ReviewsDocument,
 };
@@ -81,7 +81,7 @@ export function graphql(source: "\n  query PRODUCT_SLUG {\n    products {\n     
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query PRODUCTS {\n    products {\n      title\n      _id\n      imageurl\n      price\n      oldPrice\n      description\n      rating\n    }\n  }\n"): (typeof documents)["\n  query PRODUCTS {\n    products {\n      title\n      _id\n      imageurl\n      price\n      oldPrice\n      description\n      rating\n    }\n  }\n"];
+export function graphql(source: "\n  query PRODUCTS {\n    products {\n      title\n      _id\n      imageurl\n      price\n      oldPrice\n      description\n      briefDescription\n      type\n      rating\n    }\n  }\n"): (typeof documents)["\n  query PRODUCTS {\n    products {\n      title\n      _id\n      imageurl\n      price\n      oldPrice\n      description\n      briefDescription\n      type\n      rating\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

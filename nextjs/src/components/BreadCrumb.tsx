@@ -9,7 +9,7 @@ function BreadCrumb() {
   },[])
   // finds the url link from a given URL section, eg. grades => /student/grades
   return (
-    <div className="bg-nearWhite mx-auto flex justify-center items-center center mb-[15px] h-[50px]">        
+    <div className="bg-nearWhite mx-auto flex justify-center items-center center mb-[30px] h-[50px]">        
       <a href="/" className="font-medium mr-3">
         Home
       </a>

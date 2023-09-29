@@ -31,7 +31,7 @@ export default function Blogs() {
             <BestSellers />
             <NativePatternArt />
           </aside>
-          <div id="content" className="min-h-[600px] w-3/4 px-15px ">
+          <div id="content" className="min-h-[600px] w-3/4 px-15px">
             <div className="mx--15px flex flex-wrap">
               {data?.blogPosts.filter(blogPost => blogPost.featuredPost).map((blogPost) => (
                 <div key={blogPost.slug} className="w-1/2 mb-30px px-15px">

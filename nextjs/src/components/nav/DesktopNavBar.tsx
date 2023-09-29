@@ -12,7 +12,7 @@ function DesktopNavBar() {
         {Object.entries(DesktopNavData).map(([navLink, navLinkcollection]) => (
           <div className='group' key={navLink}>
             <li className='mx-5 py-5 font-medium uppercase hover:text-coral'>
-              <a className="whitespace-nowrap" href={"/" + navLink}>{navLink}</a>
+              <a className="whitespace-nowrap" href={"/" + navLink.toLowerCase()}>{navLink}</a>
               {navLinkcollection !== null ? (
                 Array.isArray(navLinkcollection) ? (
                   <SimpleNavDropdown list={navLinkcollection} />

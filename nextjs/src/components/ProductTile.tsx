@@ -43,7 +43,7 @@ function ProductTile({ product }: Props) {
         <Rating rating={product.rating} />
       </div>
       {/* decorative perimeter animation */}
-      <div className='group group absolute top-0 right-0 left-0 bottom-0 h-full w-full after:absolute after:top-0 after:left-0 after:z-10 after:h-0.5 after:w-0 after:bg-black after:transition-width after:duration-700 after:empty-content group-hover:after:w-full before:absolute before:bottom-0 before:left-0 before:h-0 before:w-0.5 before:bg-black before:transition-height before:duration-700 before:empty-content group-hover:before:h-full'>
+      <div className='group absolute top-0 right-0 left-0 bottom-0 h-full w-full after:absolute after:top-0 after:left-0 after:z-10 after:h-0.5 after:w-0 after:bg-black after:transition-width after:duration-700 after:empty-content group-hover:after:w-full before:absolute before:bottom-0 before:left-0 before:h-0 before:w-0.5 before:bg-black before:transition-height before:duration-700 before:empty-content group-hover:before:h-full'>
         {/* decorative perimeter animation */}
         <div className='absolute top-0 right-0 left-0 bottom-0 h-full w-full after:absolute after:bottom-0 after:right-0 after:z-10 after:h-0.5 after:w-0 after:bg-coral after:transition-width after:duration-700 after:empty-content group-hover:after:w-full before:absolute before:top-0 before:right-0 before:h-0 before:w-0.5 before:bg-coral before:transition-height before:duration-700 before:empty-content group-hover:before:h-full'></div>
       </div>
