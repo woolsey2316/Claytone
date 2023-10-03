@@ -2,15 +2,18 @@ import React from 'react'
 import Image from 'next/image'
 import { ProductsQuery } from '@/__generated__/graphql'
 import Rating from '@/components/Rating'
-import IconQuilt from '@/components/IconQuilt'
 import LargerIconQuilt from '@/components/largerIconQuilt'
+import { useSearchParams } from 'next/navigation'
 type Props = {
   product: ProductsQuery["products"][number]
-  display: 'list' | 'grid';
 }
-export function ProductCard({product, display}:Props) {
+export function ProductCard({product}:Props) {
+  const searchParams = useSearchParams()!
+
+  const display = searchParams.get('display')
   return (
     <div className={`px-15px ${display === 'list' ? 'col-span-12' : 'col-span-12 sm:col-span-4'}`}>
+      {/* overflow-hidden set to create a new BFC */}
       <div className="relative mb-[30px] group bg-nearWhite overflow-hidden">
         <div className={`group relative overflow-hidden z-[1] text-center ${display === 'list' ? 'float-left mr-[30px]' : ''}`}>
           <a className="block fill-black2" href={`/product/${product.title}`}>
@@ -32,7 +35,7 @@ export function ProductCard({product, display}:Props) {
             <div className={`flex ${display === 'list' ? 'justify-start ml-[-4px]': 'justify-center'}`}>
               <Rating rating={product.rating} size={4} />
             </div>
-            <p className={`mt-5 mb-[17px] text-grey2 ${display === 'grid' ? 'hidden' : ''}`}>{product.briefDescription}</p>
+            <p className={`mt-5 mb-[17px] text-grey2 ${display === 'list' ? '' : 'hidden'}`}>{product.briefDescription}</p>
             <div className="button-group list-btn">
               <button type="button" className="addcart btn" data-toggle="tooltip" title="" data-original-title="Add to Cart"><i className="icon-shopping-cart-1"></i></button>
               <button type="button" className="wishlist btn" data-toggle="tooltip" title="" data-original-title="Add To WishList"><i className="icon-heart"></i></button>

@@ -25,7 +25,6 @@ function cart() {
       quantity: { value: string, name: string };
     };
     const quantity = target.quantity.value;
-    console.log(index)
     setNewQty(parseInt(quantity))
     setIndex(index)
     saveCart()

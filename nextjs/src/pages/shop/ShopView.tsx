@@ -6,7 +6,10 @@ import NativePatternArt from '@/components/NativePatternArt'
 import ProductCategorySearch from '@/components/ProductCategories'
 import { ProductCard } from '@/components/product-card/ProductCard'
 import { SearchFilter } from '@/components/search-filter/SearchFilter'
+import { DEFAULT_LIMIT } from '@/constant/frontend'
 import Container from '@/container/Container'
+import { sortFunction } from '@/util/sortFunction'
+import { useSearchParams } from 'next/navigation'
 import React, { useState } from 'react'
 
 type View = 'list' | 'grid';
@@ -16,6 +19,9 @@ interface Props {
 }
 export function ShopView({products}: Props) {
   const [view, setView] = useState<View>('grid')
+  const searchParams = useSearchParams()!
+  const limit_string = searchParams.get("limit")
+  const limit = limit_string !== null ? parseInt(limit_string) : DEFAULT_LIMIT
   return (
     <>
       <BreadCrumb/>
@@ -38,9 +44,12 @@ export function ShopView({products}: Props) {
           featured on the site at the lowest possible price.
           </p>
           <SearchFilter></SearchFilter>
-          <DisplayOptions view={view} setView={setView}></DisplayOptions>
+          <DisplayOptions setView={setView}></DisplayOptions>
           <div className="mx-[-15px] grid grid-cols-12">
-            {products.map((product, index) => <ProductCard key={index} product={product} display={view}/>)}
+            {products.slice()
+              .sort((a, b) => sortFunction(a,b, searchParams.get("sort") as Sort ))
+              .map((product, index) => <ProductCard key={index} product={product} />)
+              .filter((elem, index) => index < limit)}
           </div>
         </div>
       </Container>

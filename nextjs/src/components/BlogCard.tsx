@@ -32,7 +32,7 @@ function BlogCard({image, date, title, excerpt}: Props) {
                 {excerpt}
               </span>
             </div>
-            <AnimatedPinkbutton text="Read More" />
+            <AnimatedPinkbutton href={"/blog/"+ slugify(title)} text="Read More" />
           </div>
         </div>
       </div>
